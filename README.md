@@ -12,5 +12,5 @@ Template Gradle project
 Git WorkFlow:
 
 * Branch Master: Branch utilizado para realizar despliegues.
-* Branch Develop: Branch principal de desarrollo, aqui se abriran nuevos branchs por feature.
+* Branch Develop: Branch principal de desarrollo, de aqui se abriran nuevos branchs por feature.
 * Branch Feature: Branch exclusivo para realizar el desarrollo de un feature. Cuando el feature se haya finalizado se mergeara al branch develop.
