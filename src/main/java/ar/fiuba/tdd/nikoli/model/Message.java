@@ -1,4 +1,4 @@
-package model;
+package ar.fiuba.tdd.nikoli.model;
 
 import java.io.FileInputStream;
 import java.io.IOException;

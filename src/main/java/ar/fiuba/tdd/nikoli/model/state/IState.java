@@ -1,4 +1,4 @@
-package model.state;
+package ar.fiuba.tdd.nikoli.model.state;
 
 public interface IState {
 

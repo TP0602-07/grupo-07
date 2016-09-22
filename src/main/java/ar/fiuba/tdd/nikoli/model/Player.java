@@ -1,6 +1,6 @@
-package model;
+package ar.fiuba.tdd.nikoli.model;
 
-import model.state.IState;
+import ar.fiuba.tdd.nikoli.model.state.IState;
 
 //Player basico
 public class Player {
