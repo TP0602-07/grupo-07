@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.nikoli.rules.exception;
 
 /**
- * Exception que representa la falta de conocimiento de una regla de un juego
+ * Exception que representa la falta de conocimiento de una regla de un juego.
  */
 public class UnknownRuleException extends Exception {
 

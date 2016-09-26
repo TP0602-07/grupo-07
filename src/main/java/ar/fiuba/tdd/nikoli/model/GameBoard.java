@@ -3,12 +3,10 @@ package ar.fiuba.tdd.nikoli.model;
 import java.util.List;
 
 /**
- * Clase que representa el tablero de juego
+ * Clase que representa el tablero de juego.
  */
 public class GameBoard {
 
-    private Integer i;
-    private Integer j;
     private List<List<Integer>> gameMatrix;
 
     public GameBoard() { }

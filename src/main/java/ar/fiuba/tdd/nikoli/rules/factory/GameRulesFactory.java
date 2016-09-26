@@ -6,12 +6,12 @@ import ar.fiuba.tdd.nikoli.rules.Rule;
 import ar.fiuba.tdd.nikoli.rules.exception.UnknownRuleException;
 
 /**
- * Factory encargada de la creacion de objetos de diferentes clases de reglas
+ * Factory encargada de la creacion de objetos de diferentes clases de reglas.
  */
 public class GameRulesFactory {
 
-    private final static String ROW_NOT_REPEAT_NUMBER_RULE_NAME = "row-not-repeat-number";
-    private final static String COLUMN_NOT_REPEAT_NUMBER_RULE_NAME = "column-not-repeat-number";
+    private static final String ROW_NOT_REPEAT_NUMBER_RULE_NAME = "row-not-repeat-number";
+    private static final String COLUMN_NOT_REPEAT_NUMBER_RULE_NAME = "column-not-repeat-number";
 
     private static GameRulesFactory instance;
 
@@ -29,9 +29,9 @@ public class GameRulesFactory {
 
     public Rule createRuleByName(String ruleName) throws UnknownRuleException {
         // TODO ver si se puede implementar de otra forma
-        if(ROW_NOT_REPEAT_NUMBER_RULE_NAME.equalsIgnoreCase(ruleName)) {
+        if (ROW_NOT_REPEAT_NUMBER_RULE_NAME.equalsIgnoreCase(ruleName)) {
             return new RowNotRepeatNumberRule();
-        } else if(COLUMN_NOT_REPEAT_NUMBER_RULE_NAME.equalsIgnoreCase(ruleName)) {
+        } else if (COLUMN_NOT_REPEAT_NUMBER_RULE_NAME.equalsIgnoreCase(ruleName)) {
             return new ColumnNotRepeatNumberRule();
         } else {
             throw new UnknownRuleException(ruleName);

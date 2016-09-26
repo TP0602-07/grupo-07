@@ -3,7 +3,7 @@ package ar.fiuba.tdd.nikoli.rules;
 import java.util.List;
 
 /**
- * Objeto que contiene todas las reglas de un juego
+ * Objeto que contiene todas las reglas de un juego.
  */
 public class GameRules {
 

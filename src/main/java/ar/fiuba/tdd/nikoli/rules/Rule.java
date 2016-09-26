@@ -3,7 +3,7 @@ package ar.fiuba.tdd.nikoli.rules;
 import ar.fiuba.tdd.nikoli.model.GameBoard;
 
 /**
- * Clase abstracta que representa una regla de juego
+ * Clase abstracta que representa una regla de juego.
  */
 public abstract class Rule {
 
@@ -19,9 +19,9 @@ public abstract class Rule {
     }
 
     /**
-     * Metodo que checkea si el tablero rompe la regla de juego
-     * @param board
-     * @return
+     * Metodo que checkea si el tablero rompe la regla de juego.
+     * @param board tablero de juego
+     * @return true si no se cumple la regla y false si se cumple
      */
     public abstract boolean isRuleBroken(GameBoard board);
 }

@@ -3,7 +3,7 @@ package ar.fiuba.tdd.nikoli.rules;
 import ar.fiuba.tdd.nikoli.model.GameBoard;
 
 /**
- * Clase que representa la regla de no repetir numeros en una misma linea del tablero
+ * Clase que representa la regla de no repetir numeros en una misma linea del tablero.
  */
 public class RowNotRepeatNumberRule extends Rule {
 
