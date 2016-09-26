@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.nikoli.rules;
 
-import ar.fiuba.tdd.nikoli.model.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 
 /**
  * Clase abstracta que representa una regla de juego.

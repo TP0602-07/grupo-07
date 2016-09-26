@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.nikoli.rules;
 
-import ar.fiuba.tdd.nikoli.model.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 
 /**
  * Clase que representa la regla de no repetir numeros en una misma linea del tablero.
