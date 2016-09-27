@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.nikoli.rules;
+package ar.fiuba.tdd.nikoli.model.rules;
 
 import java.util.List;
 

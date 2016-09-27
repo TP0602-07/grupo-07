@@ -1,6 +1,6 @@
-package ar.fiuba.tdd.nikoli.rules;
+package ar.fiuba.tdd.nikoli.model.rules;
 
-import ar.fiuba.tdd.nikoli.model.GameBoard;
+import ar.fiuba.tdd.nikoli.model.Move;
 
 /**
  * Clase abstracta que representa una regla de juego.
@@ -23,5 +23,5 @@ public abstract class Rule {
      * @param board tablero de juego
      * @return true si no se cumple la regla y false si se cumple
      */
-    public abstract boolean isRuleBroken(GameBoard board);
+    public abstract boolean isRuleBroken(GameBoardIterator board, Move move);
 }

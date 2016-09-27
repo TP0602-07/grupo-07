@@ -1,20 +1,18 @@
-package ar.fiuba.tdd.nikoli.rules.reader;
+package ar.fiuba.tdd.nikoli.model.rules.reader;
 
+import ar.fiuba.tdd.nikoli.model.rules.GameRules;
+import ar.fiuba.tdd.nikoli.model.rules.Rule;
+import ar.fiuba.tdd.nikoli.model.rules.exception.GameRulesNotFoundException;
+import ar.fiuba.tdd.nikoli.model.rules.exception.UnknownRuleException;
+import ar.fiuba.tdd.nikoli.model.rules.factory.GameRulesFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import ar.fiuba.tdd.nikoli.rules.GameRules;
-import ar.fiuba.tdd.nikoli.rules.Rule;
-import ar.fiuba.tdd.nikoli.rules.exception.GameRulesNotFoundException;
-import ar.fiuba.tdd.nikoli.rules.exception.UnknownRuleException;
-import ar.fiuba.tdd.nikoli.rules.factory.GameRulesFactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * Clase encargada de realizar el procesamiento de reglas.
