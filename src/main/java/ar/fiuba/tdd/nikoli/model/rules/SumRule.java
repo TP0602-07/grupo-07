@@ -1,15 +1,16 @@
-package ar.fiuba.tdd.nikoli.rules;
+package ar.fiuba.tdd.nikoli.model.rules;
 
+import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.board.Cell;
-import ar.fiuba.tdd.nikoli.model.board.Move;
 
 /**
  * Clase que representa la regla de sumar una cantidad determinada en una fila.
  */
-public abstract class SumRule {
+public abstract class SumRule extends Rule {
 
 
-    public boolean isRuleBroken(IGameBoardIterator gameBoardIterator, Move move) {
+    @Override
+    public boolean isRuleBroken(GameBoardIterator gameBoardIterator, Move move) {
 
         Cell cell = gameBoardIterator.getCell(move.getPosition());
 
@@ -32,12 +33,12 @@ public abstract class SumRule {
         return (sum == sumExpected);
     }
 
-    protected abstract Cell getPreviousCell(IGameBoardIterator gameBoardIterator, Cell cell);
+    protected abstract Cell getPreviousCell(GameBoardIterator gameBoardIterator, Cell cell);
 
     protected abstract int getSumExpected(Cell cell);
 
-    protected abstract boolean hasNext(IGameBoardIterator gameBoardIterator, Cell cell);
+    protected abstract boolean hasNext(GameBoardIterator gameBoardIterator, Cell cell);
 
-    protected abstract Cell getNextCell(IGameBoardIterator gameBoardIterator, Cell cell);
+    protected abstract Cell getNextCell(GameBoardIterator gameBoardIterator, Cell cell);
 
 }

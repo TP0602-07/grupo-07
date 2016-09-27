@@ -1,13 +1,13 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
-import ar.fiuba.tdd.nikoli.rules.IGameBoardIterator;
+import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
 
 import java.util.List;
 
 /**
  * Clase que representa el tablero de juego.
  */
-public class GameBoard implements IGameBoardIterator {
+public class GameBoard implements GameBoardIterator {
 
     private static final int CELL_INIT = 0;
     private List<List<Cell>> gameMatrix;

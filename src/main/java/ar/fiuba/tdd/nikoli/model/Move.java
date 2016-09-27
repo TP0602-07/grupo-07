@@ -1,7 +1,9 @@
-package ar.fiuba.tdd.nikoli.model.board;
+package ar.fiuba.tdd.nikoli.model;
+
+import ar.fiuba.tdd.nikoli.model.board.Position;
 
 /**
- * Clase que modela la jugada ingresada por el usuario
+ * Clase que modela la jugada ingresada por el usuario.
  */
 public class Move {
     private Position position;

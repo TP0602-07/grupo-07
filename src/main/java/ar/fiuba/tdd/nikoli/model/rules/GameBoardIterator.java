@@ -1,12 +1,12 @@
-package ar.fiuba.tdd.nikoli.rules;
+package ar.fiuba.tdd.nikoli.model.rules;
 
 import ar.fiuba.tdd.nikoli.model.board.Cell;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 
 /**
- * Declara un iterador para recorrer el tablero
+ * Declara un iterador para recorrer el tablero.
  */
-public interface IGameBoardIterator {
+public interface GameBoardIterator {
     boolean hasCellTop(Cell cell);
 
     boolean hasCellBottom(Cell cell);

@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
 /**
- * Clase para el modelado de una celda del tablero
+ * Clase para el modelado de una celda del tablero.
  */
 public class Cell {
     private static final int BORDER_VALUE = -1;
