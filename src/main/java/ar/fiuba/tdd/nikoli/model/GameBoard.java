@@ -20,5 +20,15 @@ public class GameBoard {
         this.gameMatrix = gameMatrix;
     }
 
+    public boolean isFull(){
+        //TODO implementar
+        return false;
+    }
+
+    public boolean insert (int i) {
+    //TODO implementar
+    return true;
+    }
+
 
 }
