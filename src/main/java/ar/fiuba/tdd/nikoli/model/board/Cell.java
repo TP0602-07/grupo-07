@@ -36,4 +36,8 @@ public class Cell {
     public boolean isBorder() {
         return (value == BORDER_VALUE);
     }
+
+    public boolean isFull() {
+        return (value != 0 || columnValue != 0 || rowValue != 0);
+    }
 }

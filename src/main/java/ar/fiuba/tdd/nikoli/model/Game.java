@@ -12,7 +12,7 @@ public class Game {
 
     private GameRules gameRules;
     private GameBoard gameBoard;
-    private Rule ruleBroken; //indica que regla se rompio al final del juego
+    private Rule ruleBroken; //indicate that rule is broken
 
     public Game(GameRules gameRules, GameBoard gameBoard) {
         this.gameRules = gameRules;
@@ -20,15 +20,16 @@ public class Game {
         ruleBroken = null;
     }
 
-    public boolean play(int move) { //TODO move es una Move (modificar)
-        //return gameBoard.insert(move);
-        return true;
+    public void play(Move move) throws Exception { //TODO move es una Move (modificar)
+        gameBoard.insert(move);
     }
 
     private boolean validate() {
         boolean isValid = true;
         for (Rule rule : gameRules.getRules()) {
-            if (rule.isRuleBroken(gameBoard,new Move(new Position(1,1),1))) { //TODO
+        //    rule.buildRuleCellSets(gameBoard);
+        //    if(rule.isRuleBroken()) {
+            if (rule.isRuleBroken(gameBoard,new Move(new Position(1,1),1))) { //TODO borrar y descomentar arriba
                 isValid = false;
                 ruleBroken = rule;
             }
@@ -37,8 +38,7 @@ public class Game {
     }
 
     public boolean checkVictory() {
-//        if (gameBoard.isFull() && this.validate()) { //TODO
-        if (this.validate()) {
+        if (gameBoard.isFull() && this.validate()) {
             return true;
         }
         return false;

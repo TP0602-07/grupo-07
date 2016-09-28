@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
+import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
 
 import java.util.List;
@@ -67,5 +68,24 @@ public class GameBoard implements GameBoardIterator {
     @Override
     public Cell getCellRight(Cell cell) {
         return gameMatrix.get(cell.getPosition().getX()).get(cell.getPosition().getY() + 1);
+    }
+
+    /* Indicate that the matrix is Full */
+    public boolean isFull() {
+        boolean isFull = true;
+        for (List<Cell> row : gameMatrix) {
+            for (Cell cell : row) {
+                if (!cell.isFull()) {
+                    isFull = false;
+                    break;
+                }
+            }
+        }
+        return isFull;
+    }
+
+    public void insert(Move move) throws Exception {
+        //TODO
+
     }
 }
