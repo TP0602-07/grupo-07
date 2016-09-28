@@ -1,0 +1,7 @@
+{
+  "gameName": "testGame",
+  "rulesNames": [
+    "row-not-repeat-number",
+    "column-not-repeat-number"
+  ]
+}

@@ -1,15 +1,16 @@
 package ar.fiuba.tdd.nikoli.model.rules.reader;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.model.rules.exception.GameRulesNotFoundException;
 import ar.fiuba.tdd.nikoli.model.rules.exception.UnknownRuleException;
 import ar.fiuba.tdd.nikoli.model.rules.factory.GameRulesFactory;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,17 +62,21 @@ public class GameRulesReader {
 
         try {
 
-            String path = System.getProperty("user.dir") + "/gameConfigFiles/" + gameName + "-rules.json";
+            ClassLoader classLoader = getClass().getClassLoader();
+            InputStream inputStream = classLoader.getResourceAsStream(
+                    "configurationFiles/" + gameName + "/" + gameName + "-rules.json");
 
-            InputStreamReader jsonFile = new InputStreamReader(new FileInputStream(path), "UTF-8");
+            if (inputStream ==  null) {
+                throw new GameRulesNotFoundException("No se ha encontrado el archivo de configuracion con las reglas del juego");
+            }
+            InputStreamReader jsonFile = new InputStreamReader(inputStream, "UTF-8");
 
             GameRules rules = gson.fromJson(jsonFile, GameRules.class);
-            System.out.println("Reglas del juego \'" + gameName + "\' leidas exitosamente!");
 
             return rules;
 
         } catch (IOException e) {
-            throw new GameRulesNotFoundException("No se ha encontrado las reglas del juego ");
+            throw new GameRulesNotFoundException("No se ha encontrado el archivo de configuracion con las reglas del juego");
         }
     }
 
@@ -89,7 +94,7 @@ public class GameRulesReader {
                 Rule rule = GameRulesFactory.getInstance().createRuleByName(name);
                 rules.add(rule);
             } catch (UnknownRuleException e) {
-                throw new UnknownRuleException("Regla desconocida (" + name + ")");
+                throw new UnknownRuleException(name);
             }
         }
 
