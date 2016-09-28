@@ -1,9 +1,9 @@
-package ar.fiuba.tdd.nikoli.model.rules;
+package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
 import ar.fiuba.tdd.nikoli.model.Move;
-import ar.fiuba.tdd.nikoli.model.board.Cell;
+import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
+import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.model.rules.sets.CellSet;
-import ar.fiuba.tdd.nikoli.model.rules.sets.SumCellSet;
 
 import java.util.List;
 
