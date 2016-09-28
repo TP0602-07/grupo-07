@@ -34,4 +34,6 @@ public abstract class Rule {
      * @param board Reprecentation of Board.
      */
     public abstract void buildRuleCellSets(GameBoardIterator board);
+
+
 }
