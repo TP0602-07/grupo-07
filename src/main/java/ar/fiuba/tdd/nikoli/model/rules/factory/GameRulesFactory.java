@@ -34,7 +34,7 @@ public class GameRulesFactory {
         } else if (COLUMN_NOT_REPEAT_NUMBER_RULE_NAME.equalsIgnoreCase(ruleName)) {
             return new ColumnNotRepeatNumberRule();
         } else {
-            throw new UnknownRuleException(ruleName);
+            throw new UnknownRuleException("La regla \'" + ruleName + "\' es desconocida.");
         }
     }
 
