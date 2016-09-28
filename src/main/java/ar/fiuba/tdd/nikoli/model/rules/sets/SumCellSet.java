@@ -12,12 +12,12 @@ public class SumCellSet
 
     private int sum;
 
-    private int getSum() {
-        return this.sum;
-    }
-
     public SumCellSet(int sum, List<Cell> cells) {
         super(cells);
         this.sum = sum;
+    }
+
+    public int getSum() {
+        return this.sum;
     }
 }
