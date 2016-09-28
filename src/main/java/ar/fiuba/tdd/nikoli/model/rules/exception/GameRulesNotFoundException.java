@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.nikoli.rules.exception;
+package ar.fiuba.tdd.nikoli.model.rules.exception;
 
 /**
  * Exception que representa la falta del archivo de reglas de un juego.

@@ -1,9 +1,9 @@
-package ar.fiuba.tdd.nikoli.rules.factory;
+package ar.fiuba.tdd.nikoli.model.rules.factory;
 
-import ar.fiuba.tdd.nikoli.rules.ColumnNotRepeatNumberRule;
-import ar.fiuba.tdd.nikoli.rules.RowNotRepeatNumberRule;
-import ar.fiuba.tdd.nikoli.rules.Rule;
-import ar.fiuba.tdd.nikoli.rules.exception.UnknownRuleException;
+import ar.fiuba.tdd.nikoli.model.rules.ColumnNotRepeatNumberRule;
+import ar.fiuba.tdd.nikoli.model.rules.RowNotRepeatNumberRule;
+import ar.fiuba.tdd.nikoli.model.rules.Rule;
+import ar.fiuba.tdd.nikoli.model.rules.exception.UnknownRuleException;
 
 /**
  * Factory encargada de la creacion de objetos de diferentes clases de reglas.
@@ -34,7 +34,7 @@ public class GameRulesFactory {
         } else if (COLUMN_NOT_REPEAT_NUMBER_RULE_NAME.equalsIgnoreCase(ruleName)) {
             return new ColumnNotRepeatNumberRule();
         } else {
-            throw new UnknownRuleException(ruleName);
+            throw new UnknownRuleException("La regla \'" + ruleName + "\' es desconocida.");
         }
     }
 
