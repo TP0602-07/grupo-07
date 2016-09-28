@@ -1,27 +1,24 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
-import ar.fiuba.tdd.nikoli.model.rules.sets.CellSet;
-
-import java.util.List;
 
 /**
  * Clase que representa la regla de sumar una cantidad determinada en una fila.
  */
 public abstract class SumRule extends Rule {
 
+    //TODO: implement! private List<SumCellSet> sumCellSets;
 
     @Override
-    public boolean isRuleBroken(List<CellSet> cellSets, Move move) {
+    public boolean isRuleBroken() {
         //TODO: implement!
-        return true;
+        return false;
     }
 
-    public List<CellSet> buldRuleCellSets(GameBoardIterator board) {
+    @Override
+    public void buildRuleCellSets(GameBoardIterator board) {
         //TODO: implement!
-        return null;
     }
 
 }
