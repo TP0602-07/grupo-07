@@ -1,7 +1,4 @@
-{
-  "gameName": "kakuro",
-  "rulesNames": [
-    "row-not-repeat-number",
-    "column-not-repeat-number"
-  ]
-}
+[
+  "KakuroNotRepeatNumberRule",
+  "KakuroNotRepeatNumberRule"
+]

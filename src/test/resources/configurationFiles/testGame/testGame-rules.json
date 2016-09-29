@@ -1,6 +1,3 @@
-{
-  "gameName": "testGame",
-  "rulesNames": [
+[
     "not-repeat-number"
-  ]
-}
+]

@@ -11,7 +11,7 @@ public class Cell {
     private Position position;
     private Map<CellValue, Integer> values;
 
-    public Cell(Position position, int value, int columnValue, int rowValue) {
+    public Cell(Position position, Integer value, Integer columnValue, Integer rowValue) {
         this.position = position;
         values = new Hashtable<CellValue, Integer>();
         values.put(CellValue.Cell, value);
