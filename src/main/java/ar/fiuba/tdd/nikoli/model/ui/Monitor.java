@@ -8,6 +8,6 @@ import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 public abstract class Monitor {
 
     public abstract void show(String message);
-    
+
     public abstract void viewBoard(GameBoard gameBoard);
 }
