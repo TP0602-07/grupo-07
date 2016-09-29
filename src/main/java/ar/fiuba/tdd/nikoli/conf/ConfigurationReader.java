@@ -150,26 +150,31 @@ public class ConfigurationReader {
 
         for (List<LinkedTreeMap> row: boardMatrix) {
 
-            List<Cell> rowColumns = new ArrayList<Cell>();
-
-            for (LinkedTreeMap genericCell: row) {
-                int posX = ((Double)genericCell.get("positionX")).intValue();
-                int posY = ((Double)genericCell.get("positionY")).intValue();
-                int value = genericCell.get("value") != null ? ((Double)genericCell.get("value")).intValue() : 0;
-                int rowValue = genericCell.get("rowValue") != null ? ((Double)genericCell.get("rowValue")).intValue() : 0;
-                int columnValue = genericCell.get("columnValue") != null ? ((Double)genericCell.get("columnValue")).intValue() : 0;
-                Position position = new Position(posX, posY);
-                Cell cell = new Cell(position, Integer.valueOf(value), Integer.valueOf(rowValue), Integer.valueOf(columnValue));
-
-                rowColumns.add(cell);
-            }
-
-            matrix.add(rowColumns);
+            processCells(matrix, row);
         }
 
         gameBoard.setGameMatrix(matrix);
 
         return gameBoard;
+    }
+
+    private void processCells(List<List<Cell>> matrix, List<LinkedTreeMap> row) {
+
+        List<Cell> rowColumns = new ArrayList<Cell>();
+
+        for (LinkedTreeMap genericCell: row) {
+            int posX = ((Double)genericCell.get("positionX")).intValue();
+            int posY = ((Double)genericCell.get("positionY")).intValue();
+            int value = genericCell.get("value") != null ? ((Double)genericCell.get("value")).intValue() : 0;
+            int rowValue = genericCell.get("rowValue") != null ? ((Double)genericCell.get("rowValue")).intValue() : 0;
+            int columnValue = genericCell.get("columnValue") != null ? ((Double)genericCell.get("columnValue")).intValue() : 0;
+            Position position = new Position(posX, posY);
+            Cell cell = new Cell(position, Integer.valueOf(value), Integer.valueOf(rowValue), Integer.valueOf(columnValue));
+
+            rowColumns.add(cell);
+        }
+
+        matrix.add(rowColumns);
     }
 
 }

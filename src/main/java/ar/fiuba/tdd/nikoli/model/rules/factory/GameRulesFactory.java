@@ -10,7 +10,7 @@ import ar.fiuba.tdd.nikoli.model.rules.implementation.*;
 public class GameRulesFactory {
 
     private static final String KAKURO_NOT_REPEAT_NUMBER_RULE_NAME = "KakuroNotRepeatNumberRule";
-    private static final String KAKURO_SUM_RULE_NAME = "KakuroNotRepeatNumberRule";
+    private static final String KAKURO_SUM_RULE_NAME = "KakuroSumRule";
     private static final String SUDOKU_NOT_REPEAT_NUMBER_RULE_NAME = "SudokuNotRepeatNumberRule";
 
     private static GameRulesFactory instance;

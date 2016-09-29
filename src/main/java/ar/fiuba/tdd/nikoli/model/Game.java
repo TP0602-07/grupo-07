@@ -29,8 +29,7 @@ public class Game {
     private boolean validate() {
         boolean isValid = true;
         for (Rule rule : gameRules.getRules()) {
-            rule.buildRuleCellSets(gameBoard); //TODO esto nose si va
-            if (rule.isRuleBroken()) {
+            if (rule.isRuleBroken(gameBoard)) {
                 isValid = false;
                 ruleBroken = rule;
             }

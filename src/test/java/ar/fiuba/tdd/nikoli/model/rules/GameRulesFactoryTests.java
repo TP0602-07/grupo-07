@@ -11,12 +11,12 @@ public class GameRulesFactoryTests {
 
     @Test
     public void testCreateRuleByNameOK() throws Exception {
-        Rule rule = GameRulesFactory.getInstance().createRuleByName("not-repeat-number");
+        Rule rule = GameRulesFactory.getInstance().createRuleByName("KakuroNotRepeatNumberRule");
         assertNotNull(rule);
     }
 
     @Test(expected = UnknownRuleException.class)
     public void testCreateRuleByNameUnknownName() throws Exception {
-        GameRulesFactory.getInstance().createRuleByName("unknown-rule-name");
+        GameRulesFactory.getInstance().createRuleByName("SudokSumRule");
     }
 }
