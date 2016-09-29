@@ -37,14 +37,18 @@ public class Game {
         return isValid;
     }
 
-    public boolean checkVictory() {
+    public String checkVictory() {
         if (gameBoard.isFull() && this.validate()) {
-            return true;
+            return "You win!";
         }
-        return false;
+        return "You lose!";
     }
 
     public Rule getRuleBroken() {
         return ruleBroken;
+    }
+
+    public boolean isFullBoard() {
+        return gameBoard.isFull();
     }
 }
