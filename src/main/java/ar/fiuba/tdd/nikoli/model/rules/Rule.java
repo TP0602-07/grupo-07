@@ -1,11 +1,24 @@
 package ar.fiuba.tdd.nikoli.model.rules;
 
+import ar.fiuba.tdd.nikoli.model.rules.sets.CellSet;
+
+import java.util.List;
 /**
  * Clase abstracta que representa una regla de juego.
  */
-public abstract class Rule {
+public abstract class Rule<T> {
+
+    private SetBuilder<? extends T> setBuilder;
+    private RuleValidator<T> ruleValidator;
 
     private String name;
+
+    protected Rule(SetBuilder<? extends T> setBuilder,
+                   RuleValidator<T> ruleValidator) {
+
+        this.setBuilder = setBuilder;
+        this.ruleValidator = ruleValidator;
+    }
 
     /**
      *
@@ -24,16 +37,11 @@ public abstract class Rule {
     }
 
     /**
-     * Checkes whenever specific rule is broken.
+     * Checks whenever specific rule is broken.
      * @return true if rule checks otherwise false.
      */
-    public abstract boolean isRuleBroken();
+    public boolean isRuleBroken(GameBoardIterator board) {
 
-    /**
-     * Builds cells set for each specific rule.
-     * @param board Reprecentation of Board.
-     */
-    public abstract void buildRuleCellSets(GameBoardIterator board);
-
-
+        return ruleValidator.isRuleBroken(setBuilder, board);
+    }
 }
