@@ -41,7 +41,8 @@ public class GameBoard
 
     @Override
     public boolean hasNeighborCell(Cell cell, Position position) {
-        return true;
+        return cell.getPosition().getX() + position.getX() < gameMatrix.size()
+               && cell.getPosition().getY() + position.getY() < gameMatrix.size();
     }
 
     @Override
