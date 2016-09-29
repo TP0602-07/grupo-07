@@ -29,7 +29,7 @@ public class GameRulesFactory {
         if (NOT_REPEAT_NUMBER_RULE_NAME.equalsIgnoreCase(ruleName)) {
             return new NotRepeatNumberRule();
         } else {
-            throw new UnknownRuleException("La regla \'" + ruleName + "\' es desconocida.");
+            throw new UnknownRuleException(ruleName + " rule is unknown");
         }
     }
 
