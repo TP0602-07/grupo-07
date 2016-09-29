@@ -38,6 +38,7 @@ public class Ui {
                     }
                     Move move = getMove(moveString);
                     this.game.play(move);
+                    monitor.viewBoard(this.game.getGameBoard());
                     if (this.game.isFullBoard()) {
                         monitor.show(this.game.checkVictory());
                         return 0;
@@ -57,7 +58,7 @@ public class Ui {
                 String userInput = in.readLine();
                 if (userInput != null && isValidGame(userInput)) {
                     //TODO cargar juego
-                    this.game = new Game(new GameRules(), new GameBoard());
+                    this.game = new Game(new GameRules(), new GameBoard()); //TODO borrar cuando se cargue el juego
                 }
                 return start();
 

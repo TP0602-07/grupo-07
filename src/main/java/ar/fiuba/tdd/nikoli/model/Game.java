@@ -42,11 +42,15 @@ public class Game {
         if (gameBoard.isFull() && this.validate()) {
             return "You win!";
         }
-        return "You lose!";
+        return "You lose! The rule " + ruleBroken.getName() + " is broken! ";
     }
 
     public Rule getRuleBroken() {
         return ruleBroken;
+    }
+
+    public GameBoard getGameBoard() {
+        return gameBoard;
     }
 
     public boolean isFullBoard() {
