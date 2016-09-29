@@ -35,7 +35,7 @@ public class GameRulesFactory {
         } else if (SUDOKU_NOT_REPEAT_NUMBER_RULE_NAME.equalsIgnoreCase(ruleName)) {
             return new SudokuNotRepeatNumberRule();
         } else {
-            throw new UnknownRuleException(ruleName);
+            throw new UnknownRuleException(ruleName + " rule is unknown");
         }
     }
 

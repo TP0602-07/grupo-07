@@ -1,7 +1,0 @@
-{
-  "gameName": "sudoku",
-  "rulesNames": [
-    "row-not-repeat-number",
-    "column-not-repeat-number"
-  ]
-}

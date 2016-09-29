@@ -4,7 +4,7 @@
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 
 <!--
-    Checkstyle configuration that checks the Google coding conventions from:
+    Checkstyle conf that checks the Google coding conventions from:
     -  Google Java Style
        https://google-styleguide.googlecode.com/svn-history/r130/trunk/javaguide.html
     Checkstyle is very configurable. Be sure to read the documentation at

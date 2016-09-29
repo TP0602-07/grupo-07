@@ -9,7 +9,7 @@ public class Move {
     private Position position;
     private int value;
 
-    Move(Position position, int value) {
+    public Move(Position position, int value) {
         this.position = position;
         this.value = value;
     }
