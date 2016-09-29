@@ -11,7 +11,6 @@ import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import java.nio.charset.StandardCharsets;
 
 
@@ -33,6 +32,7 @@ public class Ui {
     public int start() {
         while (true) {
             try {
+                monitor.viewBoard(this.game.getGameBoard());
                 monitor.show("Insert the movement that you want to: ");
                 String moveString = in.readLine();
                 if ( moveString != null) {
