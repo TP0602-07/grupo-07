@@ -66,7 +66,13 @@ public class GameBoard
     }
 
     public void insert(Move move) throws IOException {
-        //TODO
+        Cell cellSelect  = gameMatrix.get(move.getPosition().getX()).get(move.getPosition().getY());
+        if (cellSelect.hasValue(CellValue.Row) || cellSelect.hasValue(CellValue.Column) || cellSelect.hasValue(CellValue.Cell) ) {
+            throw new IOException();
+        }
+        Cell newCell = new Cell(move.getPosition(),move.getValue(),Cell.UNASSIGNED_VALUE,Cell.UNASSIGNED_VALUE);
+        List<Cell> field = gameMatrix.get(move.getPosition().getX());
+        field.set(move.getPosition().getY(),newCell);
     }
 
 }

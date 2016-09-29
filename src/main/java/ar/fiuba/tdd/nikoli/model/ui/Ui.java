@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.nikoli.model.ui;
 
+import ar.fiuba.tdd.nikoli.conf.ConfigurationReader;
+import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.model.Game;
 import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
@@ -17,6 +19,7 @@ import java.nio.charset.StandardCharsets;
  * Created by ltessore on 28/09/16.
  */
 public class Ui {
+    private ConfigurationReader reader;
     private BufferedReader in;
     private Monitor monitor;
     private Game game;
@@ -24,6 +27,7 @@ public class Ui {
     public Ui(Monitor monitor) {
         this.monitor = monitor;
         in = new BufferedReader(new InputStreamReader(System.in,StandardCharsets.UTF_8));
+        reader = new ConfigurationReader();
     }
 
     public int start() {
@@ -57,18 +61,32 @@ public class Ui {
                 monitor.show("Which game you want to choose?\n  1) Sudoku \n  2) Kakuro ");
                 String userInput = in.readLine();
                 if (userInput != null && isValidGame(userInput)) {
-                    //TODO cargar juego
-                    this.game = new Game(new GameRules(), new GameBoard()); //TODO borrar cuando se cargue el juego
+                    buildGame(userInput);
                 }
                 return start();
 
             } catch (IOException ioe) {
                 monitor.show("Incorrect selection. Please try again");
                 return -1;
+            } catch (GameConfigurationException gce) {
+                monitor.show("Error loading game");
+                return -1;
             }
         }
     }
 
+    private void buildGame(String option) throws GameConfigurationException {
+        String gameName = "";
+        if (option.equals("1")) {
+            gameName = "sudoku";
+        } else {
+            gameName = "kakuro";
+        }
+        GameBoard board = reader.readGameBoardConfiguration(gameName);
+        GameRules rules = reader.readGameRulesConfiguration(gameName);
+        this.game = new Game(rules,board);
+
+    }
 
     private Move getMoveFromInput(String input) throws IOException {
         String[] values = input.split(" ");

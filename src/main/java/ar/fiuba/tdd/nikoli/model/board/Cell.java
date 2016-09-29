@@ -7,7 +7,7 @@ import java.util.Map;
  * Clase para el modelado de una celda del tablero.
  */
 public class Cell {
-    private static final int UNASSIGNED_VALUE = 0;
+    public static final int UNASSIGNED_VALUE = 0;
     private Position position;
     private Map<CellValue, Integer> values;
 
@@ -18,6 +18,7 @@ public class Cell {
         values.put(CellValue.Column, columnValue);
         values.put(CellValue.Row, rowValue);
     }
+
 
     public Position getPosition() {
         return position;
