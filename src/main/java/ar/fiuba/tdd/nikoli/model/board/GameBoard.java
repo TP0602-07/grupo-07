@@ -3,14 +3,18 @@ package ar.fiuba.tdd.nikoli.model.board;
 import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
 
+import java.io.IOException;
+
 import java.util.List;
 
 /**
  * Clase que representa el tablero de juego.
  */
-public class GameBoard implements GameBoardIterator {
+public class GameBoard
+        implements GameBoardIterator {
 
     private static final int CELL_INIT = 0;
+    private static final int ORIGIN = 0;
     private List<List<Cell>> gameMatrix;
 
     public GameBoard() { }
@@ -26,56 +30,33 @@ public class GameBoard implements GameBoardIterator {
 
 
     @Override
-    public boolean hasCellTop(Cell cell) {
-        return (cell.getPosition().getX() == CELL_INIT);
-    }
-
-    @Override
-    public boolean hasCellBottom(Cell cell) {
-        return (cell.getPosition().getX() < (gameMatrix.size() - 1));
-    }
-
-    @Override
-    public boolean hasCellLeft(Cell cell) {
-        return (cell.getPosition().getY() == CELL_INIT);
-    }
-
-    @Override
-    public boolean hasCellRight(Cell cell) {
-        return (cell.getPosition().getY() < (gameMatrix.size() - 1));
-    }
-
-    @Override
     public Cell getCell(Position position) {
         return gameMatrix.get(position.getX()).get(position.getY());
     }
 
     @Override
-    public Cell getCellTop(Cell cell) {
-        return gameMatrix.get(cell.getPosition().getX() - 1).get(cell.getPosition().getY());
+    public Cell getOriginCell() {
+        return gameMatrix.get(ORIGIN).get(ORIGIN);
     }
 
     @Override
-    public Cell getCellBottom(Cell cell) {
-        return gameMatrix.get(cell.getPosition().getX() + 1).get(cell.getPosition().getY());
+    public boolean hasNeighborCell(Cell cell, Position position) {
+        return true;
     }
 
     @Override
-    public Cell getCellLeft(Cell cell) {
-        return gameMatrix.get(cell.getPosition().getX()).get(cell.getPosition().getY() - 1);
+    public Cell getNeighborCell(Cell cell, Position position) {
+        return  gameMatrix.get(cell.getPosition().getX() + position.getX())
+                          .get(cell.getPosition().getY() + position.getY());
     }
 
-    @Override
-    public Cell getCellRight(Cell cell) {
-        return gameMatrix.get(cell.getPosition().getX()).get(cell.getPosition().getY() + 1);
-    }
 
     /* Indicate that the matrix is Full */
     public boolean isFull() {
         boolean isFull = true;
         for (List<Cell> row : gameMatrix) {
             for (Cell cell : row) {
-                if (!cell.isFull()) {
+                if (!cell.hasValue(CellValue.Row) && cell.hasValue(CellValue.Column) && cell.hasValue(CellValue.Cell)) {
                     isFull = false;
                     break;
                 }
@@ -84,8 +65,8 @@ public class GameBoard implements GameBoardIterator {
         return isFull;
     }
 
-    public void insert(Move move) throws Exception {
+    public void insert(Move move) throws IOException {
         //TODO
-
     }
+
 }

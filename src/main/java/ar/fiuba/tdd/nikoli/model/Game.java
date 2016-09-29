@@ -6,6 +6,8 @@ import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 
+import java.io.IOException;
+
 
 
 public class Game {
@@ -20,16 +22,15 @@ public class Game {
         ruleBroken = null;
     }
 
-    public void play(Move move) throws Exception { //TODO move es una Move (modificar)
+    public void play(Move move) throws IOException {
         gameBoard.insert(move);
     }
 
     private boolean validate() {
         boolean isValid = true;
         for (Rule rule : gameRules.getRules()) {
-        //    rule.buildRuleCellSets(gameBoard);
-        //    if(rule.isRuleBroken()) {
-            if (rule.isRuleBroken(gameBoard,new Move(new Position(1,1),1))) { //TODO borrar y descomentar arriba
+            rule.buildRuleCellSets(gameBoard); //TODO esto nose si va
+            if (rule.isRuleBroken()) {
                 isValid = false;
                 ruleBroken = rule;
             }
