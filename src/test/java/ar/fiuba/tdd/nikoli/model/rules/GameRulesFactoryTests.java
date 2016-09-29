@@ -11,7 +11,7 @@ public class GameRulesFactoryTests {
 
     @Test
     public void testCreateRuleByNameOK() throws Exception {
-        Rule rule = GameRulesFactory.getInstance().createRuleByName("row-not-repeat-number");
+        Rule rule = GameRulesFactory.getInstance().createRuleByName("not-repeat-number");
         assertNotNull(rule);
     }
 
