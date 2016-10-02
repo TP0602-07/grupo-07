@@ -93,7 +93,7 @@ public class SudokuSetBuilder implements SetBuilder<CellSet> {
 
             buildSetsRegionsForColumn(board, cellSets, startCell, posY);
 
-            if (!board.hasNeighborCell(startCell, posX)){
+            if (!board.hasNeighborCell(startCell, posX)) {
                 break;
             }
 
