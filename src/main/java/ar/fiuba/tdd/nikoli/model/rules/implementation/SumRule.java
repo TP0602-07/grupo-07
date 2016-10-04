@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.model.board.OldCell;
 import ar.fiuba.tdd.nikoli.model.board.CellValue;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
 import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
 import ar.fiuba.tdd.nikoli.model.rules.RuleValidator;
 import ar.fiuba.tdd.nikoli.model.rules.SetBuilder;

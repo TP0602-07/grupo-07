@@ -67,4 +67,13 @@ public class GameBoard {
         return new ArrayList<Region>();
     }
 
+    /**
+     * Agrego este metodo para que el findbugs no tire error.
+     * @return todas las celdas del tablero.
+     */
+    public Cell[][] getMatrix() {
+        // TODO si no sirve eliminarlo
+        return this.matrix.clone();
+    }
+
 }

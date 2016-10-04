@@ -1,8 +1,7 @@
 package ar.fiuba.tdd.nikoli.model.ui;
 
-
-import ar.fiuba.tdd.nikoli.model.board.OldCell;
 import ar.fiuba.tdd.nikoli.model.board.CellValue;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
 import ar.fiuba.tdd.nikoli.model.board.OldGameBoard;
 
 import java.util.List;
