@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.nikoli.model.rules;
 
-import ar.fiuba.tdd.nikoli.model.board.Cell;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
 import ar.fiuba.tdd.nikoli.model.board.CellValue;
-import ar.fiuba.tdd.nikoli.model.board.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.OldGameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.rules.implementation.SudokuSetBuilder;
 import ar.fiuba.tdd.nikoli.model.rules.sets.CellSet;
@@ -18,9 +18,9 @@ import static org.junit.Assert.assertEquals;
  */
 public class SetBuilderTests {
 
-    private List<List<Cell>> buildGameMatrix() {
+    private List<List<OldCell>> buildGameMatrix() {
 
-        List<List<Cell>> gameMatrix = new ArrayList<>();
+        List<List<OldCell>> gameMatrix = new ArrayList<>();
 
         gameMatrix.add(buildColumn(0, 1));
         gameMatrix.add(buildColumn(1, 2));
@@ -36,18 +36,18 @@ public class SetBuilderTests {
     }
 
 
-    private List<Cell> buildColumn(int posX, int cellValue) {
+    private List<OldCell> buildColumn(int posX, int cellValue) {
 
-        List<Cell> column = new ArrayList<>();
-        column.add(new Cell(new Position(posX, 0), cellValue, 0, 0 ));
-        column.add(new Cell(new Position(posX, 1), 0, 0, 0 ));
-        column.add(new Cell(new Position(posX, 2), 0, 0, 0 ));
-        column.add(new Cell(new Position(posX, 3), 0, 0, 0 ));
-        column.add(new Cell(new Position(posX, 4), 0, 0, 0 ));
-        column.add(new Cell(new Position(posX, 5), 0, 0, 0 ));
-        column.add(new Cell(new Position(posX, 6), 0, 0, 0 ));
-        column.add(new Cell(new Position(posX, 7), 0, 0, 0 ));
-        column.add(new Cell(new Position(posX, 8), 0, 0, 0 ));
+        List<OldCell> column = new ArrayList<>();
+        column.add(new OldCell(new Position(posX, 0), cellValue, 0, 0 ));
+        column.add(new OldCell(new Position(posX, 1), 0, 0, 0 ));
+        column.add(new OldCell(new Position(posX, 2), 0, 0, 0 ));
+        column.add(new OldCell(new Position(posX, 3), 0, 0, 0 ));
+        column.add(new OldCell(new Position(posX, 4), 0, 0, 0 ));
+        column.add(new OldCell(new Position(posX, 5), 0, 0, 0 ));
+        column.add(new OldCell(new Position(posX, 6), 0, 0, 0 ));
+        column.add(new OldCell(new Position(posX, 7), 0, 0, 0 ));
+        column.add(new OldCell(new Position(posX, 8), 0, 0, 0 ));
 
         return column;
     }
@@ -55,7 +55,7 @@ public class SetBuilderTests {
     @Test
     public void testBuildSudokuCellSets() {
 
-        GameBoard board = new GameBoard();
+        OldGameBoard board = new OldGameBoard();
         board.setGameMatrix(buildGameMatrix());
 
         SudokuSetBuilder setBuilder = new SudokuSetBuilder();

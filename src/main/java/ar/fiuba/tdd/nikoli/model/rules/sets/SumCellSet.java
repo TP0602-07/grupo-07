@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.nikoli.model.rules.sets;
 
-import ar.fiuba.tdd.nikoli.model.board.Cell;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class SumCellSet
 
     private int sum;
 
-    public SumCellSet(int sum, List<Cell> cells) {
+    public SumCellSet(int sum, List<OldCell> cells) {
         super(cells);
         this.sum = sum;
     }

@@ -4,7 +4,7 @@ import ar.fiuba.tdd.nikoli.conf.ConfigurationReader;
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.model.Game;
 import ar.fiuba.tdd.nikoli.model.Move;
-import ar.fiuba.tdd.nikoli.model.board.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.OldGameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 
@@ -82,7 +82,7 @@ public class Ui {
         } else {
             gameName = "kakuro";
         }
-        GameBoard board = reader.readGameBoardConfiguration(gameName);
+        OldGameBoard board = reader.readGameBoardConfiguration(gameName);
         GameRules rules = reader.readGameRulesConfiguration(gameName);
         this.game = new Game(rules,board);
 

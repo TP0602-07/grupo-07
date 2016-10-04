@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.nikoli.model.rules;
 
-import ar.fiuba.tdd.nikoli.model.board.Cell;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 
 /**
@@ -8,11 +8,11 @@ import ar.fiuba.tdd.nikoli.model.board.Position;
  */
 public interface GameBoardIterator {
 
-    Cell getCell(Position position);
+    OldCell getCell(Position position);
 
-    Cell getOriginCell();
+    OldCell getOriginCell();
 
-    boolean hasNeighborCell(Cell cell, Position position);
+    boolean hasNeighborCell(OldCell cell, Position position);
 
-    Cell getNeighborCell(Cell cell, Position position);
+    OldCell getNeighborCell(OldCell cell, Position position);
 }

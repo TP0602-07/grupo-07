@@ -1,79 +1,70 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
-import ar.fiuba.tdd.nikoli.model.Move;
-import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
-
-import java.io.IOException;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clase que representa el tablero de juego.
+ * Clase que modela el tablero de un juego.
  */
-public class GameBoard
-        implements GameBoardIterator {
+public class GameBoard {
 
-    private static final int CELL_INIT = 0;
-    private static final int ORIGIN = 0;
-    private List<List<Cell>> gameMatrix;
+    private int rows;
+    private int columns;
+    private List<Cell> cells;
+    private List<Region> regions;
+    private Cell[][] matrix;
 
-    public GameBoard() { }
+    public GameBoard(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
 
+        this.cells = new ArrayList<Cell>();
+        this.regions = new ArrayList<Region>();
 
-    public List<List<Cell>> getGameMatrix() {
-        return gameMatrix;
+        this.matrix = new Cell[rows][columns];
     }
 
-    public void setGameMatrix(List<List<Cell>> gameMatrix) {
-        this.gameMatrix = gameMatrix;
+    public int getColumns() {
+        return columns;
+    }
+
+    public void setColumns(int columns) {
+        this.columns = columns;
+    }
+
+    public List<Cell> getCells() {
+        return cells;
+    }
+
+    public void setCells(List<Cell> cells) {
+        this.cells = cells;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    public List<Region> getRegions() {
+        return regions;
+    }
+
+    public void setRegions(List<Region> regions) {
+        this.regions = regions;
     }
 
 
-    @Override
-    public Cell getCell(Position position) {
-        return gameMatrix.get(position.getX()).get(position.getY());
-    }
-
-    @Override
-    public Cell getOriginCell() {
-        return gameMatrix.get(ORIGIN).get(ORIGIN);
-    }
-
-    @Override
-    public boolean hasNeighborCell(Cell cell, Position position) {
-        return cell.getPosition().getX() + position.getX() < gameMatrix.size()
-               && cell.getPosition().getY() + position.getY() < gameMatrix.size();
-    }
-
-    @Override
-    public Cell getNeighborCell(Cell cell, Position position) {
-        return  gameMatrix.get(cell.getPosition().getX() + position.getX())
-                          .get(cell.getPosition().getY() + position.getY());
-    }
-
-
-    /* Indicate that the matrix is Full */
-    public boolean isFull() {
-        boolean isFull = true;
-        for (List<Cell> row : gameMatrix) {
-            for (Cell cell : row) {
-                if (!cell.hasValue(CellValue.Row) && cell.hasValue(CellValue.Column) && cell.hasValue(CellValue.Cell)) {
-                    isFull = false;
-                    break;
-                }
-            }
-        }
-        return isFull;
-    }
-
-    public void insert(Move move) throws IOException {
-        Cell cellSelect  = gameMatrix.get(move.getPosition().getX()).get(move.getPosition().getY());
-        if (cellSelect.hasValue(CellValue.Row) || cellSelect.hasValue(CellValue.Column) || cellSelect.hasValue(CellValue.Cell) ) {
-            throw new IOException();
-        }
-        Cell newCell = new Cell(move.getPosition(),move.getValue(),Cell.UNASSIGNED_VALUE,Cell.UNASSIGNED_VALUE);
-        List<Cell> field = gameMatrix.get(move.getPosition().getX());
-        field.set(move.getPosition().getY(),newCell);
+    /**
+     * Metodo que devuelve las regiones relacionadas a una posicion.
+     * @param position posicion de la que se necesitan las regiones
+     * @return regiones que se encuentren en una posicion
+     */
+    public List<Region> getRegionsForPosicion(Position position) {
+        // TODO implementar
+        return new ArrayList<Region>();
     }
 
 }

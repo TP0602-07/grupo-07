@@ -1,35 +1,34 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
-import java.util.Hashtable;
-import java.util.Map;
-
 /**
- * Clase para el modelado de una celda del tablero.
+ * Cell base.
  */
 public class Cell {
-    public static final int UNASSIGNED_VALUE = 0;
-    private Position position;
-    private Map<CellValue, Integer> values;
 
-    public Cell(Position position, Integer value, Integer columnValue, Integer rowValue) {
+    private Integer value;
+    private Position position;
+    private boolean editable;
+
+    public Cell(Position position, Integer value, boolean editable) {
         this.position = position;
-        values = new Hashtable<CellValue, Integer>();
-        values.put(CellValue.Cell, value);
-        values.put(CellValue.Column, columnValue);
-        values.put(CellValue.Row, rowValue);
+        this.value = value;
+        this.editable = editable;
     }
 
+    public Integer getValue() {
+        return value;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
 
     public Position getPosition() {
         return position;
     }
 
-    public int getValue(CellValue cellValue) {
-        return values.get(cellValue);
-    }
-
-    public boolean hasValue(CellValue cellValue) {
-        return values.get(cellValue) == UNASSIGNED_VALUE;
+    public boolean isEditable() {
+        return editable;
     }
 
 }

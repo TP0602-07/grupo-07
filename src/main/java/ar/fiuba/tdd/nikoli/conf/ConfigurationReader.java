@@ -6,8 +6,8 @@ import com.google.gson.internal.LinkedTreeMap;
 
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationNotFoundException;
-import ar.fiuba.tdd.nikoli.model.board.Cell;
-import ar.fiuba.tdd.nikoli.model.board.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
+import ar.fiuba.tdd.nikoli.model.board.OldGameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
@@ -48,12 +48,12 @@ public class ConfigurationReader {
     /**
      * Lee el tablero de un juego dado su nombre
      * @param gameName nombre del juego.
-     * @return una instancia de {@link GameBoard}
+     * @return una instancia de {@link OldGameBoard}
      * @throws GameConfigurationException si se produce un error en la lectura del tablero del juego.
      */
-    public GameBoard readGameBoardConfiguration(String gameName) throws  GameConfigurationException {
+    public OldGameBoard readGameBoardConfiguration(String gameName) throws  GameConfigurationException {
         List<List<LinkedTreeMap>> matrix = this.readGameBoardFromJson(gameName);
-        GameBoard gameBoard = this.processGameBoard(gameName, matrix);
+        OldGameBoard gameBoard = this.processGameBoard(gameName, matrix);
         return gameBoard;
     }
 
@@ -140,13 +140,13 @@ public class ConfigurationReader {
      * Procesa la matriz de celdas genericas del tablero de un juego.
      * @param gameName nombre del juego.
      * @param boardMatrix matriz generica de tablero de juego.
-     * @return una instancia de {@link GameBoard}
+     * @return una instancia de {@link OldGameBoard}
      */
-    private GameBoard processGameBoard(String gameName, List<List<LinkedTreeMap>> boardMatrix) {
+    private OldGameBoard processGameBoard(String gameName, List<List<LinkedTreeMap>> boardMatrix) {
 
-        GameBoard gameBoard = new GameBoard();
+        OldGameBoard gameBoard = new OldGameBoard();
 
-        List<List<Cell>> matrix = new ArrayList<List<Cell>>();
+        List<List<OldCell>> matrix = new ArrayList<List<OldCell>>();
 
         for (List<LinkedTreeMap> row: boardMatrix) {
 
@@ -158,9 +158,9 @@ public class ConfigurationReader {
         return gameBoard;
     }
 
-    private void processCells(List<List<Cell>> matrix, List<LinkedTreeMap> row) {
+    private void processCells(List<List<OldCell>> matrix, List<LinkedTreeMap> row) {
 
-        List<Cell> rowColumns = new ArrayList<Cell>();
+        List<OldCell> rowColumns = new ArrayList<OldCell>();
 
         for (LinkedTreeMap genericCell: row) {
             int posX = ((Double)genericCell.get("positionX")).intValue();
@@ -169,7 +169,7 @@ public class ConfigurationReader {
             int rowValue = genericCell.get("rowValue") != null ? ((Double)genericCell.get("rowValue")).intValue() : 0;
             int columnValue = genericCell.get("columnValue") != null ? ((Double)genericCell.get("columnValue")).intValue() : 0;
             Position position = new Position(posX, posY);
-            Cell cell = new Cell(position, Integer.valueOf(value), Integer.valueOf(rowValue), Integer.valueOf(columnValue));
+            OldCell cell = new OldCell(position, Integer.valueOf(value), Integer.valueOf(rowValue), Integer.valueOf(columnValue));
 
             rowColumns.add(cell);
         }

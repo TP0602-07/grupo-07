@@ -2,7 +2,7 @@ package ar.fiuba.tdd.nikoli.conf;
 
 
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationNotFoundException;
-import ar.fiuba.tdd.nikoli.model.board.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.OldGameBoard;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class ConfigurationReaderTests {
     @Test
     public void testReadGameBoardOK() throws Exception {
         ConfigurationReader configReader = new ConfigurationReader();
-        GameBoard board = configReader.readGameBoardConfiguration("testGame");
+        OldGameBoard board = configReader.readGameBoardConfiguration("testGame");
         assertNotNull(board);
     }
 

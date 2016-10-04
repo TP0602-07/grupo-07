@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.model.board.Cell;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
 import ar.fiuba.tdd.nikoli.model.board.CellValue;
 import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
 import ar.fiuba.tdd.nikoli.model.rules.RuleValidator;
@@ -21,7 +21,7 @@ public class NotRepeatNumberRule implements RuleValidator<CellSet> {
 
         Set<Integer> hashSet = new HashSet<>();
 
-        for (Cell cell : set.getCells()) {
+        for (OldCell cell : set.getCells()) {
 
             int value = cell.getValue(CellValue.Cell);
 
