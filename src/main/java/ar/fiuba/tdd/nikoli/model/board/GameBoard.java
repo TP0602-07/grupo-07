@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
+import ar.fiuba.tdd.nikoli.model.Move;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,8 +74,37 @@ public class GameBoard {
      * @return todas las celdas del tablero.
      */
     public Cell[][] getMatrix() {
-        // TODO si no sirve eliminarlo
+        // TODO si no sirve eliminarlo el metodo
         return this.matrix.clone();
+    }
+
+    /**
+     * Indica si el tablero tiene completas todas sus celdas.
+     *
+     * @return true si la el tablero esta completo.
+     */
+    public boolean isFull() {
+        boolean isFull = true;
+        for (Cell[] row : matrix) {
+            for (Cell column : row) {
+                if (column.isEditable() && !column.hasValue()) {
+                    isFull = false;
+                    break;
+                }
+            }
+        }
+        return isFull;
+    }
+
+    /**
+     * Insert el valor de la jugada en la posicion indicada por al juegada.
+     *
+     * @param move jugada a insertar en el tablero.
+     */
+    public void insertValue(Move move) {
+        Cell cell = matrix[move.getPosition().getX()][move.getPosition().getY()];
+
+        cell.setValue(move.getValue());
     }
 
 }

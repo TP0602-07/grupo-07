@@ -1,17 +1,14 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
 import ar.fiuba.tdd.nikoli.model.Move;
-import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
 
 import java.io.IOException;
-
 import java.util.List;
 
 /**
  * Clase que representa el tablero de juego.
  */
-public class OldGameBoard
-        implements GameBoardIterator {
+public class OldGameBoard {
 
     private static final int CELL_INIT = 0;
     private static final int ORIGIN = 0;
@@ -29,23 +26,19 @@ public class OldGameBoard
     }
 
 
-    @Override
     public OldCell getCell(Position position) {
         return gameMatrix.get(position.getX()).get(position.getY());
     }
 
-    @Override
     public OldCell getOriginCell() {
         return gameMatrix.get(ORIGIN).get(ORIGIN);
     }
 
-    @Override
     public boolean hasNeighborCell(OldCell cell, Position position) {
         return cell.getPosition().getX() + position.getX() < gameMatrix.size()
                && cell.getPosition().getY() + position.getY() < gameMatrix.size();
     }
 
-    @Override
     public OldCell getNeighborCell(OldCell cell, Position position) {
         return  gameMatrix.get(cell.getPosition().getX() + position.getX())
                           .get(cell.getPosition().getY() + position.getY());

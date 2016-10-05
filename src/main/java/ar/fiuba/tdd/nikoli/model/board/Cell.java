@@ -31,4 +31,8 @@ public class Cell {
         return editable;
     }
 
+    public boolean hasValue() {
+        return value != null;
+    }
+
 }

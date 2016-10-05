@@ -1,9 +1,5 @@
 package ar.fiuba.tdd.nikoli.conf;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.internal.LinkedTreeMap;
-
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationNotFoundException;
 import ar.fiuba.tdd.nikoli.model.board.OldCell;
@@ -13,7 +9,9 @@ import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.model.rules.exception.UnknownRuleException;
 import ar.fiuba.tdd.nikoli.model.rules.factory.GameRulesFactory;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.internal.LinkedTreeMap;
 
 import java.io.FileInputStream;
 import java.io.IOException;

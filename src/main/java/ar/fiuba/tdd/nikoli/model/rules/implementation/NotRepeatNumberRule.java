@@ -1,29 +1,27 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.model.board.CellValue;
-import ar.fiuba.tdd.nikoli.model.board.OldCell;
-import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
-import ar.fiuba.tdd.nikoli.model.rules.RuleValidator;
-import ar.fiuba.tdd.nikoli.model.rules.SetBuilder;
-import ar.fiuba.tdd.nikoli.model.rules.sets.CellSet;
+import ar.fiuba.tdd.nikoli.model.board.Cell;
+import ar.fiuba.tdd.nikoli.model.board.Region;
+import ar.fiuba.tdd.nikoli.model.rules.Rule;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
- * Clase que representa la regla de no repetir numeros en una misma linea del tablero.
+ * Clase que representa la regla de no repetir numeros para un conjunto de celdas pertenecientes a una region.
  */
-public class NotRepeatNumberRule implements RuleValidator<CellSet> {
+public class NotRepeatNumberRule extends Rule {
 
-    private boolean areThereRepeated(CellSet set) {
+    private boolean areThereRepeated(Region region) {
 
         boolean thereAreRepeated = false;
 
         Set<Integer> hashSet = new HashSet<>();
 
-        for (OldCell cell : set.getCells()) {
+        for (Cell cell : region.getCells()) {
 
-            int value = cell.getValue(CellValue.Cell);
+            int value = cell.getValue();
 
             if (hashSet.contains(value)) {
                 thereAreRepeated = true;
@@ -37,13 +35,12 @@ public class NotRepeatNumberRule implements RuleValidator<CellSet> {
     }
 
     @Override
-    public boolean isRuleBroken(SetBuilder<? extends CellSet> setSetBuilder, GameBoardIterator board) {
-
+    public boolean isRuleBroken(List<Region> regions) {
         boolean isBroken = false;
 
-        for (CellSet set : setSetBuilder.buildRuleCellSets(board)) {
+        for (Region region : regions) {
 
-            if (areThereRepeated(set)) {
+            if (areThereRepeated(region)) {
                 isBroken = true;
                 break;
             }
@@ -51,7 +48,4 @@ public class NotRepeatNumberRule implements RuleValidator<CellSet> {
 
         return isBroken;
     }
-
-
-
 }

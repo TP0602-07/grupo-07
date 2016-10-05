@@ -1,22 +1,21 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.model.board.CellValue;
-import ar.fiuba.tdd.nikoli.model.board.OldCell;
-import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
-import ar.fiuba.tdd.nikoli.model.rules.RuleValidator;
-import ar.fiuba.tdd.nikoli.model.rules.SetBuilder;
-import ar.fiuba.tdd.nikoli.model.rules.sets.*;
+import ar.fiuba.tdd.nikoli.model.board.Cell;
+import ar.fiuba.tdd.nikoli.model.board.Region;
+import ar.fiuba.tdd.nikoli.model.rules.Rule;
+
+import java.util.List;
 
 /**
- * Clase que representa la regla de sumar una cantidad determinada en una fila.
+ * Clase que representa la regla de sumar una cantidad determinada para un conjunto de celdas pertenecientes a una region.
  */
-public class SumRule implements RuleValidator<SumCellSet> {
+public class SumRule extends Rule {
 
-    private int sum(SumCellSet set) {
+    private int sum(Region region) {
         int sum = 0;
 
-        for (OldCell cell : set.getCells()) {
-            sum += cell.getValue(CellValue.Cell);
+        for (Cell cell : region.getCells()) {
+            sum += cell.getValue();
         }
 
         return sum;
@@ -27,14 +26,14 @@ public class SumRule implements RuleValidator<SumCellSet> {
     }
 
     @Override
-    public boolean isRuleBroken(SetBuilder<? extends SumCellSet> setSetBuilder, GameBoardIterator board) {
+    public boolean isRuleBroken(List<Region> regions) {
 
         boolean isBroken = false;
 
-        for (SumCellSet set : setSetBuilder.buildRuleCellSets(board)) {
-            int sum = sum(set);
+        for (Region region : regions) {
+            int sum = sum(region);
 
-            if (isSumIncorrect(sum, set.getSum())) {
+            if (isSumIncorrect(sum, region.getValue())) {
                 isBroken = true;
                 break;
             }
