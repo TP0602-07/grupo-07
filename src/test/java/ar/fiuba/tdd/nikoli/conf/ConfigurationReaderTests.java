@@ -26,7 +26,7 @@ public class ConfigurationReaderTests {
     @Test
     public void testReadGameBoardOK() throws Exception {
         ConfigurationReader configReader = new ConfigurationReader();
-        GameBoard board = configReader.readGameBoardConfiguration("sudoku");
+        GameBoard board = configReader.readGameBoardConfiguration("testGame");
         assertNotNull(board);
     }
 

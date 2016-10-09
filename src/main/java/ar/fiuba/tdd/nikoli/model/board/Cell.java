@@ -7,7 +7,14 @@ public class Cell {
 
     private Integer value;
     private Position position;
-    private boolean editable;
+    private Boolean editable;
+
+
+    public Cell(Position position) {
+        this.position = position;
+        this.value = 0;
+        this.editable = Boolean.FALSE;
+    }
 
     public Cell(Position position, Integer value, boolean editable) {
         this.position = position;
@@ -24,11 +31,11 @@ public class Cell {
     }
 
     public Position getPosition() {
-        return position;
+        return this.position;
     }
 
-    public boolean isEditable() {
-        return editable;
+    public Boolean isEditable() {
+        return this.editable;
     }
 
 }

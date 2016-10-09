@@ -1,6 +1,35 @@
 {
   "rows" : 9,
   "columns" : 9,
-  "cells" : [],
-  "regions" : []
+  "clueCells" : [ {
+    "value" : 0,
+    "position" : {
+      "coordinateX" : 1,
+      "coordinateY" : 1,
+      "editable" : false
+    }
+  }, {
+    "value" : 0,
+    "position" : {
+      "coordinateX" : 2,
+      "coordinateY" : 2,
+      "editable" : true
+    }
+  }
+
+  ],
+  "regions" : [{
+    "value" : 0,
+    "positions" : [{
+      "coordinateX" : 1,
+      "coordinateY" : 1
+    }]
+  }, {
+    "value" : 0,
+    "positions" : [{
+      "coordinateX" : 2,
+      "coordinateY" : 2
+    }]
+  }
+  ]
 }

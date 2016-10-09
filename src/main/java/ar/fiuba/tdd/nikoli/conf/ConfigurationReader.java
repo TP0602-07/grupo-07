@@ -1,15 +1,16 @@
 package ar.fiuba.tdd.nikoli.conf;
 
-import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationNotFoundException;
+import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.model.rules.exception.UnknownRuleException;
 import ar.fiuba.tdd.nikoli.model.rules.factory.GameRulesFactory;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 
 import java.io.FileInputStream;
@@ -52,6 +53,7 @@ public class ConfigurationReader {
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         InputStreamReader jsonFile = this.getConfigurationFile(gameName, RULES_CONFIGURATION_TYPE);
 
+        @SuppressWarnings("unchecked")
         List<String> rulesNames = gson.fromJson(jsonFile, List.class);
 
         return rulesNames;
@@ -85,8 +87,6 @@ public class ConfigurationReader {
     }
 
 
-
-
     /**
      * Lee el tablero de un juego dado su nombre
      * @param gameName nombre del juego.
@@ -111,13 +111,6 @@ public class ConfigurationReader {
 
         return board;
     }
-
-
-
-
-
-
-
 
 
     /**
