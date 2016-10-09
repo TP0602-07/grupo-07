@@ -10,7 +10,6 @@ import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.model.rules.exception.UnknownRuleException;
 import ar.fiuba.tdd.nikoli.model.rules.factory.GameRulesFactory;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 
 
 import java.io.FileInputStream;
@@ -22,7 +21,7 @@ import java.util.List;
 /**
  * Clase que implementa la lectura de configuraciones (tableros/reglas) de los juegos.
  */
-public class ConfigurationReader {
+public class GameConfigurationReader {
 
 
     private static final String CONFIGURATION_FILES_BASE_PATH = "configurationFiles/";
