@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.model.board.Cell;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
 import ar.fiuba.tdd.nikoli.model.rules.SetBuilder;
@@ -42,7 +42,7 @@ public class SudokuSetBuilder implements SetBuilder<CellSet> {
                                     BoardGuide boardGuide) {
 
         boolean buildSet = true;
-        Cell cell = board.getOriginCell();
+        OldCell cell = board.getOriginCell();
 
         while (buildSet) {
 
@@ -59,13 +59,13 @@ public class SudokuSetBuilder implements SetBuilder<CellSet> {
     private void buildSetFromLine(GameBoardIterator board,
                                   List<CellSet> cellSets,
                                   BoardGuide boardGuide,
-                                  Cell startCell) {
+                                  OldCell startCell) {
 
-        List<Cell> cells = new ArrayList<>();
+        List<OldCell> cells = new ArrayList<>();
 
         boolean setEnd = false;
 
-        Cell cell = startCell;
+        OldCell cell = startCell;
 
         while (!setEnd) {
 
@@ -87,7 +87,7 @@ public class SudokuSetBuilder implements SetBuilder<CellSet> {
                                       Position posX,
                                       Position posY) {
 
-        Cell startCell = board.getOriginCell();
+        OldCell startCell = board.getOriginCell();
 
         while (true) {
 
@@ -103,7 +103,7 @@ public class SudokuSetBuilder implements SetBuilder<CellSet> {
 
     private void buildSetsRegionsForColumn(GameBoardIterator board,
                                            List<CellSet> cellSets,
-                                           Cell startCell,
+                                           OldCell startCell,
                                            Position posY) {
 
         while (true) {
@@ -120,10 +120,10 @@ public class SudokuSetBuilder implements SetBuilder<CellSet> {
 
     private void buildSetFromRegion(GameBoardIterator board,
                                     List<CellSet> cellSets,
-                                    Cell cell) {
-        Cell startCell = cell;
+                                    OldCell cell) {
+        OldCell startCell = cell;
 
-        List<Cell> cells = new ArrayList<>();
+        List<OldCell> cells = new ArrayList<>();
 
         for (int i = 1; i <= 3; i++) {
 
@@ -136,7 +136,7 @@ public class SudokuSetBuilder implements SetBuilder<CellSet> {
         cellSets.add(new CellSet(cells));
     }
 
-    private void buildLinearSetFromRegion(GameBoardIterator board, Cell cell, List<Cell> cells) {
+    private void buildLinearSetFromRegion(GameBoardIterator board, OldCell cell, List<OldCell> cells) {
         for (int i = 1; i <= 3; i++) {
 
             cells.add(cell);

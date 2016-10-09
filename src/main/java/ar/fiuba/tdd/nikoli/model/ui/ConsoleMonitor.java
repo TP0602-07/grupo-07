@@ -1,9 +1,8 @@
 package ar.fiuba.tdd.nikoli.model.ui;
 
-
-import ar.fiuba.tdd.nikoli.model.board.Cell;
 import ar.fiuba.tdd.nikoli.model.board.CellValue;
-import ar.fiuba.tdd.nikoli.model.board.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
+import ar.fiuba.tdd.nikoli.model.board.OldGameBoard;
 
 import java.util.List;
 
@@ -18,15 +17,15 @@ public class ConsoleMonitor extends Monitor {
     }
 
     @Override
-    public void viewBoard(GameBoard gameBoard) {
+    public void viewBoard(OldGameBoard gameBoard) {
         //TODO
-        List<List<Cell>> matrix = gameBoard.getGameMatrix();
+        List<List<OldCell>> matrix = gameBoard.getGameMatrix();
 
-        for (List<Cell> rows : matrix) {
+        for (List<OldCell> rows : matrix) {
             StringBuilder rowString = new StringBuilder();
             rowString.append("|");
 
-            for (Cell cell : rows) {
+            for (OldCell cell : rows) {
                 rowString.append(cell.getValue(CellValue.Cell));
                 rowString.append("|");
             }

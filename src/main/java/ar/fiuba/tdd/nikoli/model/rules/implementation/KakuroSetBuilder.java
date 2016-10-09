@@ -1,13 +1,12 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.model.board.Cell;
 import ar.fiuba.tdd.nikoli.model.board.CellValue;
+import ar.fiuba.tdd.nikoli.model.board.OldCell;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.rules.GameBoardIterator;
 import ar.fiuba.tdd.nikoli.model.rules.SetBuilder;
 import ar.fiuba.tdd.nikoli.model.rules.sets.BoardGuide;
 import ar.fiuba.tdd.nikoli.model.rules.sets.CellNegotiator;
-import ar.fiuba.tdd.nikoli.model.rules.sets.CellSet;
 import ar.fiuba.tdd.nikoli.model.rules.sets.SumCellSet;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class KakuroSetBuilder implements SetBuilder<SumCellSet> {
                                     CellNegotiator cellNegotiator) {
 
         boolean buildSet = true;
-        Cell cell = board.getOriginCell();
+        OldCell cell = board.getOriginCell();
 
         while (buildSet) {
 
@@ -64,7 +63,7 @@ public class KakuroSetBuilder implements SetBuilder<SumCellSet> {
                                    List<SumCellSet> cellSets,
                                    BoardGuide boardGuide,
                                    CellNegotiator cellNegotiator,
-                                   Cell cell) {
+                                   OldCell cell) {
 
         while (board.hasNeighborCell(cell, boardGuide.getNextCellPosition())) {
 
@@ -72,19 +71,19 @@ public class KakuroSetBuilder implements SetBuilder<SumCellSet> {
         }
     }
 
-    private Cell buildSetFromLine(GameBoardIterator board,
+    private OldCell buildSetFromLine(GameBoardIterator board,
                                   List<SumCellSet> cellSets,
                                   BoardGuide boardGuide,
                                   CellNegotiator cellNegotiator,
-                                  Cell startCell) {
+                                  OldCell startCell) {
 
-        Cell cell = skipCell(board, boardGuide, cellNegotiator, startCell);
-        Cell endCell = cell;
+        OldCell cell = skipCell(board, boardGuide, cellNegotiator, startCell);
+        OldCell endCell = cell;
 
         if (cellNegotiator.hasSetValue(cell)) {
 
             int sum = cellNegotiator.getSetValue(cell);
-            List<Cell> cells = new ArrayList<>();
+            List<OldCell> cells = new ArrayList<>();
 
             boolean setEnd = false;
 
@@ -109,10 +108,10 @@ public class KakuroSetBuilder implements SetBuilder<SumCellSet> {
         return endCell;
     }
 
-    private Cell skipCell(GameBoardIterator board,
+    private OldCell skipCell(GameBoardIterator board,
                           BoardGuide boardGuide,
                           CellNegotiator cellNegotiator,
-                          Cell cell) {
+                          OldCell cell) {
 
         while (!cellNegotiator.isEmpty(cell) && board.hasNeighborCell(cell, boardGuide.getNextCellPosition())) {
             cell = board.getNeighborCell(cell, boardGuide.getNextCellPosition());

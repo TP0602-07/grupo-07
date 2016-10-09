@@ -1,8 +1,7 @@
 package ar.fiuba.tdd.nikoli.model;
 
 
-import ar.fiuba.tdd.nikoli.model.board.GameBoard;
-import ar.fiuba.tdd.nikoli.model.board.Position;
+import ar.fiuba.tdd.nikoli.model.board.OldGameBoard;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 
@@ -13,10 +12,10 @@ import java.io.IOException;
 public class Game {
 
     private GameRules gameRules;
-    private GameBoard gameBoard;
+    private OldGameBoard gameBoard;
     private Rule ruleBroken; //indicate that rule is broken
 
-    public Game(GameRules gameRules, GameBoard gameBoard) {
+    public Game(GameRules gameRules, OldGameBoard gameBoard) {
         this.gameRules = gameRules;
         this.gameBoard = gameBoard;
         ruleBroken = null;
@@ -48,7 +47,7 @@ public class Game {
         return ruleBroken;
     }
 
-    public GameBoard getGameBoard() {
+    public OldGameBoard getGameBoard() {
         return gameBoard;
     }
 
