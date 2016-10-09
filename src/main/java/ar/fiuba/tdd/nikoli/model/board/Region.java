@@ -8,20 +8,20 @@ import java.util.List;
  */
 public class Region {
 
-    private List<Cell> cells;
+    private List<Position> positions;
     private Integer value;
 
 
     public Region() {
-        this.cells = new ArrayList<>();
+        this.positions = new ArrayList<>();
     }
 
-    public List<Cell> getCells() {
-        return cells;
+    public List<Position> getPositions() {
+        return this.positions;
     }
 
-    public void setCells(List<Cell> cells) {
-        this.cells = cells;
+    public void setPositions(List<Position> positions) {
+        this.positions = positions;
     }
 
     public Integer getValue() {
@@ -48,6 +48,7 @@ public class Region {
      * @return true si la region contiene una celda en una posicion dada, false en caso contrario.
      */
     public boolean containsPosition(Position position) {
+        // TODO implementar
         return true;
     }
 

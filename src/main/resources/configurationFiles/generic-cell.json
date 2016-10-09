@@ -1,7 +1,8 @@
 {
-  "positionX" : 1,
-  "positionY" : 1,
+  "position" : {
+    "coordinateX": 0,
+    "coordinateY": 0
+  },
   "value" : 0,
-  "rowValue" : 0,
-  "columnValue" : 0
+  "editable" : 0
 }
