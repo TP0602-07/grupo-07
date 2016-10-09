@@ -19,4 +19,28 @@ public class Position {
     public int getY() {
         return coordinateY;
     }
+
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+
+        if (object == null || this.getClass() != object.getClass()) {
+            return false;
+        }
+
+        Position position = (Position) object;
+
+        return (coordinateX == position.coordinateX && coordinateY == position.coordinateY);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = coordinateX;
+        result = 31 * result + coordinateY;
+        return result;
+    }
 }

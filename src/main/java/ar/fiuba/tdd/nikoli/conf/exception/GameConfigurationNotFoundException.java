@@ -6,6 +6,6 @@ package ar.fiuba.tdd.nikoli.conf.exception;
 public class GameConfigurationNotFoundException extends GameConfigurationException {
 
     public GameConfigurationNotFoundException(String gameName, String configurationType) {
-        super(configurationType + " conf file not found for game " + gameName);
+        super(configurationType + " configuration file not found for game " + gameName);
     }
 }

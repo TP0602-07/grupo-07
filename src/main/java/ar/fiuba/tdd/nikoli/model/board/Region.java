@@ -4,24 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clase que representa una region dentro del tablero.
+ * Clase que modela una region dentro del tablero.
  */
 public class Region {
 
-    private List<Cell> cells;
+    private List<Position> positions;
     private Integer value;
 
 
     public Region() {
-        this.cells = new ArrayList<>();
+        this.value = 0;
+        this.positions = new ArrayList<>();
     }
 
-    public List<Cell> getCells() {
-        return cells;
+    public List<Position> getPositions() {
+        return this.positions;
     }
 
-    public void setCells(List<Cell> cells) {
-        this.cells = cells;
+    public void setPositions(List<Position> positions) {
+        this.positions = positions;
     }
 
     public Integer getValue() {
@@ -43,12 +44,12 @@ public class Region {
 
 
     /**
-     * Metodo que verifica si una region contiene una celda de una posicion dada.
+     * Metodo que verifica si una region contiene una posicion dada.
      * @param position posicion a verificar.
-     * @return true si la region contiene una celda en una posicion dada, false en caso contrario.
+     * @return true si la region contiene a la posicion dada, false en caso contrario.
      */
     public boolean containsPosition(Position position) {
-        return true;
+        return this.getPositions().contains(position);
     }
 
 }

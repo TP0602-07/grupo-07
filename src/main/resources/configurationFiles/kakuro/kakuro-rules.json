@@ -1,4 +1,8 @@
-[
-  "KakuroNotRepeatNumberRule",
-  "KakuroNotRepeatNumberRule"
-]
+{
+  "gameName" : "kakuro",
+  "rulesNames" : [
+    "KakuroNotRepeatNumberRule",
+    "KakuroNotRepeatNumberRule"
+  ]
+}
+

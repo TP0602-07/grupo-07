@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.nikoli.conf.exception;
 
 /**
- * Created by pivancich on 29/9/2016.
+ * Excepcion que representa un error en el procesamiento de configuracion de los juegos.
  */
 public class GameConfigurationException extends Exception {
 
