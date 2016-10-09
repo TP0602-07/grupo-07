@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.nikoli.conf;
 
-
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationNotFoundException;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;

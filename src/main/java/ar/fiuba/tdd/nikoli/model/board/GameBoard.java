@@ -20,7 +20,6 @@ public class GameBoard {
 
         this.clueCells = new ArrayList<Cell>();
         this.regions = new ArrayList<Region>();
-
         this.matrix = new Cell[rows][columns];
     }
 
@@ -63,8 +62,16 @@ public class GameBoard {
      * @return regiones que se encuentren en una posicion
      */
     public List<Region> getRegionsForPosicion(Position position) {
-        // TODO implementar
-        return new ArrayList<Region>();
+        List<Region> regionsForPosition = new ArrayList<Region>();
+
+        // TODO: puede reemplazarse usando streams api
+        for (Region region : this.getRegions()) {
+            if (region.containsPosition(position)) {
+                regionsForPosition.add(region);
+            }
+        }
+
+        return regionsForPosition;
     }
 
     /**

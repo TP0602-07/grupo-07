@@ -37,41 +37,40 @@ public class GameConfigurationReader {
      * @throws GameConfigurationException si se produce un error en la lectura de reglas del juego.
      */
     public GameRules readGameRulesConfiguration(String gameName) throws GameConfigurationException {
-        List<String> rulesNames = this.readGameRulesNamesFromJson(gameName);
-        GameRules gameRules = this.processGameRules(gameName, rulesNames);
+        GameRules gameRules = this.readGameRulesNamesFromJson(gameName);
+        this.processGameRules(gameRules);
         return gameRules;
     }
 
+    //enable suppression
+    @SuppressWarnings("CPD-START")
     /**
-     * Lee los nombres de las reglas de un juego desde un archivo JSON.
-     * @param gameName nombre del juego
-     * @return una lista con los nombres de reglas de un juego obtenida de la lectura del JSON de configuracion
-     * @throws GameConfigurationNotFoundException si no se encuentra archivo de configuracion de juego
+     * Lee las reglas de un juego desde un archivo JSON.
+     * @param gameName nombre del juego.
+     * @return una lista con los nombres de reglas de un juego obtenida de la lectura del JSON de configuracion.
+     * @throws GameConfigurationNotFoundException si no se encuentra archivo de configuracion de juego.
      */
-    private List<String> readGameRulesNamesFromJson(String gameName) throws GameConfigurationNotFoundException {
+    private GameRules readGameRulesNamesFromJson(String gameName) throws GameConfigurationNotFoundException {
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         InputStreamReader jsonFile = this.getConfigurationFile(gameName, RULES_CONFIGURATION_TYPE);
 
-        @SuppressWarnings("unchecked")
-        List<String> rulesNames = gson.fromJson(jsonFile, List.class);
+        GameRules rulesNames = gson.fromJson(jsonFile, GameRules.class);
 
         return rulesNames;
     }
+    //disable suppression
+    @SuppressWarnings("CPD-END")
+
 
     /**
-     * Procesa la lista de nombres de reglas de un juego.
-     * @param gameName nombre del juego
-     * @param gameRulesNames lista de nombre de las reglas del juego
-     * @returnuna instancia de {@link GameRules}
-     * @throws GameConfigurationException si se produjo un error en el procesamiento de las reglas del juego
+     * Procesa las reglas de un juego.
+     * @param gameRules instancia de {@link GameRules}.
+     * @throws GameConfigurationException si se produjo un error en el procesamiento de las reglas del juego.
      */
-    private GameRules processGameRules(String gameName, List<String> gameRulesNames) throws GameConfigurationException {
-        GameRules gameRules = new GameRules();
-        gameRules.setGameName(gameName);
-
+    private void processGameRules(GameRules gameRules) throws GameConfigurationException {
         List<Rule> rules = new ArrayList<Rule>();
 
-        for (String name: gameRulesNames) {
+        for (String name: gameRules.getRulesNames()) {
             try {
                 Rule rule = GameRulesFactory.getInstance().createRuleByName(name);
                 rules.add(rule);
@@ -81,22 +80,23 @@ public class GameConfigurationReader {
         }
 
         gameRules.setRules(rules);
-
-        return gameRules;
     }
 
 
     /**
      * Lee el tablero de un juego dado su nombre
      * @param gameName nombre del juego.
-     * @return una instancia de {@link GameBoard}
+     * @return una instancia de {@link GameBoard}.
      * @throws GameConfigurationException si se produce un error en la lectura del tablero del juego.
      */
     public GameBoard readGameBoardConfiguration(String gameName) throws  GameConfigurationException {
         GameBoard gameBoard = this.readGameBoardFromJson(gameName);
+        this.processGameBoard(gameBoard);
         return gameBoard;
     }
 
+    //enable suppression
+    @SuppressWarnings("CPD-START")
     /**
      * Lee el tablero de un juego desde un archivo JSON.
      * @param gameName nombre del juego.
@@ -106,17 +106,33 @@ public class GameConfigurationReader {
     private GameBoard readGameBoardFromJson(String gameName) throws GameConfigurationNotFoundException {
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         InputStreamReader jsonFile = this.getConfigurationFile(gameName, BOARD_CONFIGURATION_TYPE);
+
         GameBoard board = gson.fromJson(jsonFile, GameBoard.class);
 
         return board;
     }
+    //disable suppression
+    @SuppressWarnings("CPD-END")
 
+
+    /**
+     * Metodo que procesa el tablero para generar las celdas vacias.
+     *
+     * @param gameBoard instancia de {@link GameBoard}.
+     */
+    private void processGameBoard(GameBoard gameBoard) {
+        /*
+         TODO: implementar para que a partir de las dimensiones del tablero y sus celdas predefinidas,
+         se generan las celdas vacias.
+        */
+
+    }
 
     /**
      * Retorna un archivo de configuracion.
      * @param gameName nombre del juego.
-     * @param configurationType tipo de configuracion (reglas o tablero)
-     * @return un {@link InputStreamReader} del archivo de configuracion
+     * @param configurationType tipo de configuracion (reglas o tablero).
+     * @return un {@link InputStreamReader} del archivo de configuracion.
      * @throws GameConfigurationNotFoundException si no se encontro el archivo de configuracion del juego pedido.
      */
     private InputStreamReader getConfigurationFile(String gameName, String configurationType) throws GameConfigurationNotFoundException {

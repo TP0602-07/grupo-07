@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clase que representa una region dentro del tablero.
+ * Clase que modela una region dentro del tablero.
  */
 public class Region {
 
@@ -13,6 +13,7 @@ public class Region {
 
 
     public Region() {
+        this.value = 0;
         this.positions = new ArrayList<>();
     }
 
@@ -43,13 +44,12 @@ public class Region {
 
 
     /**
-     * Metodo que verifica si una region contiene una celda de una posicion dada.
+     * Metodo que verifica si una region contiene una posicion dada.
      * @param position posicion a verificar.
-     * @return true si la region contiene una celda en una posicion dada, false en caso contrario.
+     * @return true si la region contiene a la posicion dada, false en caso contrario.
      */
     public boolean containsPosition(Position position) {
-        // TODO implementar
-        return true;
+        return this.getPositions().contains(position);
     }
 
 }
