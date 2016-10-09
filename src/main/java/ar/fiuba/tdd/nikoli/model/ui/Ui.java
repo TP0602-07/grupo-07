@@ -79,7 +79,7 @@ public class Ui {
         String gameName = "";
         if (option.equals("1")) {
             gameName = "sudoku";
-        } else {
+        } else if (option.equals("2")){
             gameName = "kakuro";
         }
         GameBoard board = reader.readGameBoardConfiguration(gameName);
