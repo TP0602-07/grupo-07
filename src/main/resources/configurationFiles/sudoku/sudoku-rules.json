@@ -1,6 +1,6 @@
 {
   "gameName" : "sudoku",
   "rulesNames" : [
-    "SudokuNotRepeatNumberRule"
+    "NotRepeatNumberRule"
   ]
 }
