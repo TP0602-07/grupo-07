@@ -1,9 +1,6 @@
 {
     "gameName" : "testGame",
     "rulesNames" : [
-        "KakuroNotRepeatNumberRule",
-        "KakuroNotRepeatNumberRule"
+        "NotRepeatNumberRule"
     ]
 }
-
-

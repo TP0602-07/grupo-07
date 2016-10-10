@@ -1,34 +1,32 @@
 package ar.fiuba.tdd.nikoli.model;
 
 
-import ar.fiuba.tdd.nikoli.model.board.OldGameBoard;
+import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 
 import java.io.IOException;
 
-
-
 public class Game {
 
     private GameRules gameRules;
-    private OldGameBoard gameBoard;
+    private GameBoard gameBoard;
     private Rule ruleBroken; //indicate that rule is broken
 
-    public Game(GameRules gameRules, OldGameBoard gameBoard) {
+    public Game(GameRules gameRules, GameBoard gameBoard) {
         this.gameRules = gameRules;
         this.gameBoard = gameBoard;
         ruleBroken = null;
     }
 
     public void play(Move move) throws IOException {
-        gameBoard.insert(move);
+        gameBoard.insertValue(move);
     }
 
-    private boolean validate() {
+    private boolean validate(Move move) {
         boolean isValid = true;
         for (Rule rule : gameRules.getRules()) {
-            if (rule.isRuleBroken(gameBoard)) {
+            if (rule.isRuleBroken(gameBoard, move.getPosition())) {
                 isValid = false;
                 ruleBroken = rule;
             }
@@ -37,7 +35,7 @@ public class Game {
     }
 
     public String checkVictory() {
-        if (gameBoard.isFull() && this.validate()) {
+        if (gameBoard.isFull()) {
             return "You win!";
         }
         return "You lose! The rule " + ruleBroken.getName() + " is broken! ";
@@ -47,7 +45,7 @@ public class Game {
         return ruleBroken;
     }
 
-    public OldGameBoard getGameBoard() {
+    public GameBoard getGameBoard() {
         return gameBoard;
     }
 

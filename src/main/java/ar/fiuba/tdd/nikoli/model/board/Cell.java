@@ -38,4 +38,8 @@ public class Cell {
         return this.editable;
     }
 
+    public boolean hasValue() {
+        return value != null;
+    }
+
 }

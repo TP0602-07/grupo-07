@@ -81,10 +81,9 @@ public class Ui {
         } else if (option.equals("2")){
             gameName = "kakuro";
         }
-        //OldGameBoard board = reader.readGameBoardConfiguration(gameName);
+
         GameRules rules = reader.readGameRulesConfiguration(gameName);
         this.game = new Game(rules,null);
-
     }
 
     private Move getMoveFromInput(String input) throws IOException {

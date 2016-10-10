@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
+import ar.fiuba.tdd.nikoli.model.Move;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,8 +81,47 @@ public class GameBoard {
      * @return todas las celdas del tablero.
      */
     public Cell[][] getMatrix() {
-        // TODO si no sirve eliminarlo
+        // TODO si no sirve eliminarlo el metodo
         return this.matrix.clone();
+    }
+
+    /**
+     * Indica si el tablero tiene completas todas sus celdas.
+     * @return true si la el tablero esta completo.
+     */
+    public boolean isFull() {
+        boolean isFull = true;
+        for (Cell[] row : matrix) {
+            for (Cell column : row) {
+                if (column.isEditable() && !column.hasValue()) {
+                    isFull = false;
+                    break;
+                }
+            }
+        }
+        return isFull;
+    }
+
+    /**
+     * Insert el valor de la jugada en la posicion indicada por la jugada.
+     * @param move jugada a insertar en el tablero.
+     */
+    public void insertValue(Move move) {
+
+        //TODO se hace el new porque la celda no esta instaciada -> Refactorizarlo, instanciar las celdas al momento que se crea la matriz
+        matrix[move.getPosition().getX()][move.getPosition().getY()] = new Cell(move.getPosition(),move.getValue(), true);
+
+        matrix[move.getPosition().getX()][move.getPosition().getY()].setValue(move.getValue());
+    }
+
+    /**
+     * Obtiene el valor de la celda que esta en la posicion indicada.
+     * @param position de la celda de que se quiere obtener su valor.
+     * @return Devuelve el valor de la celda que esta en la posicion indicada.
+     */
+    public int getValueForPosition(Position position) {
+        Cell cell = matrix[position.getX()][position.getY()];
+        return cell.getValue();
     }
 
 }
