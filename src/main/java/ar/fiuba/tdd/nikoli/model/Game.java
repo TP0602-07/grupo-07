@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.nikoli.model;
 
 
+import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
@@ -19,19 +20,23 @@ public class Game {
         ruleBroken = null;
     }
 
-    public void play(Move move) throws IOException {
+    /**
+     * Chequea validez de la jugada y lo inserta en el tablero en caso afirmativo.
+     * @param move instancia de {@link Move}.
+     * @throws InvalidMoveException si se produjo un error en el procesamiento de las reglas del juego.
+     */
+    public void play(Move move) throws InvalidMoveException {
+        this.validate(move);
         gameBoard.insertValue(move);
     }
 
-    private boolean validate(Move move) {
-        boolean isValid = true;
+    private void validate(Move move) throws InvalidMoveException {
         for (Rule rule : gameRules.getRules()) {
             if (rule.isRuleBroken(gameBoard, move.getPosition())) {
-                isValid = false;
                 ruleBroken = rule;
+                throw new InvalidMoveException("Incorrect Move. Please try again\n");
             }
         }
-        return isValid;
     }
 
     public String checkVictory() {
