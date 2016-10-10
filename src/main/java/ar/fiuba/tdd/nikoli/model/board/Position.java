@@ -43,4 +43,19 @@ public class Position {
         result = 31 * result + coordinateY;
         return result;
     }
+
+    public boolean isContiguouosHorizontalOrVertical(Position position) {
+        boolean isContiguous = false;
+        if (this.coordinateX - position.getX() <= 1 || this.coordinateX - position.getX() >= -1) {
+            isContiguous = true;
+        }
+        if (isContiguous && (this.coordinateY - position.getY() < 0  || this.coordinateY - position.getY() > 0)) {
+            isContiguous = false;
+        } else {
+            if (this.coordinateY - position.getY() <= 1 || this.coordinateY - position.getY() >= -1) {
+                isContiguous = true;
+            }
+        }
+        return isContiguous;
+    }
 }
