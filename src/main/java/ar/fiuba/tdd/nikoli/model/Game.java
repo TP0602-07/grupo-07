@@ -26,8 +26,8 @@ public class Game {
      * @throws InvalidMoveException si se produjo un error en el procesamiento de las reglas del juego.
      */
     public void play(Move move) throws InvalidMoveException {
-        this.validate(move);
         gameBoard.insertValue(move);
+        this.validate(move);
     }
 
     private void validate(Move move) throws InvalidMoveException {
