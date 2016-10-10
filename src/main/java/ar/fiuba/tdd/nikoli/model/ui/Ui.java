@@ -81,10 +81,9 @@ public class Ui {
         } else {
             gameName = "kakuro";
         }
-        //OldGameBoard board = reader.readGameBoardConfiguration(gameName);
+
         GameRules rules = reader.readGameRulesConfiguration(gameName);
         this.game = new Game(rules,null);
-
     }
 
     private Move getMoveFromInput(String input) throws IOException {
