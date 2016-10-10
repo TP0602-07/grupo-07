@@ -139,7 +139,7 @@ public class Ui {
                 || input.equals("5") || input.equals("6"));
     }
 
-    private Move getMove(String moveString) throws InvalidUserInputException {
+    public Move getMove(String moveString) throws InvalidUserInputException {
         return getMoveFromInput(moveString);
     }
 

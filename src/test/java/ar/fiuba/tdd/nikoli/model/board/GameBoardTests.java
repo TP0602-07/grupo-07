@@ -15,24 +15,18 @@ public class GameBoardTests {
 
     private static GameBoard board = new GameBoard(5,5);
 
-
     @BeforeClass
     public static void configureTests() {
-        Position reg1pos1 = new Position(1, 1);
-        Position reg1pos2 = new Position(2, 2);
-        Position reg1pos3 = new Position(3, 3);
         List<Position> positionsReg1 = new ArrayList<Position>();
-        positionsReg1.add(reg1pos1);
-        positionsReg1.add(reg1pos2);
-        positionsReg1.add(reg1pos3);
+        positionsReg1.add(new Position(1,1));
+        positionsReg1.add(new Position(2,2));
+        positionsReg1.add(new Position(3,3));
         Region region1 = new Region();
         region1.setPositions(positionsReg1);
 
-        Position reg2pos1 = new Position(1, 1);
-        Position reg2pos2 = new Position(4, 4);
         List<Position> positionsReg2 = new ArrayList<Position>();
-        positionsReg2.add(reg2pos1);
-        positionsReg2.add(reg2pos2);
+        positionsReg2.add(new Position(1, 1));
+        positionsReg2.add(new Position(4, 4));
         Region region2 = new Region();
         region2.setPositions(positionsReg2);
 
