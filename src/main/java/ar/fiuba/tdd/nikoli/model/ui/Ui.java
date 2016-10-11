@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.nikoli.model.ui;
 
-import ar.fiuba.tdd.nikoli.conf.GameConfigurationReader;
+import ar.fiuba.tdd.nikoli.conf.GameBoardConfigurationReader;
+import ar.fiuba.tdd.nikoli.conf.GameRulesConfigurationReader;
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.conf.exception.InvalidUserInputException;
@@ -17,7 +18,8 @@ import java.nio.charset.StandardCharsets;
 
 
 public class Ui {
-    private GameConfigurationReader reader;
+    private GameRulesConfigurationReader rulesReader;
+    private GameBoardConfigurationReader boardReader;
     private BufferedReader in;
     private Monitor monitor;
     private Game game;
@@ -34,7 +36,8 @@ public class Ui {
     public Ui(Monitor monitor) {
         this.monitor = monitor;
         in = new BufferedReader(new InputStreamReader(System.in,StandardCharsets.UTF_8));
-        reader = new GameConfigurationReader();
+        rulesReader = new GameRulesConfigurationReader();
+        boardReader = new GameBoardConfigurationReader();
     }
 
     public int startGame() {
@@ -105,8 +108,8 @@ public class Ui {
 
     private void buildGame(String option) throws GameConfigurationException {
         String gameName = this.getNameFromOption(option);
-        GameRules rules = reader.readGameRulesConfiguration(gameName);
-        GameBoard board = reader.readGameBoardConfiguration(gameName);
+        GameRules rules = rulesReader.readConfiguration(gameName);
+        GameBoard board = boardReader.readConfiguration(gameName);
         this.game = new Game(rules, board);
     }
 
