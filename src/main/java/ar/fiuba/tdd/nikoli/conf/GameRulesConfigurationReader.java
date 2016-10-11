@@ -18,7 +18,7 @@ public class GameRulesConfigurationReader extends GameConfigurationReader<GameRu
 
 
     public GameRulesConfigurationReader() {
-        super(GameRules.class);
+        this.clazz = GameRules.class;
     }
 
 

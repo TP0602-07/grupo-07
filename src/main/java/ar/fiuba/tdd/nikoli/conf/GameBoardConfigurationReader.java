@@ -12,7 +12,7 @@ public class GameBoardConfigurationReader extends GameConfigurationReader<GameBo
 
 
     public GameBoardConfigurationReader() {
-        super(GameBoard.class);
+        this.clazz = GameBoard.class;
     }
 
 

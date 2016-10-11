@@ -24,12 +24,7 @@ public abstract class GameConfigurationReader<T> {
 
     private Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
 
-    private Class<T> clazz;
-
-
-    protected GameConfigurationReader(Class<T> clazz) {
-        this.clazz = clazz;
-    }
+    protected Class<T> clazz;
 
 
     /**
