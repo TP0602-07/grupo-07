@@ -1,29 +1,40 @@
 {
-  "rows" : 9,
-  "columns" : 9,
+  "rows" : 3,
+  "columns" : 3,
   "clueCells" : [ {
-    "value" : 0,
+    "value" : 8,
     "position" : {
       "coordinateX" : 1,
-      "coordinateY" : 1,
-      "editable" : false
-    }
+      "coordinateY" : 1
+    },
+    "editable" : false
   }, {
-    "value" : 0,
+    "value" : 7,
     "position" : {
-      "coordinateX" : 2,
-      "coordinateY" : 2,
-      "editable" : true
-    }
+      "coordinateX" : 0,
+      "coordinateY" : 2
+    },
+    "editable" : false
   }
 
   ],
   "regions" : [{
     "value" : 0,
-    "positions" : [{
-      "coordinateX" : 1,
-      "coordinateY" : 1
-    }]
+    "positions" :
+    [
+      {
+        "coordinateX" : 0,
+        "coordinateY" : 0
+      },
+      {
+        "coordinateX" : 0,
+        "coordinateY" : 1
+      },
+      {
+        "coordinateX" : 0,
+        "coordinateY" : 2
+      }
+    ]
   }, {
     "value" : 0,
     "positions" : [{

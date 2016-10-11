@@ -1,6 +1,8 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
+import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.model.Move;
+import ar.fiuba.tdd.nikoli.model.board.exception.CellNotEditableException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,34 +21,6 @@ public class GameBoard {
     public GameBoard(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
-
-        this.clueCells = new ArrayList<Cell>();
-        this.regions = new ArrayList<Region>();
-        this.matrix = new Cell[rows][columns];
-    }
-
-    public int getColumns() {
-        return columns;
-    }
-
-    public void setColumns(int columns) {
-        this.columns = columns;
-    }
-
-    public List<Cell> getClueCells() {
-        return clueCells;
-    }
-
-    public void setClueCells(List<Cell> cells) {
-        this.clueCells = cells;
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public void setRows(int rows) {
-        this.rows = rows;
     }
 
     public List<Region> getRegions() {
@@ -56,7 +30,6 @@ public class GameBoard {
     public void setRegions(List<Region> regions) {
         this.regions = regions;
     }
-
 
     /**
      * Metodo que devuelve las regiones relacionadas a una posicion.
@@ -81,7 +54,6 @@ public class GameBoard {
      * @return todas las celdas del tablero.
      */
     public Cell[][] getMatrix() {
-        // TODO si no sirve eliminarlo el metodo
         return this.matrix.clone();
     }
 
@@ -106,12 +78,13 @@ public class GameBoard {
      * Insert el valor de la jugada en la posicion indicada por la jugada.
      * @param move jugada a insertar en el tablero.
      */
-    public void insertValue(Move move) {
+    public void insertValue(Move move) throws InvalidMoveException {
 
-        //TODO se hace el new porque la celda no esta instaciada -> Refactorizarlo, instanciar las celdas al momento que se crea la matriz
-        matrix[move.getPosition().getX()][move.getPosition().getY()] = new Cell(move.getPosition(),move.getValue(), true);
-
-        matrix[move.getPosition().getX()][move.getPosition().getY()].setValue(move.getValue());
+        try {
+            matrix[move.getPosition().getX()][move.getPosition().getY()].setValue(move.getValue());
+        } catch (CellNotEditableException e) {
+            throw new InvalidMoveException(e.getMessage());
+        }
     }
 
     /**
@@ -119,9 +92,34 @@ public class GameBoard {
      * @param position de la celda de que se quiere obtener su valor.
      * @return Devuelve el valor de la celda que esta en la posicion indicada.
      */
-    public int getValueForPosition(Position position) {
+    public Integer getValueForPosition(Position position) {
         Cell cell = matrix[position.getX()][position.getY()];
         return cell.getValue();
     }
+
+    /**
+     * Construye las matriz con sus celdas a partir de la cantidad de filas y columnas ya establecidas.
+     */
+    public void buildMatrix() {
+        this.matrix = new Cell[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                this.matrix[i][j] = new Cell(new Position(i,j));
+            }
+        }
+    }
+
+    /**
+     * Inserta la celdas pistas en la matriz.
+     */
+    public void buildClueCells() {
+
+        for (Cell cell: this.clueCells) {
+            this.matrix[cell.getPosition().getX()][cell.getPosition().getY()] = cell;
+        }
+    }
+
+
 
 }

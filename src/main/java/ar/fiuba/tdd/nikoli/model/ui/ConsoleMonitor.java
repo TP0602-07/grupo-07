@@ -23,12 +23,10 @@ public class ConsoleMonitor extends Monitor {
             rowString.append("|");
 
             for (Cell column : row) {
-                rowString.append(column.getValue());
+                rowString.append(column.hasValue() ? column.getValue() : " ");
                 rowString.append("|");
             }
             System.out.println(rowString);
-
-            System.out.println("---------------------------------------------------------------------");
         }
     }
 }
