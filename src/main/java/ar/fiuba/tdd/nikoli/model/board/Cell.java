@@ -12,7 +12,7 @@ public class Cell {
 
     public Cell(Position position) {
         this.position = position;
-        this.value = 0;
+        this.value = null;
         this.editable = Boolean.FALSE;
     }
 
