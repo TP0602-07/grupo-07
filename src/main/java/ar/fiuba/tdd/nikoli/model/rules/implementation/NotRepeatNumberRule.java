@@ -22,13 +22,15 @@ public class NotRepeatNumberRule extends Rule {
 
         for (Position position : region.getPositions()) {
 
-            int value = board.getValueForPosition(position);
+            Integer value = board.getValueForPosition(position);
 
-            if (hashSet.contains(value)) {
-                thereAreRepeated = true;
-                break;
-            } else {
-                hashSet.add(value);
+            if (value != null) {
+                if (hashSet.contains(value)) {
+                    thereAreRepeated = true;
+                    break;
+                } else {
+                    hashSet.add(value);
+                }
             }
         }
 

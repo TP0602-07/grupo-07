@@ -4,15 +4,64 @@
   "clueCells" : [
     {
       "position" : {
-        "coordinateX" : 1,
+        "coordinateX" : 0,
+        "coordinateY" : 0
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 0,
         "coordinateY" : 1
       },
       "editable" : false
     },
     {
       "position" : {
-        "coordinateX" : 1,
+        "coordinateX" : 0,
         "coordinateY" : 2
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 0,
+        "coordinateY" : 3
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 0,
+        "coordinateY" : 4
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 0,
+        "coordinateY" : 5
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 0,
+        "coordinateY" : 6
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 0,
+        "coordinateY" : 7
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 1,
+        "coordinateY" : 0
       },
       "editable" : false
     },
@@ -32,169 +81,120 @@
     },
     {
       "position" : {
-        "coordinateX" : 1,
-        "coordinateY" : 5
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 1,
-        "coordinateY" : 6
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 1,
-        "coordinateY" : 7
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 1,
-        "coordinateY" : 8
+        "coordinateX" : 2,
+        "coordinateY" : 0
       },
       "editable" : false
     },
     {
       "position" : {
         "coordinateX" : 2,
-        "coordinateY" : 1
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 2,
-        "coordinateY" : 4
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 2,
-        "coordinateY" : 5
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 3,
-        "coordinateY" : 1
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 3,
-        "coordinateY" : 4
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 4,
-        "coordinateY" : 1
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 4,
-        "coordinateY" : 7
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 4,
-        "coordinateY" : 8
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 5,
-        "coordinateY" : 1
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 5,
-        "coordinateY" : 2
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 5,
-        "coordinateY" : 5
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 5,
-        "coordinateY" : 8
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 6,
-        "coordinateY" : 1
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 6,
-        "coordinateY" : 2
-      },
-      "editable" : false
-    },
-    {
-      "position" : {
-        "coordinateX" : 6,
         "coordinateY" : 3
       },
       "editable" : false
     },
     {
       "position" : {
-        "coordinateX" : 7,
-        "coordinateY" : 1
+        "coordinateX" : 3,
+        "coordinateY" : 0
       },
       "editable" : false
     },
     {
       "position" : {
-        "coordinateX" : 7,
+        "coordinateX" : 3,
         "coordinateY" : 6
       },
       "editable" : false
     },
     {
       "position" : {
-        "coordinateX" : 8,
+        "coordinateX" : 3,
+        "coordinateY" : 7
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 4,
+        "coordinateY" : 0
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 4,
         "coordinateY" : 1
       },
       "editable" : false
     },
     {
       "position" : {
-        "coordinateX" : 8,
+        "coordinateX" : 4,
+        "coordinateY" : 4
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 4,
+        "coordinateY" : 7
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 5,
+        "coordinateY" : 0
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 5,
+        "coordinateY" : 1
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 5,
+        "coordinateY" : 2
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 6,
+        "coordinateY" : 0
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 6,
         "coordinateY" : 5
       },
       "editable" : false
     },
     {
       "position" : {
-        "coordinateX" : 8,
-        "coordinateY" : 6
+        "coordinateX" : 7,
+        "coordinateY" : 0
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 7,
+        "coordinateY" : 4
+      },
+      "editable" : false
+    },
+    {
+      "position" : {
+        "coordinateX" : 7,
+        "coordinateY" : 5
       },
       "editable" : false
     }
@@ -205,16 +205,16 @@
       "value" : 23,
       "positions" : [
         {
+          "coordinateX" : 1,
+          "coordinateY" : 1
+        },
+        {
           "coordinateX" : 2,
-          "coordinateY" : 2
+          "coordinateY" : 1
         },
         {
           "coordinateX" : 3,
-          "coordinateY" : 2
-        },
-        {
-          "coordinateX" : 4,
-          "coordinateY" : 2
+          "coordinateY" : 1
         }
       ]
     },
@@ -222,12 +222,12 @@
       "value" : 11,
       "positions" : [
         {
-          "coordinateX" : 7,
-          "coordinateY" : 2
+          "coordinateX" : 6,
+          "coordinateY" : 1
         },
         {
-          "coordinateX" : 8,
-          "coordinateY" : 2
+          "coordinateX" : 7,
+          "coordinateY" : 1
         }
       ]
     },
@@ -235,20 +235,20 @@
       "value" : 30,
       "positions" : [
         {
+          "coordinateX" : 1,
+          "coordinateY" : 2
+        },
+        {
           "coordinateX" : 2,
-          "coordinateY" : 3
+          "coordinateY" : 2
         },
         {
           "coordinateX" : 3,
-          "coordinateY" : 3
+          "coordinateY" : 2
         },
         {
           "coordinateX" : 4,
-          "coordinateY" : 3
-        },
-        {
-          "coordinateX" : 5,
-          "coordinateY" : 3
+          "coordinateY" : 2
         }
       ]
     },
@@ -256,12 +256,12 @@
       "value" : 10,
       "positions" : [
         {
-          "coordinateX" : 7,
-          "coordinateY" : 3
+          "coordinateX" : 6,
+          "coordinateY" : 2
         },
         {
-          "coordinateX" : 8,
-          "coordinateY" : 3
+          "coordinateX" : 7,
+          "coordinateY" : 2
         }
       ]
     },
@@ -269,24 +269,24 @@
       "value" : 15,
       "positions" : [
         {
+          "coordinateX" : 3,
+          "coordinateY" : 3
+        },
+        {
           "coordinateX" : 4,
-          "coordinateY" : 4
+          "coordinateY" : 3
         },
         {
           "coordinateX" : 5,
-          "coordinateY" : 4
+          "coordinateY" : 3
         },
         {
           "coordinateX" : 6,
-          "coordinateY" : 4
+          "coordinateY" : 3
         },
         {
           "coordinateX" : 7,
-          "coordinateY" : 4
-        },
-        {
-          "coordinateX" : 8,
-          "coordinateY" : 4
+          "coordinateY" : 3
         }
       ]
     },
@@ -294,12 +294,12 @@
       "value" : 17,
       "positions" : [
         {
-          "coordinateX" : 3,
-          "coordinateY" : 5
+          "coordinateX" : 2,
+          "coordinateY" : 4
         },
         {
-          "coordinateX" : 4,
-          "coordinateY" : 5
+          "coordinateX" : 3,
+          "coordinateY" : 4
         }
       ]
     },
@@ -307,12 +307,12 @@
       "value" : 7,
       "positions" : [
         {
-          "coordinateX" : 6,
-          "coordinateY" : 5
+          "coordinateX" : 5,
+          "coordinateY" : 4
         },
         {
-          "coordinateX" : 7,
-          "coordinateY" : 5
+          "coordinateX" : 6,
+          "coordinateY" : 4
         }
       ]
     },
@@ -320,13 +320,43 @@
       "value" : 27,
       "positions" : [
         {
+          "coordinateX" : 1,
+          "coordinateY" : 5
+        },
+        {
           "coordinateX" : 2,
-          "coordinateY" : 6
+          "coordinateY" : 5
         },
         {
           "coordinateX" : 3,
+          "coordinateY" : 5
+        },
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 5
+        },
+        {
+          "coordinateX" : 5,
+          "coordinateY" : 5
+        }
+      ]
+    },
+    {
+      "value" : 12,
+      "positions" : [
+        {
+          "coordinateX" : 1,
           "coordinateY" : 6
         },
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 6
+        }
+      ]
+    },
+    {
+      "value" : 12,
+      "positions" : [
         {
           "coordinateX" : 4,
           "coordinateY" : 6
@@ -338,24 +368,28 @@
         {
           "coordinateX" : 6,
           "coordinateY" : 6
+        },
+        {
+          "coordinateX" : 7,
+          "coordinateY" : 6
         }
       ]
     },
     {
-      "value" : 12,
+      "value" : 16,
       "positions" : [
         {
-          "coordinateX" : 2,
+          "coordinateX" : 1,
           "coordinateY" : 7
         },
         {
-          "coordinateX" : 3,
+          "coordinateX" : 2,
           "coordinateY" : 7
         }
       ]
     },
     {
-      "value" : 12,
+      "value" : 7,
       "positions" : [
         {
           "coordinateX" : 5,
@@ -368,40 +402,6 @@
         {
           "coordinateX" : 7,
           "coordinateY" : 7
-        },
-        {
-          "coordinateX" : 8,
-          "coordinateY" : 7
-        }
-      ]
-    },
-    {
-      "value" : 16,
-      "positions" : [
-        {
-          "coordinateX" : 2,
-          "coordinateY" : 8
-        },
-        {
-          "coordinateX" : 3,
-          "coordinateY" : 8
-        }
-      ]
-    },
-    {
-      "value" : 7,
-      "positions" : [
-        {
-          "coordinateX" : 6,
-          "coordinateY" : 8
-        },
-        {
-          "coordinateX" : 7,
-          "coordinateY" : 8
-        },
-        {
-          "coordinateX" : 8,
-          "coordinateY" : 8
         }
       ]
     },
@@ -410,12 +410,12 @@
       "value" : 16,
       "positions" : [
         {
-          "coordinateX" : 2,
-          "coordinateY" : 2
+          "coordinateX" : 1,
+          "coordinateY" : 1
         },
         {
-          "coordinateX" : 2,
-          "coordinateY" : 3
+          "coordinateX" : 1,
+          "coordinateY" : 2
         }
       ]
     },
@@ -423,16 +423,16 @@
       "value" : 24,
       "positions" : [
         {
-          "coordinateX" : 2,
+          "coordinateX" : 1,
+          "coordinateY" : 5
+        },
+        {
+          "coordinateX" : 1,
           "coordinateY" : 6
         },
         {
-          "coordinateX" : 2,
+          "coordinateX" : 1,
           "coordinateY" : 7
-        },
-        {
-          "coordinateX" : 2,
-          "coordinateY" : 8
         }
       ]
     },
@@ -440,12 +440,12 @@
       "value" : 17,
       "positions" : [
         {
-          "coordinateX" : 3,
-          "coordinateY" : 2
+          "coordinateX" : 2,
+          "coordinateY" : 1
         },
         {
-          "coordinateX" : 3,
-          "coordinateY" : 3
+          "coordinateX" : 2,
+          "coordinateY" : 2
         }
       ]
     },
@@ -453,20 +453,20 @@
       "value" : 29,
       "positions" : [
         {
-          "coordinateX" : 3,
+          "coordinateX" : 2,
+          "coordinateY" : 4
+        },
+        {
+          "coordinateX" : 2,
           "coordinateY" : 5
         },
         {
-          "coordinateX" : 3,
+          "coordinateX" : 2,
           "coordinateY" : 6
         },
         {
-          "coordinateX" : 3,
+          "coordinateX" : 2,
           "coordinateY" : 7
-        },
-        {
-          "coordinateX" : 3,
-          "coordinateY" : 8
         }
       ]
     },
@@ -474,24 +474,24 @@
       "value" : 35,
       "positions" : [
         {
-          "coordinateX" : 4,
-          "coordinateY" : 2
-        },
-        {
-          "coordinateX" : 4,
-          "coordinateY" : 3
-        },
-        {
-          "coordinateX" : 4,
-          "coordinateY" : 4
-        },
-        {
-          "coordinateX" : 4,
-          "coordinateY" : 5
+          "coordinateX" : 3,
+          "coordinateY" : 1
         },
         {
           "coordinateX" : 3,
-          "coordinateY" : 6
+          "coordinateY" : 2
+        },
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 3
+        },
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 4
+        },
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 5
         }
       ]
     },
@@ -499,12 +499,12 @@
       "value" : 7,
       "positions" : [
         {
-          "coordinateX" : 5,
-          "coordinateY" : 3
+          "coordinateX" : 4,
+          "coordinateY" : 2
         },
         {
-          "coordinateX" : 5,
-          "coordinateY" : 4
+          "coordinateX" : 4,
+          "coordinateY" : 3
         }
       ]
     },
@@ -512,12 +512,12 @@
       "value" : 8,
       "positions" : [
         {
-          "coordinateX" : 5,
-          "coordinateY" : 6
+          "coordinateX" : 4,
+          "coordinateY" : 5
         },
         {
-          "coordinateX" : 5,
-          "coordinateY" : 7
+          "coordinateX" : 4,
+          "coordinateY" : 6
         }
       ]
     },
@@ -525,24 +525,24 @@
       "value" : 16,
       "positions" : [
         {
-          "coordinateX" : 6,
+          "coordinateX" : 5,
+          "coordinateY" : 3
+        },
+        {
+          "coordinateX" : 5,
           "coordinateY" : 4
         },
         {
-          "coordinateX" : 6,
+          "coordinateX" : 5,
           "coordinateY" : 5
         },
         {
-          "coordinateX" : 6,
+          "coordinateX" : 5,
           "coordinateY" : 6
         },
         {
-          "coordinateX" : 6,
+          "coordinateX" : 5,
           "coordinateY" : 7
-        },
-        {
-          "coordinateX" : 6,
-          "coordinateY" : 8
         }
       ]
     },
@@ -550,20 +550,20 @@
       "value" : 21,
       "positions" : [
         {
-          "coordinateX" : 7,
+          "coordinateX" : 6,
+          "coordinateY" : 1
+        },
+        {
+          "coordinateX" : 6,
           "coordinateY" : 2
         },
         {
-          "coordinateX" : 7,
+          "coordinateX" : 6,
           "coordinateY" : 3
         },
         {
-          "coordinateX" : 7,
+          "coordinateX" : 6,
           "coordinateY" : 4
-        },
-        {
-          "coordinateX" : 7,
-          "coordinateY" : 5
         }
       ]
     },
@@ -571,12 +571,12 @@
       "value" : 5,
       "positions" : [
         {
-          "coordinateX" : 7,
-          "coordinateY" : 7
+          "coordinateX" : 6,
+          "coordinateY" : 6
         },
         {
-          "coordinateX" : 7,
-          "coordinateY" : 8
+          "coordinateX" : 6,
+          "coordinateY" : 7
         }
       ]
     },
@@ -584,16 +584,16 @@
       "value" : 6,
       "positions" : [
         {
-          "coordinateX" : 8,
+          "coordinateX" : 7,
+          "coordinateY" : 1
+        },
+        {
+          "coordinateX" : 7,
           "coordinateY" : 2
         },
         {
-          "coordinateX" : 8,
+          "coordinateX" : 7,
           "coordinateY" : 3
-        },
-        {
-          "coordinateX" : 8,
-          "coordinateY" : 4
         }
       ]
     },
@@ -601,12 +601,12 @@
       "value" : 3,
       "positions" : [
         {
-          "coordinateX" : 8,
-          "coordinateY" : 7
+          "coordinateX" : 7,
+          "coordinateY" : 6
         },
         {
-          "coordinateX" : 8,
-          "coordinateY" : 8
+          "coordinateX" : 7,
+          "coordinateY" : 7
         }
       ]
     }

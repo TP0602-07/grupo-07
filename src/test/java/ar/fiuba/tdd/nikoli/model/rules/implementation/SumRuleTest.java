@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
+import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
@@ -21,7 +22,7 @@ public class SumRuleTest {
     private static final int COLUMNS = 9;
 
 
-    private GameBoard buildGameBoardWithNumbersEqualsToTheSum() {
+    private GameBoard buildGameBoardWithNumbersEqualsToTheSum() throws InvalidMoveException {
 
         this.board.insertValue(new Move(new Position(0,0), 8));
         this.board.insertValue(new Move(new Position(0,1), 3));
@@ -32,7 +33,7 @@ public class SumRuleTest {
         return this.board;
     }
 
-    private GameBoard buildGameBoardWithNumbersNotEqualsToTheSum() {
+    private GameBoard buildGameBoardWithNumbersNotEqualsToTheSum() throws InvalidMoveException {
 
         this.board.insertValue(new Move(new Position(0,0), 8));
         this.board.insertValue(new Move(new Position(0,1), 3));
@@ -75,6 +76,7 @@ public class SumRuleTest {
         this.rule = new SumRule();
 
         this.board = new GameBoard(ROWS, COLUMNS);
+        this.board.buildMatrix();
         this.board.setRegions(buildRegions());
     }
 
@@ -82,7 +84,7 @@ public class SumRuleTest {
      * Chequea que efectivamente la regla no se rompa.
      */
     @Test
-    public void isRuleBroken_NotBroken() {
+    public void isRuleBroken_NotBroken() throws Exception {
         GameBoard board = this.buildGameBoardWithNumbersEqualsToTheSum();
 
         boolean result = this.rule.isRuleBroken(board, new Position(0,0));
@@ -94,7 +96,7 @@ public class SumRuleTest {
      * Chequea que efectivamente la regla se rompa.
      */
     @Test
-    public void isRuleBroken_Broken() {
+    public void isRuleBroken_Broken() throws Exception {
         GameBoard board = this.buildGameBoardWithNumbersNotEqualsToTheSum();
 
         boolean result = this.rule.isRuleBroken(board, new Position(0,0));

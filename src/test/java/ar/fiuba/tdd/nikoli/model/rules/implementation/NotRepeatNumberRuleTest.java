@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
+import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.board.Cell;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
@@ -22,7 +23,7 @@ public class NotRepeatNumberRuleTest {
     private static final int ROWS = 9;
     private static final int COLUMNS = 9;
 
-    private GameBoard buildGameBoardWithNotRepeatedNumbers() {
+    private GameBoard buildGameBoardWithNotRepeatedNumbers() throws InvalidMoveException {
 
         this.board.insertValue(new Move(new Position(0,0), 5));
         this.board.insertValue(new Move(new Position(0,1), 6));
@@ -33,7 +34,7 @@ public class NotRepeatNumberRuleTest {
         return this.board;
     }
 
-    private GameBoard buildGameBoardWithRepeatedNumbers() {
+    private GameBoard buildGameBoardWithRepeatedNumbers() throws InvalidMoveException {
 
         this.board.insertValue(new Move(new Position(0,0), 5));
         this.board.insertValue(new Move(new Position(0,1), 2));
@@ -73,6 +74,7 @@ public class NotRepeatNumberRuleTest {
         this.rule = new NotRepeatNumberRule();
 
         this.board = new GameBoard(ROWS, COLUMNS);
+        this.board.buildMatrix();
         this.board.setRegions(buildRegions());
     }
 
@@ -80,7 +82,7 @@ public class NotRepeatNumberRuleTest {
      * Chequea que efectivamente la regla no se rompa.
      */
     @Test
-    public void isRuleBroken_NotBroken() {
+    public void isRuleBroken_NotBroken() throws Exception {
         GameBoard board = this.buildGameBoardWithNotRepeatedNumbers();
 
         boolean result = this.rule.isRuleBroken(board , new Position(0,0));
@@ -92,7 +94,7 @@ public class NotRepeatNumberRuleTest {
      * Chequea que efectivamente la regla se rompa.
      */
     @Test
-    public void isRuleBroken_Broken() {
+    public void isRuleBroken_Broken() throws Exception {
         GameBoard board = this.buildGameBoardWithRepeatedNumbers();
 
         boolean result = this.rule.isRuleBroken(board , new Position(0,0));

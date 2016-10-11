@@ -116,16 +116,13 @@ public class GameConfigurationReader {
 
 
     /**
-     * Metodo que procesa el tablero para generar las celdas vacias.
+     * Metodo que procesa el tablero para generar las celdas vacias y las celdas pistas.
      *
      * @param gameBoard instancia de {@link GameBoard}.
      */
     private void processGameBoard(GameBoard gameBoard) {
-        /*
-         TODO: implementar para que a partir de las dimensiones del tablero y sus celdas predefinidas,
-         se generan las celdas vacias.
-        */
-
+        gameBoard.buildMatrix();
+        gameBoard.buildClueCells();
     }
 
     /**
