@@ -18,11 +18,10 @@ public class GameBoardConfigurationReader extends GameConfigurationReader<GameBo
 
     @Override
     protected void process(GameBoard gameBoard) throws GameConfigurationException {
-        /*
-         TODO: implementar para que a partir de las dimensiones del tablero y sus celdas predefinidas,
-         se generan las celdas vacias.
-        */
+        gameBoard.buildMatrix();
+        gameBoard.buildClueCells();
     }
+
 
     @Override
     protected String getConfigurationType() {

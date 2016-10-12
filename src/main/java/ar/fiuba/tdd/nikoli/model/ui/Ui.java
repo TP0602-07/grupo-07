@@ -32,6 +32,11 @@ public class Ui {
                                         + "  6) Ishi No Heya.\n";
     private static String inputSeparator = " ";
 
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String INPUT_ERROR =  ANSI_RED + "Input error. Please try again\n" + ANSI_RESET;
+    private static final String INPUT_INVALID =  ANSI_RED + "Invalid input. Please try again\n" + ANSI_RESET;
+
 
     public Ui(Monitor monitor) {
         this.monitor = monitor;
@@ -44,7 +49,7 @@ public class Ui {
         while (true) {
             try {
                 monitor.viewBoard(this.game.getGameBoard());
-                monitor.show("Insert the movement that you want to: ");
+                monitor.show("Insert the movement that you want to: <position X> <position Y> <value> (enter zero value to delete)");
                 String moveString = in.readLine();
                 if ( moveString != null) {
                     if (moveString.equals("Q") || moveString.equals("q")) {
@@ -53,16 +58,15 @@ public class Ui {
                     }
                     Move move = getMove(moveString);
                     this.game.play(move);
-                    monitor.viewBoard(this.game.getGameBoard());
                     if (this.game.isFullBoard()) {
                         monitor.show(this.game.checkVictory());
                         return 0;
                     }
                 }
             } catch (InvalidMoveException | InvalidUserInputException e ) {
-                monitor.show(e.getMessage());
+                monitor.show(ANSI_RED + e.getMessage() + ANSI_RESET);
             } catch (IOException e) {
-                monitor.show("Input error. Please try again\n");
+                monitor.show(INPUT_ERROR);
             }
         }
     }
@@ -127,9 +131,9 @@ public class Ui {
             posY = Integer.parseInt(values[1]);
         }
         if (isValidEntry(posX) && isValidEntry(posY) && (value == 0 | isValidEntry(value))) {
-            return new Move(new Position(posX, posY), value);
+            return new Move(new Position(posX - 1, posY - 1), value);
         } else {
-            throw new InvalidUserInputException("Invalid input. Please try again\n");
+            throw new InvalidUserInputException(INPUT_INVALID);
         }
     }
 
