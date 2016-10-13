@@ -9,7 +9,7 @@ public class Cell {
 
     private Integer value; // Naname (null:sin diagonal 1:diagonal derecha, 2:diagonal izquierda)
     private Position position;
-    private Boolean editable;
+    private Boolean editable; //Country Road (indica si paso el circuito por la celda o no)
     private Edge edge;
 
 
@@ -64,5 +64,14 @@ public class Cell {
     public void setEdge(Edge edge) {
         this.edge = edge;
     }
+
+    public Boolean getEditable() {
+        return editable;
+    }
+
+    public void setEditable(Boolean editable) {
+        this.editable = editable;
+    }
+
 
 }
