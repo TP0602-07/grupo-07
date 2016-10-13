@@ -7,7 +7,7 @@ import ar.fiuba.tdd.nikoli.model.board.exception.CellNotEditableException;
  */
 public class Cell {
 
-    private Integer value;
+    private Integer value; // Naname (null:sin diagonal 1:diagonal derecha, 2:diagonal izquierda)
     private Position position;
     private Boolean editable;
     private Edge edge;
