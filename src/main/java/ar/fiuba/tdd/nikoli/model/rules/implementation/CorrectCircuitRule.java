@@ -28,6 +28,7 @@ public class CorrectCircuitRule extends Rule {
             } else {
                 //si no se cierra el circuito, se marca como ultimo el ingresado
                 last = position;
+                //TODO descomentar board.getMatrix()[position.getX()][position.getY()].setEditable(false);
             }
         } else {
             return true;
