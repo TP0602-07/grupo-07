@@ -19,13 +19,14 @@ public class CorrectCircuitRule extends Rule {
 
     @Override
     public boolean isRuleBroken(GameBoard board, Position position) {
-        //TODO cuando este implementada la celda, si no esta marcada el mov es valido
-        if (last.isContiguouosHorizontalOrVertical(position) /*&& !board.getCell().isMarked()*/) {
+        //Si es contiguo y no esta marcada el movimiento es valido
+        if (last.isContiguouosHorizontalOrVertical(position)
+                && board.getMatrix()[position.getX()][position.getY()].isEditable()) {
             if (init == position) {
                 //se cerro el circuito
                 return false;
             } else {
-                //si no se cierra el circuito se marca como ultimo el ingresado
+                //si no se cierra el circuito, se marca como ultimo el ingresado
                 last = position;
             }
         } else {
