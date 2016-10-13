@@ -8,9 +8,10 @@ import ar.fiuba.tdd.nikoli.model.board.GameBoard;
  */
 public class ConsoleMonitor extends Monitor {
 
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_BOLD = "\033[0;1m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_BLUE = "\u001B[34m";
+    private static final String ANSI_BOLD = "\033[0;1m";
+    private static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
 
     @Override
     public void show(String message) {
@@ -19,7 +20,6 @@ public class ConsoleMonitor extends Monitor {
 
     @Override
     public void viewBoard(GameBoard gameBoard) {
-        //TODO
         Cell[][] matrix = gameBoard.getMatrix();
 
         for (Cell[] row : matrix) {
@@ -27,11 +27,7 @@ public class ConsoleMonitor extends Monitor {
             rowString.append("|");
 
             for (Cell column : row) {
-                if (column.isEditable()) {
-                    rowString.append(ANSI_BLUE);
-                } else {
-                    rowString.append(ANSI_BOLD);
-                }
+                rowString.append(getColorColumn(column));
 
                 rowString.append((column.hasValue()) ? column.getValue() : " ");
                 rowString.append(ANSI_RESET);
@@ -39,5 +35,15 @@ public class ConsoleMonitor extends Monitor {
             }
             System.out.println(rowString);
         }
+    }
+
+    private String getColorColumn(Cell column) {
+        String color;
+        if (column.isEditable()) {
+            color = ANSI_BLUE;
+        } else {
+            color = (column.hasValue()) ? ANSI_BOLD : ANSI_BLACK_BACKGROUND;
+        }
+        return color;
     }
 }

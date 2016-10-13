@@ -130,11 +130,15 @@ public class Ui {
             posX = Integer.parseInt(values[0]);
             posY = Integer.parseInt(values[1]);
         }
-        if (isValidEntry(posX) && isValidEntry(posY) && (value == 0 | isValidEntry(value))) {
+        if (isValidCoordinate(posX) && isValidCoordinate(posY) && (value == 0 | isValidEntry(value))) {
             return new Move(new Position(posX - 1, posY - 1), value);
         } else {
             throw new InvalidUserInputException(INPUT_INVALID);
         }
+    }
+
+    private boolean isValidCoordinate(int val) {
+        return ( val > 0 && val <= this.game.getColumns() );
     }
 
     private boolean isValidEntry(int val) {

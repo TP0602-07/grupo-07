@@ -45,7 +45,7 @@ public class Cell {
     }
 
     public boolean hasValue() {
-        return (value != null && value != 0);
+        return (value != null && value > 0);
     }
 
 }

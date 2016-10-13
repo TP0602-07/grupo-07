@@ -62,4 +62,12 @@ public class Game {
     public boolean isFullBoard() {
         return gameBoard.isFull();
     }
+
+    public int getRows() {
+        return this.gameBoard.getRows();
+    }
+
+    public int getColumns() {
+        return this.gameBoard.getColumns();
+    }
 }
