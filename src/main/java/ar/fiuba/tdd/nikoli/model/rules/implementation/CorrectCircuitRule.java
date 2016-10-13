@@ -12,9 +12,9 @@ public class CorrectCircuitRule extends Rule {
     private Position init;
     private Position last;
 
-    public CorrectCircuitRule(Position init) {
-        this.init = init;
-        this.last = init;
+    public CorrectCircuitRule() {
+        this.init = new Position(1,1);
+        this.last = new Position(1,1);
     }
 
     @Override
@@ -33,4 +33,14 @@ public class CorrectCircuitRule extends Rule {
         }
         return false;
     }
+
+    public Position getInit() {
+        return init;
+    }
+
+    public void setInit(Position init) {
+        this.init = init;
+        this.last = init;
+    }
+
 }
