@@ -17,7 +17,11 @@ public class SumRule extends Rule {
 
         for (Position position : region.getPositions()) {
 
-            sum += board.getValueForPosition(position);
+            Integer value = board.getValueForPosition(position);
+
+            if (value != null) {
+                sum += board.getValueForPosition(position);
+            }
         }
 
         return sum;

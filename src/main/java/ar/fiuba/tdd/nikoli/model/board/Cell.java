@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
+import ar.fiuba.tdd.nikoli.model.board.exception.CellNotEditableException;
+
 /**
  * Cell base.
  */
@@ -12,8 +14,8 @@ public class Cell {
 
     public Cell(Position position) {
         this.position = position;
-        this.value = 0;
-        this.editable = Boolean.FALSE;
+        this.value = null;
+        this.editable = Boolean.TRUE;
     }
 
     public Cell(Position position, Integer value, boolean editable) {
@@ -26,8 +28,12 @@ public class Cell {
         return value;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
+    public void setValue(Integer value) throws CellNotEditableException {
+        if (this.editable) {
+            this.value = value;
+        } else {
+            throw new CellNotEditableException();
+        }
     }
 
     public Position getPosition() {
@@ -39,7 +45,7 @@ public class Cell {
     }
 
     public boolean hasValue() {
-        return value != null;
+        return (value != null && value != 0);
     }
 
 }

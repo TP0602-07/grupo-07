@@ -8,6 +8,10 @@ import ar.fiuba.tdd.nikoli.model.board.GameBoard;
  */
 public class ConsoleMonitor extends Monitor {
 
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_BOLD = "\033[0;1m";
+
     @Override
     public void show(String message) {
         System.out.println(message);
@@ -23,12 +27,17 @@ public class ConsoleMonitor extends Monitor {
             rowString.append("|");
 
             for (Cell column : row) {
-                rowString.append(column.getValue());
+                if (column.isEditable()) {
+                    rowString.append(ANSI_BLUE);
+                } else {
+                    rowString.append(ANSI_BOLD);
+                }
+
+                rowString.append((column.hasValue()) ? column.getValue() : " ");
+                rowString.append(ANSI_RESET);
                 rowString.append("|");
             }
             System.out.println(rowString);
-
-            System.out.println("---------------------------------------------------------------------");
         }
     }
 }

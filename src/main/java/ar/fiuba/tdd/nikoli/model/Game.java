@@ -14,6 +14,11 @@ public class Game {
     private GameBoard gameBoard;
     private Rule ruleBroken; //indicate that rule is broken
 
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_RESET = "\u001B[0m";
+
+    private static final String MOVE_INCORRECT =  ANSI_RED + "Incorrect Move. Please try again\n" + ANSI_RESET;
+
     public Game(GameRules gameRules, GameBoard gameBoard) {
         this.gameRules = gameRules;
         this.gameBoard = gameBoard;
@@ -26,15 +31,15 @@ public class Game {
      * @throws InvalidMoveException si se produjo un error en el procesamiento de las reglas del juego.
      */
     public void play(Move move) throws InvalidMoveException {
-        this.validate(move);
         gameBoard.insertValue(move);
+        this.validate(move);
     }
 
     private void validate(Move move) throws InvalidMoveException {
         for (Rule rule : gameRules.getRules()) {
             if (rule.isRuleBroken(gameBoard, move.getPosition())) {
                 ruleBroken = rule;
-                throw new InvalidMoveException("Incorrect Move. Please try again\n");
+                throw new InvalidMoveException(MOVE_INCORRECT);
             }
         }
     }

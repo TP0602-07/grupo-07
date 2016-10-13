@@ -11,28 +11,28 @@ public class GameConfigurationReaderTests {
 
     @Test
     public void testReadGameRulesOK() throws Exception {
-        GameConfigurationReader configReader = new GameConfigurationReader();
-        GameRules rules = configReader.readGameRulesConfiguration("testGame");
+        GameRulesConfigurationReader configReader = new GameRulesConfigurationReader();
+        GameRules rules = configReader.readConfiguration("testGame");
         assertNotNull(rules);
     }
 
     @Test(expected = GameConfigurationNotFoundException.class)
     public void testReadGameRulesNotFoundedRules() throws Exception {
-        GameConfigurationReader configReader = new GameConfigurationReader();
-        configReader.readGameRulesConfiguration("notFoundedGame");
+        GameRulesConfigurationReader configReader = new GameRulesConfigurationReader();
+        configReader.readConfiguration("notFoundedGame");
     }
 
     @Test
     public void testReadGameBoardOK() throws Exception {
-        GameConfigurationReader configReader = new GameConfigurationReader();
-        GameBoard board = configReader.readGameBoardConfiguration("testGame");
+        GameBoardConfigurationReader configReader = new GameBoardConfigurationReader();
+        GameBoard board = configReader.readConfiguration("testGame");
         assertNotNull(board);
     }
 
     @Test(expected = GameConfigurationNotFoundException.class)
     public void testReadGameBoardNotFoundedRules() throws Exception {
-        GameConfigurationReader configReader = new GameConfigurationReader();
-        configReader.readGameBoardConfiguration("notFoundedGame");
+        GameConfigurationReader configReader = new GameBoardConfigurationReader();
+        configReader.readConfiguration("notFoundedGame");
     }
 
 

@@ -20,16 +20,16 @@
   ],
   "regions" : [{
     "value" : 0,
-    "position" : {
+    "positions" : [{
       "coordinateX" : 1,
       "coordinateY" : 1
-    }
+    }]
   }, {
     "value" : 0,
-    "position" : {
+    "positions" : [{
       "coordinateX" : 2,
       "coordinateY" : 2
-    }
+    }]
   }
   ]
 }
