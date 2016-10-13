@@ -9,7 +9,7 @@ public class Cell {
 
     private Integer value; // Naname (null:sin diagonal 1:diagonal derecha, 2:diagonal izquierda)
     private Position position;
-    private Boolean editable; //Country Road (indica si paso el circuito por la celda o no)
+    private Boolean editable; //Country Road (true si puede pasar el circuito por la celda, false si ya paso)
     private Edge edge;
 
 
