@@ -27,8 +27,16 @@ public class SumRule extends Rule {
         return sum;
     }
 
-    private boolean isSumIncorrect(int sum, int sumExpected) {
-        return sum != sumExpected;
+    private boolean isSumIncorrect(int sum, int sumExpected, boolean isRegionFull) {
+        boolean isIncorrect;
+
+        if (isRegionFull) {
+            isIncorrect = sum != sumExpected;
+        } else {
+            isIncorrect = sum >= sumExpected;
+        }
+
+        return isIncorrect;
     }
 
     @Override
@@ -41,12 +49,30 @@ public class SumRule extends Rule {
         for (Region region : regions) {
             int sum = sum(region, board);
 
-            if (isSumIncorrect(sum, region.getValue())) {
+            boolean isRegionFull = checkRegionFull(region, board);
+
+            if (isSumIncorrect(sum, region.getValue(), isRegionFull)) {
                 isBroken = true;
                 break;
             }
         }
 
         return isBroken;
+    }
+
+    private boolean checkRegionFull(Region region, GameBoard board) {
+        boolean isRegionFull = true;
+
+        for (Position position : region.getPositions()) {
+
+            Integer value = board.getValueForPosition(position);
+
+            if (value == null || value == 0) {
+                isRegionFull = false;
+                break;
+            }
+        }
+
+        return isRegionFull;
     }
 }
