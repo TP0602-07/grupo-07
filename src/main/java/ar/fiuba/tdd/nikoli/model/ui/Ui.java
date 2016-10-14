@@ -59,6 +59,7 @@ public class Ui {
                     Move move = getMove(moveString);
                     this.game.play(move);
                     if (this.game.isFullBoard()) {
+                        monitor.viewBoard(this.game.getGameBoard());
                         monitor.show(this.game.checkVictory());
                         return 0;
                     }
