@@ -20,30 +20,10 @@ public class UiTest {
         return ui;
     }
 
-    @Test
-    public void testGetMoveByInputOKCase1() throws Exception {
-        Ui ui = getGenericUi();
-        Move move = ui.getMove("1 1");
-        assertNotNull(move);
-    }
-
-    @Test
-    public void testGetMoveByInputOKCase2() throws Exception {
-        Ui ui = getGenericUi();
-        Move move = ui.getMove("1 1 1");
-        assertNotNull(move);
-    }
-
     @Test(expected = InvalidUserInputException.class)
     public void testGetMoveByInputOutOfLimits1() throws Exception {
         Ui ui = getGenericUi();
         Move move = ui.getMove("-1 1 1");
-    }
-
-    @Test(expected = InvalidUserInputException.class)
-    public void testGetMoveByInputOutOfLimits2() throws Exception {
-        Ui ui = getGenericUi();
-        Move move = ui.getMove("1 10 1");
     }
 
     @Test(expected = InvalidUserInputException.class)
@@ -57,6 +37,4 @@ public class UiTest {
         Ui ui = getGenericUi();
         Move move = ui.getMove("1");
     }
-
-
 }
