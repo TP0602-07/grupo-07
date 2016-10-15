@@ -6,12 +6,12 @@ import java.util.List;
 /**
  * Clase usada para modelar una seria de jugadas realizadas por el usuario.
  */
-public class PlayList {
+public class PlaysList {
 
     private List<Play> plays;
 
 
-    public PlayList() {
+    public PlaysList() {
         this.plays = new ArrayList<Play>();
     }
 
