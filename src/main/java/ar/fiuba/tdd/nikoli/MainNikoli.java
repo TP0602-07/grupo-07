@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.nikoli;
 
-import ar.fiuba.tdd.nikoli.model.ui.ConsoleMonitor;
-import ar.fiuba.tdd.nikoli.model.ui.Monitor;
-import ar.fiuba.tdd.nikoli.model.ui.Ui;
+import ar.fiuba.tdd.nikoli.ui.ConsoleMonitor;
+import ar.fiuba.tdd.nikoli.ui.Monitor;
+import ar.fiuba.tdd.nikoli.ui.Ui;
 
 /**
  * Created by emmanuel on 29/09/16.

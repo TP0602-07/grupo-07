@@ -16,10 +16,17 @@ public class Position {
         return coordinateX;
     }
 
+    public void setX(int coordinateX) {
+        this.coordinateX = coordinateX;
+    }
+
     public int getY() {
         return coordinateY;
     }
 
+    public void setY(int coordinateY) {
+        this.coordinateY = coordinateY;
+    }
 
     @Override
     public boolean equals(Object object) {
