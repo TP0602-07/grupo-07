@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.nikoli.model.ui;
+package ar.fiuba.tdd.nikoli.ui;
 
 import ar.fiuba.tdd.nikoli.conf.GameBoardConfigurationReader;
 import ar.fiuba.tdd.nikoli.conf.GameRulesConfigurationReader;
@@ -6,10 +6,9 @@ import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.conf.exception.InvalidUserInputException;
 import ar.fiuba.tdd.nikoli.model.Game;
-import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
-import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
+import ar.fiuba.tdd.nikoli.plays.Play;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -56,8 +55,8 @@ public class Ui {
                         monitor.show("End the game\n");
                         return -1;
                     }
-                    Move move = getMove(moveString);
-                    this.game.play(move);
+                    Play play = getPlay(moveString);
+                    this.game.play(play);
                     if (this.game.isFullBoard()) {
                         monitor.viewBoard(this.game.getGameBoard());
                         monitor.show(this.game.checkVictory());
@@ -118,7 +117,7 @@ public class Ui {
         this.game = new Game(rules, board);
     }
 
-    private Move getMoveFromInput(String input) throws InvalidUserInputException {
+    private Play getPlayFromInput(String input) throws InvalidUserInputException {
         String[] values = input.split(inputSeparator);
         int posX = 0;
         int posY = 0;
@@ -132,7 +131,7 @@ public class Ui {
             posY = Integer.parseInt(values[1]);
         }
         if (isValidCoordinate(posX) && isValidCoordinate(posY) && (value == 0 | isValidEntry(value))) {
-            return new Move(new Position(posX - 1, posY - 1), value);
+            return new Play(posX - 1, posY - 1, value);
         } else {
             throw new InvalidUserInputException(INPUT_INVALID);
         }
@@ -151,8 +150,8 @@ public class Ui {
                 || input.equals("5") || input.equals("6"));
     }
 
-    public Move getMove(String moveString) throws InvalidUserInputException {
-        return getMoveFromInput(moveString);
+    public Play getPlay(String moveString) throws InvalidUserInputException {
+        return getPlayFromInput(moveString);
     }
 
 }

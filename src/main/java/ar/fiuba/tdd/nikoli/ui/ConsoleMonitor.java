@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.nikoli.model.ui;
+package ar.fiuba.tdd.nikoli.ui;
 
 import ar.fiuba.tdd.nikoli.model.board.Cell;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;

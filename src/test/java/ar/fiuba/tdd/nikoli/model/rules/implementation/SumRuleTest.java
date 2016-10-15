@@ -1,11 +1,12 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
 import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
-import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.board.Region;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
+import ar.fiuba.tdd.nikoli.plays.Play;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,22 +25,22 @@ public class SumRuleTest {
 
     private GameBoard buildGameBoardWithNumbersEqualsToTheSum() throws InvalidMoveException {
 
-        this.board.insertValue(new Move(new Position(0,0), 8));
-        this.board.insertValue(new Move(new Position(0,1), 3));
-        this.board.insertValue(new Move(new Position(0,2), 9));
-        this.board.insertValue(new Move(new Position(1,0), 7));
-        this.board.insertValue(new Move(new Position(2,0), 1));
+        this.board.insertValue(new Play(0, 0, 8));
+        this.board.insertValue(new Play(0, 1, 3));
+        this.board.insertValue(new Play(0, 2, 9));
+        this.board.insertValue(new Play(1, 0, 7));
+        this.board.insertValue(new Play(2, 0, 1));
 
         return this.board;
     }
 
     private GameBoard buildGameBoardWithNumbersNotEqualsToTheSum() throws InvalidMoveException {
 
-        this.board.insertValue(new Move(new Position(0,0), 8));
-        this.board.insertValue(new Move(new Position(0,1), 3));
-        this.board.insertValue(new Move(new Position(0,2), 9));
-        this.board.insertValue(new Move(new Position(1,0), 7));
-        this.board.insertValue(new Move(new Position(2,0), 5));
+        this.board.insertValue(new Play(0, 0, 8));
+        this.board.insertValue(new Play(0 ,1, 3));
+        this.board.insertValue(new Play(0, 2, 9));
+        this.board.insertValue(new Play(1, 0, 7));
+        this.board.insertValue(new Play(2, 0, 5));
 
         return board;
     }

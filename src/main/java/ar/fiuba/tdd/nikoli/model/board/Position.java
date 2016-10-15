@@ -20,7 +20,6 @@ public class Position {
         return coordinateY;
     }
 
-
     @Override
     public boolean equals(Object object) {
         if (this == object) {
