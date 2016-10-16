@@ -40,7 +40,7 @@ public class RegionMultiplicationRule extends Rule {
                         product = product * cellValue;
                     }
 
-                    isBroken = (product.equals(region.getValue()));
+                    isBroken = !(product.equals(region.getValue()));
                 }
             }
 

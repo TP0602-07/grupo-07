@@ -1,10 +1,10 @@
 package ar.fiuba.tdd.nikoli.ui;
 
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidUserInputException;
 import ar.fiuba.tdd.nikoli.plays.Play;
+import ar.fiuba.tdd.nikoli.ui.exception.InvalidUserInputException;
+
 import org.junit.Test;
 
-import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by ltessore on 10/10/16.
