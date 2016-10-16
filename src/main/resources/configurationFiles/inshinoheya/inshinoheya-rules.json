@@ -1,0 +1,7 @@
+{
+  "gameName" : "inshinoheya",
+  "rulesNames" : [
+    "NotRepeatNumberRule",
+    "RegionMultiplicationRule"
+  ]
+}

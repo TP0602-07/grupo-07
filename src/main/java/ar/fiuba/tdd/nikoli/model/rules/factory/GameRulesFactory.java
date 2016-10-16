@@ -3,6 +3,7 @@ package ar.fiuba.tdd.nikoli.model.rules.factory;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.model.rules.exception.UnknownRuleException;
 import ar.fiuba.tdd.nikoli.model.rules.implementation.NotRepeatNumberRule;
+import ar.fiuba.tdd.nikoli.model.rules.implementation.RegionMultiplicationRule;
 import ar.fiuba.tdd.nikoli.model.rules.implementation.SumRule;
 
 /**
@@ -12,6 +13,7 @@ public class GameRulesFactory {
 
     private static final String NOT_REPEAT_NUMBER_RULE_NAME = "NotRepeatNumberRule";
     private static final String SUM_RULE_NAME = "SumRule";
+    private static final String REGION_MULTIPLICATION_RULE_NAME = "RegionMultiplicationRule";
 
     private static GameRulesFactory instance;
 
@@ -32,6 +34,8 @@ public class GameRulesFactory {
             return new NotRepeatNumberRule();
         } else if (SUM_RULE_NAME.equalsIgnoreCase(ruleName)) {
             return new SumRule();
+        } else if (REGION_MULTIPLICATION_RULE_NAME.equalsIgnoreCase(ruleName)) {
+            return new RegionMultiplicationRule();
         } else {
             throw new UnknownRuleException(ruleName + " rule is unknown");
         }
