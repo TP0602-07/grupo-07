@@ -18,9 +18,12 @@ public class GameBoard {
     private List<Region> regions;
     private Cell[][] matrix;
 
+    private boolean isCompleteBoard;
+
     public GameBoard(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
+        this.isCompleteBoard = false;
     }
 
     public List<Region> getRegions() {
@@ -126,5 +129,13 @@ public class GameBoard {
 
     public int getColumns() {
         return this.columns;
+    }
+
+    public boolean isCompleteBoard() {
+        return isCompleteBoard;
+    }
+
+    public void setIsCompleteBoard(boolean isCompleteBoard) {
+        this.isCompleteBoard = isCompleteBoard;
     }
 }

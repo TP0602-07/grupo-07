@@ -10,16 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Rule que chequea que pase por la region.
+ * Rule que chequea que pase por la region a lo sumo una vez.
  *
  */
 public class PassedRegionRule extends Rule{
 
 
-    private List<Integer> amountPasses;
+    private List<Region> regionPasses;
+    private Region lastRegion;
 
     public PassedRegionRule() {
-        amountPasses = new ArrayList<Integer>();
+        regionPasses = new ArrayList<Region>();
     }
 
     @Override
@@ -33,45 +34,20 @@ public class PassedRegionRule extends Rule{
     }
 
 
-    public int obtainPasses(GameBoard board,Region region, Position position) {
-        int passes = 0;
-        for (Position pos : region.getPositions()) {
-            //Si no es editable, es porque paso por la celda
-            if (!board.getMatrix()[pos.getX()][pos.getY()].isEditable()) {
-                passes += 1;
-            }
-        }
-        return passes;
-    }
-
     @Override
     public boolean isRuleBroken(GameBoard board, Position position) {
-        //TODO modificar el isFull por algo que tenga sentido con circuito cerrado (agregar otro atrribute)
-        if (board.isFull()) {
-            List<Region> regions = board.getRegions();
-            for (Region region : regions) {
-                int passes = this.obtainPasses(board,region,position);
-                if (passes == 0) {
-                    //No paso por ninguna celda de la region, por lo tanto se rompio la regla
-                    return true;
-                }
-                amountPasses.add(passes);
-            }
-            return false;
-        } else {
-            //Si el circuito no se cerro no se valida
+        if (this.lastRegion == null) {
+            this.lastRegion = board.getRegionsForPosicion(position).get(0);
             return false;
         }
+        Region actualRegion = board.getRegionsForPosicion(position).get(0);
+        if (actualRegion != this.lastRegion && !regionPasses.contains(actualRegion)) {
+            this.regionPasses.add(this.lastRegion);
+            this.lastRegion = actualRegion;
+        } else if (actualRegion != this.lastRegion && regionPasses.contains(actualRegion)) {
+            return true;
+        }
+        return false;
     }
-
-    public List<Integer> getAmountPasses() {
-        return amountPasses;
-    }
-
-    public void setAmountPasses(List<Integer> amountPasses) {
-        this.amountPasses = amountPasses;
-    }
-
-
 
 }
