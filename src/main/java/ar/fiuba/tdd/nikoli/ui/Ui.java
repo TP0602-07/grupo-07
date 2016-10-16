@@ -105,7 +105,7 @@ public class Ui {
         } else if (option.equals("5")) {
             gameName = "gogiken-naname";
         } else if (option.equals("6")) {
-            gameName = "ishi-no-heya";
+            gameName = "inshinoheya";
         }
         return gameName;
     }

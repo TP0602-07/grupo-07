@@ -17,33 +17,22 @@ public class RegionMultiplicationRule extends Rule {
 
         for (Region region : board.getRegionsForPosicion(position)) {
 
-            if (region.getValue() == 0) {
+            if (region.getValue() != 0 && region.isRegionFull(board)) {
                 /**
-                 * Si la region tiene un valor igual a 0, entonces no corresponde checkear la
-                 * multiplicacion de sus celdas => la regla no se rompe.
+                 * Si la region no tiene valor igual a 0 y esta completa, se multiplican todos los valores de las
+                 * celdas y se verifica si el producto es igual al valor de la region.
                  */
-                isBroken = false;
-            } else {
-                if (!region.isRegionFull(board)) {
-                    /**
-                     * Si la region no esta completo => la regla no se rompe.
-                      */
-                    isBroken = false;
-                } else {
-                    /**
-                     * Si la region esta completa se multiplican todos los valores de las
-                     * celdas y se verifica si el producto es igual al valor de la region.
-                     */
-                    Integer product = 1;
-                    for (Position regionCellPosition : region.getPositions()) {
-                        Integer cellValue = board.getValueForPosition(regionCellPosition);
-                        product = product * cellValue;
-                    }
+                Integer product = 1;
+                for (Position regionCellPosition : region.getPositions()) {
+                    Integer cellValue = board.getValueForPosition(regionCellPosition);
+                    product = product * cellValue;
+                }
 
-                    isBroken = !(product.equals(region.getValue()));
+                if (!(product.equals(region.getValue()))) {
+                    isBroken = true;
+                    break;
                 }
             }
-
         }
 
         return isBroken;
