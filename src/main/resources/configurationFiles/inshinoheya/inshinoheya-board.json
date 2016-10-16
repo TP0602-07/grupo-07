@@ -1,0 +1,298 @@
+{
+  "rows" : 5,
+  "columns" : 5,
+  "clueCells" : [],
+  "regions" : [
+    // REGIONES SUELTAS
+    {
+      "value" : 6,
+      "positions" : [
+        {
+          "coordinateX" : 0,
+          "coordinateY" : 0
+        },
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 0
+        }
+      ]
+    },
+    {
+      "value" : 4,
+      "positions" : [
+        {
+          "coordinateX" : 0,
+          "coordinateY" : 1
+        },
+        {
+          "coordinateX" : 0,
+          "coordinateY" : 2
+        }
+      ]
+    },
+    {
+      "value" : 5,
+      "positions" : [
+        {
+          "coordinateX" : 0,
+          "coordinateY" : 3
+        }
+      ]
+    },
+    {
+      "value" : 40,
+      "positions" : [
+        {
+          "coordinateX" : 0,
+          "coordinateY" : 4
+        },
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 4
+        },
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 4
+        }
+      ]
+    },
+    {
+      "value" : 3,
+      "positions" : [
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 1
+        },
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 2
+        }
+      ]
+    },
+    {
+      "value" : 4,
+      "positions" : [
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 3
+        },
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 3
+        }
+      ]
+    },
+    {
+      "value" : 15,
+      "positions" : [
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 0
+        },
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 1
+        }
+      ]
+    },
+    {
+      "value" : 40,
+      "positions" : [
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 2
+        },
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 2
+        },
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 2
+        }
+      ]
+    },
+    {
+      "value" : 4,
+      "positions" : [
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 0
+        },
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 0
+        }
+      ]
+    },
+    {
+      "value" : 10,
+      "positions" : [
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 1
+        },
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 1
+        }
+      ]
+    },
+    {
+      "value" : 6,
+      "positions" : [
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 3
+        },
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 4
+        }
+      ]
+    },
+    {
+      "value" : 3,
+      "positions" : [
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 3
+        },
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 4
+        }
+      ]
+    },
+    {
+      // FILA 1
+      "value" : 0,
+      "positions" : [
+      {
+      "coordinateX" : 0,
+      "coordinateY" : 0
+      },
+      {
+      "coordinateX" : 0,
+      "coordinateY" : 1
+      },
+      {
+      "coordinateX" : 0,
+      "coordinateY" : 2
+      },
+      {
+      "coordinateX" : 0,
+      "coordinateY" : 3
+      },
+      {
+      "coordinateX" : 0,
+      "coordinateY" : 4
+      }
+      ]
+    },
+    {
+      // FILA 2
+      "value" : 0,
+      "positions" : [
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 0
+        },
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 1
+        },
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 2
+        },
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 3
+        },
+        {
+          "coordinateX" : 1,
+          "coordinateY" : 4
+        }
+      ]
+    },
+    {
+      // FILA 3
+      "value" : 0,
+      "positions" : [
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 0
+        },
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 1
+        },
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 2
+        },
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 3
+        },
+        {
+          "coordinateX" : 2,
+          "coordinateY" : 4
+        }
+      ]
+    },
+    {
+      // FILA 4
+      "value" : 0,
+      "positions" : [
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 0
+        },
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 1
+        },
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 2
+        },
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 3
+        },
+        {
+          "coordinateX" : 3,
+          "coordinateY" : 4
+        }
+      ]
+    },
+    {
+      // FILA 5
+      "value" : 0,
+      "positions" : [
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 0
+        },
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 1
+        },
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 2
+        },
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 3
+        },
+        {
+          "coordinateX" : 4,
+          "coordinateY" : 4
+        }
+      ]
+    }
+  ]
+}

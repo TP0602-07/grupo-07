@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.model.board.exception.CellNotEditableException;
+import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.plays.Play;
 
 import java.util.ArrayList;
@@ -78,12 +78,12 @@ public class GameBoard {
      * Insert el valor de la jugada en la posicion indicada por la jugada.
      * @param play jugada a insertar en el tablero.
      */
-    public void insertValue(Play play) throws InvalidMoveException {
+    public void insertValue(Play play) throws InvalidPlayException {
 
         try {
             matrix[play.getPosition().getX()][play.getPosition().getY()].setValue(play.getValue());
         } catch (CellNotEditableException e) {
-            throw new InvalidMoveException(e.getMessage());
+            throw new InvalidPlayException(e.getMessage());
         }
     }
 

@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.nikoli.model;
 
 
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.plays.Play;
@@ -27,18 +27,18 @@ public class Game {
     /**
      * Chequea validez de la jugada y lo inserta en el tablero en caso afirmativo.
      * @param play instancia de {@link Play}.
-     * @throws InvalidMoveException si se produjo un error en el procesamiento de las reglas del juego.
+     * @throws InvalidPlayException si se produjo un error en el procesamiento de las reglas del juego.
      */
-    public void play(Play play) throws InvalidMoveException {
+    public void play(Play play) throws InvalidPlayException {
         gameBoard.insertValue(play);
         this.validate(play);
     }
 
-    private void validate(Play play) throws InvalidMoveException {
+    private void validate(Play play) throws InvalidPlayException {
         for (Rule rule : gameRules.getRules()) {
             if (rule.isRuleBroken(gameBoard, play.getPosition())) {
                 ruleBroken = rule;
-                throw new InvalidMoveException(MOVE_INCORRECT);
+                throw new InvalidPlayException(MOVE_INCORRECT);
             }
         }
     }

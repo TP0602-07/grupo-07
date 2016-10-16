@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.board.Region;
+import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.plays.Play;
 
@@ -23,7 +23,7 @@ public class SumRuleTest {
     private static final int COLUMNS = 9;
 
 
-    private GameBoard buildGameBoardWithNumbersEqualsToTheSum() throws InvalidMoveException {
+    private GameBoard buildGameBoardWithNumbersEqualsToTheSum() throws InvalidPlayException {
 
         this.board.insertValue(new Play(0, 0, 8));
         this.board.insertValue(new Play(0, 1, 3));
@@ -34,7 +34,7 @@ public class SumRuleTest {
         return this.board;
     }
 
-    private GameBoard buildGameBoardWithNumbersNotEqualsToTheSum() throws InvalidMoveException {
+    private GameBoard buildGameBoardWithNumbersNotEqualsToTheSum() throws InvalidPlayException {
 
         this.board.insertValue(new Play(0, 0, 8));
         this.board.insertValue(new Play(0 ,1, 3));

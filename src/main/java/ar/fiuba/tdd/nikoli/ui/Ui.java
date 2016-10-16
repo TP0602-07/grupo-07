@@ -3,12 +3,12 @@ package ar.fiuba.tdd.nikoli.ui;
 import ar.fiuba.tdd.nikoli.conf.GameBoardConfigurationReader;
 import ar.fiuba.tdd.nikoli.conf.GameRulesConfigurationReader;
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidUserInputException;
 import ar.fiuba.tdd.nikoli.model.Game;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.plays.Play;
+import ar.fiuba.tdd.nikoli.ui.exception.InvalidUserInputException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -63,7 +63,7 @@ public class Ui {
                         return 0;
                     }
                 }
-            } catch (InvalidMoveException | InvalidUserInputException e ) {
+            } catch (InvalidPlayException | InvalidUserInputException e ) {
                 monitor.show(ANSI_RED + e.getMessage() + ANSI_RESET);
             } catch (IOException e) {
                 monitor.show(INPUT_ERROR);

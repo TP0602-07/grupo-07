@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.board.Region;
+import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.plays.Play;
 
@@ -23,7 +23,7 @@ public class NotRepeatNumberRuleTest {
     private static final int ROWS = 9;
     private static final int COLUMNS = 9;
 
-    private GameBoard buildGameBoardWithNotRepeatedNumbers() throws InvalidMoveException {
+    private GameBoard buildGameBoardWithNotRepeatedNumbers() throws InvalidPlayException {
 
         this.board.insertValue(new Play(0, 0, 5));
         this.board.insertValue(new Play(0, 1, 6));
@@ -35,7 +35,7 @@ public class NotRepeatNumberRuleTest {
         return this.board;
     }
 
-    private GameBoard buildGameBoardWithRepeatedNumbers() throws InvalidMoveException {
+    private GameBoard buildGameBoardWithRepeatedNumbers() throws InvalidPlayException {
 
         this.board.insertValue(new Play(0, 0, 5));
         this.board.insertValue(new Play(0, 1, 2));
