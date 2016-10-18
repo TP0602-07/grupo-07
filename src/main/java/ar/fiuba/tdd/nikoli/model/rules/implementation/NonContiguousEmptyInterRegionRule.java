@@ -33,10 +33,12 @@ public class NonContiguousEmptyInterRegionRule extends Rule{
         if (cell.getValue().equals(NO_PASSED) && lastCellNoPassed == null) {
             this.lastCellNoPassed = cell;
         } else if (cell.getValue().equals(NO_PASSED) && lastCellNoPassed != null) {
-            Region regionCell = board.getRegions().get(0);
-            Region regionLastCellNoPassed = board.getRegions().get(0);
+            Region regionCell = board.getRegionsForPosicion(cell.getPosition()).get(0);
+            Region regionLastCellNoPassed = board.getRegionsForPosicion(lastCellNoPassed.getPosition()).get(0);
             if (regionCell != regionLastCellNoPassed) {
                 return true;
+            } else {
+                lastCellNoPassed = cell;
             }
         } else {
             this.lastCellNoPassed = null;

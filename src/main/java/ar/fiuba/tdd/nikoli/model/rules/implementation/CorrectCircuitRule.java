@@ -23,7 +23,7 @@ public class CorrectCircuitRule extends Rule {
 
 
     public void setCellAndCheckEndCircuit(GameBoard board, Position position) throws CellNotEditableException {
-        if (init == position) {
+        if (init.getX() == position.getX() && init.getY() == position.getY()) {
             board.setIsCompleteBoard(true);
         } else {
             //si no se cierra el circuito, se marca como ultimo el ingresado
@@ -34,15 +34,15 @@ public class CorrectCircuitRule extends Rule {
 
     @Override
     public boolean isRuleBroken(GameBoard board, Position position) {
-        if (this.init == null ) {
-            init = position; //el init no se marca como se paso, se marca cuando cierra el circuito
-            last = position;
-            return false;
-        }
         try {
+            if (this.init == null ) {
+                init = position; //el init no se marca como se paso, se marca cuando cierra el circuito
+                last = position;
+                return false;
+            }
             //Si es contiguo y no esta marcada el movimiento es valido
             if (last.isContiguouosHorizontalOrVertical(position)
-                    && board.getMatrix()[position.getX()][position.getY()].getValue().equals(NO_PASSED)) {
+                    && ( board.getMatrix()[position.getX()][position.getY()].getValue().equals(NO_PASSED))) {
                 setCellAndCheckEndCircuit(board,position);
                 return false;
             }
