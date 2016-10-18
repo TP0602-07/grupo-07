@@ -1,11 +1,11 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
-import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.board.Region;
+import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
+import ar.fiuba.tdd.nikoli.plays.Play;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,17 +22,17 @@ public class CorrectCircuitRuleTest {
     private static final int ROWS = 9;
     private static final int COLUMNS = 9;
 
-    private GameBoard buildGameBoard() throws InvalidMoveException {
+    private GameBoard buildGameBoard() throws  InvalidPlayException {
 
-        this.board.insertValue(new Move(new Position(0,0), 1));
-        this.board.insertValue(new Move(new Position(0,1), 1));
-        this.board.insertValue(new Move(new Position(0,2), 1));
-        this.board.insertValue(new Move(new Position(1,0), 1));
-        this.board.insertValue(new Move(new Position(1,1), 1));
-        this.board.insertValue(new Move(new Position(1,2), 1));
-        this.board.insertValue(new Move(new Position(2,0), 1));
-        this.board.insertValue(new Move(new Position(2,1), 1));
-        this.board.insertValue(new Move(new Position(2,2), 1));
+        this.board.insertValue(new Play(0,0, 1));
+        this.board.insertValue(new Play(0,1, 1));
+        this.board.insertValue(new Play(0,2, 1));
+        this.board.insertValue(new Play(1,0, 1));
+        this.board.insertValue(new Play(1,1, 1));
+        this.board.insertValue(new Play(1,2, 1));
+        this.board.insertValue(new Play(2,0, 1));
+        this.board.insertValue(new Play(2,1, 1));
+        this.board.insertValue(new Play(2,2, 1));
 
         return this.board;
     }

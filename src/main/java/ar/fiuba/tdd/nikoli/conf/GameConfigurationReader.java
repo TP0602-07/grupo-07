@@ -5,9 +5,9 @@ import com.google.gson.GsonBuilder;
 
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationNotFoundException;
+import ar.fiuba.tdd.nikoli.utils.JsonFileNotFoundException;
+import ar.fiuba.tdd.nikoli.utils.JsonFilesUtils;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 
@@ -19,8 +19,6 @@ public abstract class GameConfigurationReader<T> {
 
 
     private static final String CONFIGURATION_FILES_BASE_PATH = "configurationFiles/";
-
-    private static final String FILE_EXTENSION = ".json";
 
     private Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
 
@@ -62,14 +60,9 @@ public abstract class GameConfigurationReader<T> {
     private InputStreamReader getConfigurationFile(String gameName, String configurationType) throws GameConfigurationNotFoundException {
 
         try {
-            ClassLoader classLoader = getClass().getClassLoader();
-            String path = classLoader.getResource(CONFIGURATION_FILES_BASE_PATH
-                    + gameName + "/" + gameName + "-" + configurationType + FILE_EXTENSION)
-                    .getPath();
-            InputStreamReader jsonFile = new InputStreamReader(new FileInputStream(path), "UTF-8");
-
-            return jsonFile;
-        } catch (NullPointerException | IOException e) {
+            String path = CONFIGURATION_FILES_BASE_PATH + gameName + "/" + gameName + "-" + configurationType;
+            return JsonFilesUtils.getJsonFile(path);
+        } catch (JsonFileNotFoundException e) {
             throw new GameConfigurationNotFoundException(gameName, configurationType);
         }
     }

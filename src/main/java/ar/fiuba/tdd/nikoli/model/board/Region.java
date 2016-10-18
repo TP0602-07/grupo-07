@@ -36,12 +36,23 @@ public class Region {
 
     /**
      * Metodo que verifica que las celdas de la region tiene un valor definido.
-     * @return true si las celdas estan completas, false en caso contrario.
+     * @return true si todas las celdas estan completas, false en caso contrario.
      */
-    public boolean isRegionFull() {
-        return false;
-    }
+    public boolean isRegionFull(GameBoard board) {
+        boolean isFull = true;
 
+        for (Position position : this.getPositions()) {
+
+            Integer value = board.getValueForPosition(position);
+
+            if (value == null || value == 0) {
+                isFull = false;
+                break;
+            }
+        }
+
+        return isFull;
+    }
 
     /**
      * Metodo que verifica si una region contiene una posicion dada.

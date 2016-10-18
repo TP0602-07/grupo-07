@@ -18,7 +18,7 @@ public class RegionTests {
         region.getPositions().add(position);
 
         Position otherPosition = new Position(2, 2);
-        region.getPositions().add(position);
+        region.getPositions().add(otherPosition);
     }
 
 

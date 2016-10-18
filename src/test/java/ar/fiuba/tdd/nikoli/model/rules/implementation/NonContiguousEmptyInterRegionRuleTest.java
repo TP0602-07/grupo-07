@@ -1,11 +1,11 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
-import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.board.Region;
+import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
+import ar.fiuba.tdd.nikoli.plays.Play;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,24 +22,24 @@ public class NonContiguousEmptyInterRegionRuleTest {
     private static final int ROWS = 4;
     private static final int COLUMNS = 4;
 
-    private GameBoard buildGameBoard() throws InvalidMoveException {
+    private GameBoard buildGameBoard() throws InvalidPlayException {
         //matriz 4x4
-        this.board.insertValue(new Move(new Position(0,0), 1));
-        this.board.insertValue(new Move(new Position(0,1), 1));
-        this.board.insertValue(new Move(new Position(0,2), 1));
-        this.board.insertValue(new Move(new Position(0,3), 1));
-        this.board.insertValue(new Move(new Position(1,0), 1));
-        this.board.insertValue(new Move(new Position(1,1), 1));
-        this.board.insertValue(new Move(new Position(1,2), 1));
-        this.board.insertValue(new Move(new Position(1,3), 1));
-        this.board.insertValue(new Move(new Position(2,0), 1));
-        this.board.insertValue(new Move(new Position(2,1), 1));
-        this.board.insertValue(new Move(new Position(2,2), 1));
-        this.board.insertValue(new Move(new Position(2,3), 1));
-        this.board.insertValue(new Move(new Position(3,0), 1));
-        this.board.insertValue(new Move(new Position(3,1), 1));
-        this.board.insertValue(new Move(new Position(3,2), 1));
-        this.board.insertValue(new Move(new Position(3,3), 1));
+        this.board.insertValue(new Play(0,0, 1));
+        this.board.insertValue(new Play(0,1, 1));
+        this.board.insertValue(new Play(0,2, 1));
+        this.board.insertValue(new Play(0,3, 1));
+        this.board.insertValue(new Play(1,0, 1));
+        this.board.insertValue(new Play(1,1, 1));
+        this.board.insertValue(new Play(1,2, 1));
+        this.board.insertValue(new Play(1,3, 1));
+        this.board.insertValue(new Play(2,0, 1));
+        this.board.insertValue(new Play(2,1, 1));
+        this.board.insertValue(new Play(2,2, 1));
+        this.board.insertValue(new Play(2,3, 1));
+        this.board.insertValue(new Play(3,0, 1));
+        this.board.insertValue(new Play(3,1, 1));
+        this.board.insertValue(new Play(3,2, 1));
+        this.board.insertValue(new Play(3,3, 1));
         this.board.setIsCompleteBoard(true);
         return this.board;
     }
@@ -80,32 +80,32 @@ public class NonContiguousEmptyInterRegionRuleTest {
         return regions;
     }
 
-    public void playCorrect(GameBoard board) throws InvalidMoveException {
+    public void playCorrect(GameBoard board) throws InvalidPlayException {
         //deja celdas contiguas sin recorrer pero de la misma region
-        board.insertValue(new Move(new Position(2,1), 2));
-        board.insertValue(new Move(new Position(3,1), 2));
-        board.insertValue(new Move(new Position(3,0), 2));
-        board.insertValue(new Move(new Position(2,0), 2));
-        board.insertValue(new Move(new Position(1,0), 2));
-        board.insertValue(new Move(new Position(0,0), 2));
-        board.insertValue(new Move(new Position(0,1), 2));
-        board.insertValue(new Move(new Position(0,2), 2));
-        board.insertValue(new Move(new Position(1,2), 2));
-        board.insertValue(new Move(new Position(2,2), 2));
+        board.insertValue(new Play(2,1, 2));
+        board.insertValue(new Play(3,1, 2));
+        board.insertValue(new Play(3,0, 2));
+        board.insertValue(new Play(2,0, 2));
+        board.insertValue(new Play(1,0, 2));
+        board.insertValue(new Play(0,0, 2));
+        board.insertValue(new Play(0,1, 2));
+        board.insertValue(new Play(0,2, 2));
+        board.insertValue(new Play(1,2, 2));
+        board.insertValue(new Play(2,2, 2));
     }
 
-    public void playIncorrect(GameBoard board) throws InvalidMoveException {
+    public void playIncorrect(GameBoard board) throws InvalidPlayException {
         //deja las celdas (1,1) y (2,1) sin recorrer, siendo contiguas y de distinta region
-        board.insertValue(new Move(new Position(3,1), 2));
-        board.insertValue(new Move(new Position(3,0), 2));
-        board.insertValue(new Move(new Position(2,0), 2));
-        board.insertValue(new Move(new Position(1,0), 2));
-        board.insertValue(new Move(new Position(0,0), 2));
-        board.insertValue(new Move(new Position(0,1), 2));
-        board.insertValue(new Move(new Position(0,2), 2));
-        board.insertValue(new Move(new Position(1,2), 2));
-        board.insertValue(new Move(new Position(2,2), 2));
-        board.insertValue(new Move(new Position(3,2), 2));
+        board.insertValue(new Play(3,1, 2));
+        board.insertValue(new Play(3,0, 2));
+        board.insertValue(new Play(2,0, 2));
+        board.insertValue(new Play(1,0, 2));
+        board.insertValue(new Play(0,0, 2));
+        board.insertValue(new Play(0,1, 2));
+        board.insertValue(new Play(0,2, 2));
+        board.insertValue(new Play(1,2, 2));
+        board.insertValue(new Play(2,2, 2));
+        board.insertValue(new Play(3,2, 2));
     }
 
 

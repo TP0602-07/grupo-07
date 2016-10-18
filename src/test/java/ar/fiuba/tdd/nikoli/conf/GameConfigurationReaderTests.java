@@ -17,9 +17,9 @@ public class GameConfigurationReaderTests {
     }
 
     @Test(expected = GameConfigurationNotFoundException.class)
-    public void testReadGameRulesNotFoundedRules() throws Exception {
+    public void testReadGameRulesNotFound() throws Exception {
         GameRulesConfigurationReader configReader = new GameRulesConfigurationReader();
-        configReader.readConfiguration("notFoundedGame");
+        configReader.readConfiguration("notFoundGame");
     }
 
     @Test
@@ -30,9 +30,9 @@ public class GameConfigurationReaderTests {
     }
 
     @Test(expected = GameConfigurationNotFoundException.class)
-    public void testReadGameBoardNotFoundedRules() throws Exception {
+    public void testReadGameBoardNotFound() throws Exception {
         GameConfigurationReader configReader = new GameBoardConfigurationReader();
-        configReader.readConfiguration("notFoundedGame");
+        configReader.readConfiguration("notFoundGame");
     }
 
 
