@@ -16,3 +16,6 @@ hs_err_pid*
 .idea
 build
 nikoli.iml
+
+# plays result files
+*-plays-result.json

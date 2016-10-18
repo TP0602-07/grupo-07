@@ -15,8 +15,8 @@ import java.io.InputStreamReader;
 public class PlaysReader {
 
     private static final String PLAYS_FILES_BASE_PATH = "plays/";
-
     private static final String PLAYS_FILES_SUFFIX = "-plays";
+    private static final String PLAYS_RESULT_FILES_SUFFIX = "-plays-result";
 
     private static Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
 
@@ -43,6 +43,20 @@ public class PlaysReader {
     private static InputStreamReader getPlaysFile(String gameName) throws JsonFileNotFoundException {
         String path = PLAYS_FILES_BASE_PATH + gameName + PLAYS_FILES_SUFFIX;
         return JsonFilesUtils.getJsonFile(path);
+    }
+
+
+    /**
+     * Escribe una lista de resultados de jugadas de un juego en un archivo JSON.
+     * @param gameName nombre del juego.
+     * @param playsResult lista con resultados de las jugadas.
+     * @throws Exception si no se pudo escribir el archivo.
+     */
+    public static void writePlaysResult(String gameName, PlaysListResult playsResult) throws Exception {
+        String fileName = gameName + PLAYS_RESULT_FILES_SUFFIX;
+        String resultJson = gson.toJson(playsResult);
+
+        JsonFilesUtils.writeJsonFile(fileName, resultJson);
     }
 
 }

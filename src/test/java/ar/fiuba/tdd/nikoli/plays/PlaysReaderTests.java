@@ -19,8 +19,25 @@ public class PlaysReaderTests {
     }
 
     @Test(expected = JsonFileNotFoundException.class)
-    public void testReadPlaysNotFoundedRules() throws Exception {
+    public void testReadPlaysNotFound() throws Exception {
         PlaysReader.readPlaysFromJson("notFoundedGame");
+    }
+
+    @Test
+    public void testWritePlaysResultOK() throws Exception {
+        PlaysListResult playsResult = new PlaysListResult();
+
+        PlayResult result1 = new PlayResult();
+        result1.setNumber(1);
+        result1.setBoardStatus(PlayResult.BOARD_STATUS_VALID);
+        playsResult.getPlays().add(result1);
+
+        PlayResult result2 = new PlayResult();
+        result2.setNumber(2);
+        result2.setBoardStatus(PlayResult.BOARD_STATUS_INVALID);
+        playsResult.getPlays().add(result2);
+
+        PlaysReader.writePlaysResult("testGame", playsResult);
     }
 
 }
