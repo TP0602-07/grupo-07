@@ -18,8 +18,8 @@ public class PassedRegionRule extends Rule{
 
 
     private List<Region> regionPasses;
-    private Region lastRegion;
-    private SumRule sumRule;
+    private Region lastRegion; //ultima region visitada
+    private SumRule sumRule; //regla sumRule para controlar cantidad de veces por las que pasa
 
     public PassedRegionRule() {
         this.setName("PassedRegionRule");
@@ -38,7 +38,12 @@ public class PassedRegionRule extends Rule{
     }
 
 
-    boolean controlPassedRegion(GameBoard board) {
+    /**
+     * Chequea si falla la cantidad de veces que tenia que pasar por la region.
+     * @param board tabler
+     * @return boolean false si no falla
+     */
+    public boolean controlPassedRegionFailed(GameBoard board) {
         boolean isAmountPassesFailed = false;
         if (this.lastRegion.getValue() != 0) {
             isAmountPassesFailed = sumRule.isRegionControlFail(board, this.lastRegion);
@@ -56,7 +61,7 @@ public class PassedRegionRule extends Rule{
             Region actualRegion = board.getRegionsForPosicion(position).get(0);
             if (actualRegion != this.lastRegion && !regionPasses.contains(actualRegion)) {
                 this.regionPasses.add(this.lastRegion);
-                boolean isAmountPassesFailed = this.controlPassedRegion(board);
+                boolean isAmountPassesFailed = this.controlPassedRegionFailed(board);
                 this.lastRegion = actualRegion;
                 return isAmountPassesFailed;
             } else if (actualRegion != this.lastRegion && regionPasses.contains(actualRegion)) {
