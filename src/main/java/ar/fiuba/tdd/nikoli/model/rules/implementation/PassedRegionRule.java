@@ -22,6 +22,7 @@ public class PassedRegionRule extends Rule{
     private SumRule sumRule;
 
     public PassedRegionRule() {
+        this.setName("PassedRegionRule");
         regionPasses = new ArrayList<Region>();
         sumRule = new SumRule();
     }
@@ -37,22 +38,34 @@ public class PassedRegionRule extends Rule{
     }
 
 
+    boolean controlPassedRegion(GameBoard board) {
+        boolean isAmountPassesFailed = false;
+        if (this.lastRegion.getValue() != 0) {
+            isAmountPassesFailed = sumRule.isRegionControlFail(board, this.lastRegion);
+        }
+        return isAmountPassesFailed;
+    }
+
     @Override
     public boolean isRuleBroken(GameBoard board, Position position) {
-        if (this.lastRegion == null) {
-            this.lastRegion = board.getRegionsForPosicion(position).get(0);
+        if (!board.isCompleteBoard()) {
+            if (this.lastRegion == null) {
+                this.lastRegion = board.getRegionsForPosicion(position).get(0);
+                return false;
+            }
+            Region actualRegion = board.getRegionsForPosicion(position).get(0);
+            if (actualRegion != this.lastRegion && !regionPasses.contains(actualRegion)) {
+                this.regionPasses.add(this.lastRegion);
+                boolean isAmountPassesFailed = this.controlPassedRegion(board);
+                this.lastRegion = actualRegion;
+                return isAmountPassesFailed;
+            } else if (actualRegion != this.lastRegion && regionPasses.contains(actualRegion)) {
+                return true;
+            }
             return false;
-        }
-        Region actualRegion = board.getRegionsForPosicion(position).get(0);
-        if (actualRegion != this.lastRegion && !regionPasses.contains(actualRegion)) {
-            this.regionPasses.add(this.lastRegion);
-            boolean isAmountPassesFailed = sumRule.isRegionControlFail(board,this.lastRegion);
-            this.lastRegion = actualRegion;
-            return isAmountPassesFailed;
-        } else if (actualRegion != this.lastRegion && regionPasses.contains(actualRegion)) {
-            return true;
         }
         return false;
     }
+
 
 }

@@ -23,7 +23,7 @@ public class GameBoard {
     public GameBoard(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
-        this.isCompleteBoard = false;
+        this.isCompleteBoard = true;
     }
 
     public List<Region> getRegions() {

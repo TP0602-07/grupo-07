@@ -11,11 +11,12 @@ import ar.fiuba.tdd.nikoli.model.rules.Rule;
  */
 public class NonContiguousEmptyInterRegionRule extends Rule{
 
-    private static Integer NO_PASSED = 1; //TODO unir con el de passedRegionRule
+    private static Integer NO_PASSED = 1;
 
     private Cell lastCellNoPassed;
 
     public NonContiguousEmptyInterRegionRule() {
+        this.setName("NonContiguousEmptyInterRegionRule");
         lastCellNoPassed = null;
     }
 

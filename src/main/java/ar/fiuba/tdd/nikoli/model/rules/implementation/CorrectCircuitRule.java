@@ -17,6 +17,7 @@ public class CorrectCircuitRule extends Rule {
     private Position last;
 
     public CorrectCircuitRule() {
+        this.setName("CorrectCircuitRule");
         this.init = null;
         this.last = null;
     }
@@ -30,6 +31,7 @@ public class CorrectCircuitRule extends Rule {
             last = position;
         }
         board.getMatrix()[position.getX()][position.getY()].setValue(PASSED);
+        board.getMatrix()[position.getX()][position.getY()].setEditable(false);
     }
 
     @Override
@@ -38,11 +40,12 @@ public class CorrectCircuitRule extends Rule {
             if (this.init == null ) {
                 init = position; //el init no se marca como se paso, se marca cuando cierra el circuito
                 last = position;
+                board.getMatrix()[position.getX()][position.getY()].setValue(PASSED);
+                board.setIsCompleteBoard(false);
                 return false;
             }
             //Si es contiguo y no esta marcada el movimiento es valido
-            if (last.isContiguouosHorizontalOrVertical(position)
-                    && ( board.getMatrix()[position.getX()][position.getY()].getValue().equals(NO_PASSED))) {
+            if (last.isContiguouosHorizontalOrVertical(position)) {
                 setCellAndCheckEndCircuit(board,position);
                 return false;
             }

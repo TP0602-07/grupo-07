@@ -33,7 +33,7 @@ public class PassedRegionRuleTest {
         this.board.insertValue(new Play(2, 0, 1));
         this.board.insertValue(new Play(2, 1, 1));
         this.board.insertValue(new Play(2, 2, 1));
-
+        this.board.setIsCompleteBoard(false);
         return this.board;
     }
 
@@ -49,7 +49,7 @@ public class PassedRegionRuleTest {
         List<Position> positionsRegion1 = buildRegionByPositions(new Position(0, 0), new Position(0, 1), new Position(0, 2));
         Region region1 = new Region();
         region1.setPositions(positionsRegion1);
-        region1.setValue(3);
+        region1.setValue(0);
 
         List<Position> positionsRegion2 = buildRegionByPositions(new Position(1, 0), new Position(1, 1), new Position(1, 2));
         Region region2 = new Region();
@@ -107,9 +107,18 @@ public class PassedRegionRuleTest {
         Assert.assertFalse(play(board, new Position(1, 2)));
         Assert.assertFalse(play(board, new Position(0, 2)));
         Assert.assertFalse(play(board, new Position(0,1)));
-        Assert.assertFalse(play(board, new Position(0,2)));
+        Assert.assertFalse(play(board, new Position(0,0)));
         Assert.assertTrue(play(board, new Position(2, 2)));
     }
 
+    @Test
+    public void isRuleBroken_BrokenPassedRegion2MoreThanExpected() throws Exception {
+        GameBoard board = this.buildGameBoard();
+
+        Assert.assertFalse(play(board, new Position(2, 2)));
+        Assert.assertFalse(play(board, new Position(2, 1)));
+        Assert.assertFalse(play(board, new Position(2, 0)));
+        Assert.assertTrue(play(board, new Position(1, 0)));
+    }
 
 }

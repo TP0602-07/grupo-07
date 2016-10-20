@@ -38,13 +38,15 @@ public class Game {
         for (Rule rule : gameRules.getRules()) {
             if (rule.isRuleBroken(gameBoard, play.getPosition())) {
                 ruleBroken = rule;
-                throw new InvalidPlayException(MOVE_INCORRECT);
+                if (!isFullBoard()) {
+                    throw new InvalidPlayException(MOVE_INCORRECT);
+                }
             }
         }
     }
 
     public String checkVictory() {
-        if (gameBoard.isFull()) {
+        if (ruleBroken == null) {
             return "You win!";
         }
         return "You lose! The rule " + ruleBroken.getName() + " is broken! ";
@@ -59,7 +61,7 @@ public class Game {
     }
 
     public boolean isFullBoard() {
-        return gameBoard.isFull();
+        return gameBoard.isFull() && gameBoard.isCompleteBoard();
     }
 
     public int getRows() {
