@@ -7,7 +7,7 @@ import ar.fiuba.tdd.nikoli.ui.Ui;
 /**
  * Created by emmanuel on 29/09/16.
  */
-public class MainNikoli {
+public class MainNikoliUi {
 
     public static void main(String[] args) {
         Monitor monitor = new ConsoleMonitor();
