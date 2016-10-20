@@ -39,6 +39,17 @@ public class SumRule extends Rule {
         return isIncorrect;
     }
 
+    public boolean isRegionControlFail(GameBoard board, Region region) {
+        int sum = sum(region, board);
+
+        boolean isRegionFull = region.isRegionFull(board);
+
+        if (isSumIncorrect(sum, region.getValue(), isRegionFull)) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public boolean isRuleBroken(GameBoard board, Position position) {
 
@@ -47,12 +58,9 @@ public class SumRule extends Rule {
         boolean isBroken = false;
 
         for (Region region : regions) {
-            int sum = sum(region, board);
 
-            boolean isRegionFull = region.isRegionFull(board);
-
-            if (isSumIncorrect(sum, region.getValue(), isRegionFull)) {
-                isBroken = true;
+            isBroken = isRegionControlFail(board,region);
+            if (isBroken) {
                 break;
             }
         }

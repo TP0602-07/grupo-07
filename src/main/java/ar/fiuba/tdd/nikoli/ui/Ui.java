@@ -93,7 +93,7 @@ public class Ui {
         } else if (option.equals("2")) {
             gameName = "kakuro";
         } else if (option.equals("3")) {
-            gameName = "country-road";
+            gameName = "countryroad";
         } else if (option.equals("4")) {
             gameName = "slither-link";
         } else if (option.equals("5")) {
