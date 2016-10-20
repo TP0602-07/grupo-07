@@ -50,7 +50,7 @@ public class Ui {
                         return -1;
                     }
                     Play play = getPlay(moveString);
-                    this.game.play(play);
+                    this.game.makePlay(play);
                     if (this.game.isFullBoard()) {
                         monitor.viewBoard(this.game.getGameBoard());
                         monitor.show(this.game.checkVictory());

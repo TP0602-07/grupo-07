@@ -5,10 +5,11 @@ package ar.fiuba.tdd.nikoli.plays;
  */
 public class PlayResult {
 
-    public static final String BOARD_STATUS_VALID = "valid";
-    public static final String BOARD_STATUS_INVALID = "invalid";
+    public static final String STATUS_VALID = "valid";
+    public static final String STATUS_INVALID = "invalid";
 
     private int number;
+    private String playStatus;
     private String boardStatus;
 
 
@@ -26,5 +27,13 @@ public class PlayResult {
 
     public void setBoardStatus(String boardStatus) {
         this.boardStatus = boardStatus;
+    }
+
+    public String getPlayStatus() {
+        return playStatus;
+    }
+
+    public void setPlayStatus(String playStatus) {
+        this.playStatus = playStatus;
     }
 }

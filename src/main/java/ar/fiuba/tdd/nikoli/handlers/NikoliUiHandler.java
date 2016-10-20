@@ -1,19 +1,17 @@
-package ar.fiuba.tdd.nikoli;
+package ar.fiuba.tdd.nikoli.handlers;
 
 import ar.fiuba.tdd.nikoli.ui.ConsoleMonitor;
 import ar.fiuba.tdd.nikoli.ui.Monitor;
 import ar.fiuba.tdd.nikoli.ui.Ui;
 
 /**
- * Created by emmanuel on 29/09/16.
+ * Clase encargada de correr el juego utilizando la UI e interactuando con el usuario.
  */
-public class MainNikoliUi {
+public class NikoliUiHandler {
 
-    public static void main(String[] args) {
+    public void runGame() {
         Monitor monitor = new ConsoleMonitor();
-
         Ui ui = new Ui(monitor);
-
         ui.run();
     }
 }

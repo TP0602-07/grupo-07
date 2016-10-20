@@ -29,7 +29,7 @@ public class Game {
      * @param play instancia de {@link Play}.
      * @throws InvalidPlayException si se produjo un error en el procesamiento de las reglas del juego.
      */
-    public void play(Play play) throws InvalidPlayException {
+    public void makePlay(Play play) throws InvalidPlayException {
         gameBoard.insertValue(play);
         this.validate(play);
     }
@@ -52,9 +52,6 @@ public class Game {
         return "You lose! The rule " + ruleBroken.getName() + " is broken! ";
     }
 
-    public Rule getRuleBroken() {
-        return ruleBroken;
-    }
 
     public GameBoard getGameBoard() {
         return gameBoard;
