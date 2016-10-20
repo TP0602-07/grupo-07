@@ -1,10 +1,303 @@
 {
   "plays" : [
-  // TODO: definir jugadas
+    //FILA 1 son 7
     {
       "number" : 1,
       "position" : [1,1],
+      "value" : 6
+    },
+    {
+      "number" : 2,
+      "position" : [1,2],
+      "value" : 1
+    },
+    {
+      "number" : 3,
+      "position" : [1,3],
+      "value" : 8
+    },
+    {
+      "number" : 4,
+      "position" : [1,4],
+      "value" : 5
+    },
+    {
+      "number" : 5,
+      "position" : [1,5],
+      "value" : 9
+    },
+    {
+      "number" : 6,
+      "position" : [1,6],
+      "value" : 2
+    },
+    {
+      "number" : 7,
+      "position" : [1,9],
+      "value" : 4
+    },
+    //FILA 2 son 7
+    {
+      "number" : 8,
+      "position" : [2,1],
+      "value" : 7
+    },
+    {
+      "number" : 9,
+      "position" : [2,4],
+      "value" : 8
+    },
+    {
+      "number" : 10,
+      "position" : [2,5],
+      "value" : 1
+    },
+    {
+      "number" : 11,
+      "position" : [2,6],
       "value" : 3
+    },
+    {
+      "number" : 12,
+      "position" : [2,7],
+      "value" : 5
+    },
+    {
+      "number" : 13,
+      "position" : [2,8],
+      "value" : 2
+    },
+    {
+      "number" : 14,
+      "position" : [2,9],
+      "value" : 6
+    },
+    //FILA 3 son 6
+    {
+      "number" : 15,
+      "position" : [3,1],
+      "value" : 2
+    },
+    {
+      "number" : 16,
+      "position" : [3,2],
+      "value" : 5
+    },
+    {
+      "number" : 17,
+      "position" : [3,3],
+      "value" : 3
+    },
+    {
+      "number" : 18,
+      "position" : [3,4],
+      "value" : 6
+    },
+    {
+      "number" : 19,
+      "position" : [3,5],
+      "value" : 4
+    },
+    {
+      "number" : 20,
+      "position" : [3,8],
+      "value" : 9
+    },
+    //FILA 4 son 5
+    {
+      "number" : 21,
+      "position" : [4,3],
+      "value" : 2
+    },
+    {
+      "number" : 22,
+      "position" : [4,4],
+      "value" : 8
+    },
+    {
+      "number" : 23,
+      "position" : [4,5],
+      "value" : 1
+    },
+    {
+      "number" : 24,
+      "position" : [4,8],
+      "value" : 4
+    },
+    {
+      "number" : 25,
+      "position" : [4,9],
+      "value" : 7
+    },
+    //FILA 5 son 6
+    {
+      "number" : 26,
+      "position" : [5,1],
+      "value" : 8
+    },
+    {
+      "number" : 27,
+      "position" : [5,2],
+      "value" : 6
+    },
+    {
+      "number" : 28,
+      "position" : [5,3],
+      "value" : 7
+    },
+    {
+      "number" : 29,
+      "position" : [5,5],
+      "value" : 3
+    },
+    {
+      "number" : 30,
+      "position" : [5,8],
+      "value" : 1
+    },
+    {
+      "number" : 31,
+      "position" : [5,9],
+      "value" : 9
+    },
+    //FILA 6 son 7
+    {
+      "number" : 32,
+      "position" : [6,1],
+      "value" : 4
+    },
+    {
+      "number" : 33,
+      "position" : [6,2],
+      "value" : 2
+    },
+    {
+      "number" : 34,
+      "position" : [6,3],
+      "value" : 7
+    },
+    {
+      "number" : 35,
+      "position" : [6,4],
+      "value" : 6
+    },
+    {
+      "number" : 36,
+      "position" : [6,5],
+      "value" : 3
+    },
+    {
+      "number" : 37,
+      "position" : [6,5],
+      "value" : 5
+    },
+    {
+      "number" : 38,
+      "position" : [6,5],
+      "value" : 8
+    },
+    //FILA 7 son 5
+    {
+      "number" : 39,
+      "position" : [7,3],
+      "value" : 1
+    },
+    {
+      "number" : 40,
+      "position" : [7,4],
+      "value" : 9
+    },
+    {
+      "number" : 41,
+      "position" : [7,7],
+      "value" : 4
+    },
+    {
+      "number" : 42,
+      "position" : [7,8],
+      "value" : 8
+    },
+    {
+      "number" : 43,
+      "position" : [7,9],
+      "value" : 2
+    },
+    //FILA 8 son 8
+    {
+      "number" : 44,
+      "position" : [8,1],
+      "value" : 9
+    },
+    {
+      "number" : 45,
+      "position" : [8,2],
+      "value" : 8
+    },
+    {
+      "number" : 46,
+      "position" : [8,4],
+      "value" : 3
+    },
+    {
+      "number" : 47,
+      "position" : [8,5],
+      "value" : 2
+    },
+    {
+      "number" : 48,
+      "position" : [8,6],
+      "value" : 4
+    },
+    {
+      "number" : 49,
+      "position" : [8,7],
+      "value" : 1
+    },
+    {
+      "number" : 50,
+      "position" : [8,8],
+      "value" : 7
+    },
+    {
+      "number" : 51,
+      "position" : [8,9],
+      "value" : 5
+    },
+    //FILA 9 son 7
+    {
+      "number" : 52,
+      "position" : [9,1],
+      "value" : 4
+    },
+    {
+      "number" : 53,
+      "position" : [9,2],
+      "value" : 2
+    },
+    {
+      "number" : 54,
+      "position" : [9,3],
+      "value" : 5
+    },
+    {
+      "number" : 55,
+      "position" : [9,4],
+      "value" : 7
+    },
+    {
+      "number" : 56,
+      "position" : [9,5],
+      "value" : 8
+    },
+    {
+      "number" : 57,
+      "position" : [9,5],
+      "value" : 9
+    },
+    {
+      "number" : 58,
+      "position" : [9,5],
+      "value" : 6
     }
   ]
 }
