@@ -6,15 +6,14 @@ import ar.fiuba.tdd.nikoli.model.board.exception.CellNotEditableException;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 
 /**
- * Created by ltessore on 10/10/16.
+ * Regla que chequea el circuito ingresado es correcto.
  */
 public class CorrectCircuitRule extends Rule {
 
-    private static Integer NO_PASSED = 1;
     private static Integer PASSED = 2;
 
-    private Position init;
-    private Position last;
+    private Position init; //indica comienzo de circuito
+    private Position last; //indica ultima posicion del circuito por la que se paso
 
     public CorrectCircuitRule() {
         this.setName("CorrectCircuitRule");
@@ -22,7 +21,12 @@ public class CorrectCircuitRule extends Rule {
         this.last = null;
     }
 
-
+    /**
+     * Setea la celda como PASSED y si el circuito termino.
+     * @param board tablero
+     * @param position posicion a chequear
+     * @throws CellNotEditableException si ya se paso por la celda
+     */
     public void setCellAndCheckEndCircuit(GameBoard board, Position position) throws CellNotEditableException {
         if (init.getX() == position.getX() && init.getY() == position.getY()) {
             board.setIsCompleteBoard(true);

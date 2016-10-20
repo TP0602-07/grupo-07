@@ -13,7 +13,7 @@ public class NonContiguousEmptyInterRegionRule extends Rule{
 
     private static Integer NO_PASSED = 1;
 
-    private Cell lastCellNoPassed;
+    private Cell lastCellNoPassed; //indica si la celda anterior no esta como PASSED
 
     public NonContiguousEmptyInterRegionRule() {
         this.setName("NonContiguousEmptyInterRegionRule");
@@ -30,6 +30,13 @@ public class NonContiguousEmptyInterRegionRule extends Rule{
         super.setName(name);
     }
 
+    /**
+     * Compara celda con unna contigua, y chequea que si estan las dos sin marcar
+     * pertenezcan a la misma region.
+     * @param board tablero
+     * @param cell celda a controlar
+     * @return boolean true si no es valido, false caso contrario
+     */
     public boolean isNotValid(GameBoard board, Cell cell) {
         if (cell.getValue().equals(NO_PASSED) && lastCellNoPassed == null) {
             this.lastCellNoPassed = cell;
@@ -47,7 +54,15 @@ public class NonContiguousEmptyInterRegionRule extends Rule{
         return false;
     }
 
-    public boolean isControlOk(GameBoard board, int index1, int index2, boolean isRowsControl) {
+    /**
+     * Recorre la matriz como filas (si isRowsControl=true) o como columnas (si isRowsControl=false).
+     * @param board tablero
+     * @param index1 indica cant filas si isRowsControl=true, cant cols caso contrario
+     * @param index2 indica cant cols si isRowsControl=true, cant filas caso contrario
+     * @param isRowsControl indica si se recorre por filas
+     * @return boolean true si no hay celdas contiguas sin visitar de distintas regiones para el recorrido elegido.
+     */
+    public boolean isControlCellsNoOk(GameBoard board, int index1, int index2, boolean isRowsControl) {
         for (int i = 0; i < index1; i++) {
             for (int j = 0; j < index2; j++) {
                 Cell cell;
@@ -70,8 +85,8 @@ public class NonContiguousEmptyInterRegionRule extends Rule{
         if (board.isCompleteBoard()) {
             int indexRows = board.getRows();
             int indexCols = board.getColumns();
-            if (isControlOk(board, indexRows, indexCols, true)
-                    || isControlOk(board, indexCols, indexRows, false)) {
+            if (isControlCellsNoOk(board, indexRows, indexCols, true)
+                    || isControlCellsNoOk(board, indexCols, indexRows, false)) {
                 return true;
             }
         }
