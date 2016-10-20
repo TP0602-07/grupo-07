@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.nikoli.plays;
 
-import ar.fiuba.tdd.nikoli.utils.JsonFileCanNotBeCreatedException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import ar.fiuba.tdd.nikoli.utils.JsonFileCanNotBeCreatedException;
 import ar.fiuba.tdd.nikoli.utils.JsonFileNotFoundException;
 import ar.fiuba.tdd.nikoli.utils.JsonFilesUtils;
 

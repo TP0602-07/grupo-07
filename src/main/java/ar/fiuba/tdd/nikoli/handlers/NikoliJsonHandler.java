@@ -27,7 +27,6 @@ public class NikoliJsonHandler {
             PlaysList plays = PlaysReader.readPlaysFromJson(gameName);
 
             PlaysListResult playsResult = new PlaysListResult();
-
             List<PlayResult> results = new ArrayList<PlayResult>();
             for (Play play : plays.getPlays()) {
 
@@ -48,11 +47,7 @@ public class NikoliJsonHandler {
 
             PlaysReader.writePlaysResult(gameName, playsResult);
 
-        } catch (GameConfigurationException e) {
-            System.out.println(e.getMessage());
-        } catch (JsonFileNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch (JsonFileCanNotBeCreatedException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
