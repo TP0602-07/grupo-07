@@ -9,7 +9,6 @@ public class PlayResult {
     public static final String STATUS_INVALID = "invalid";
 
     private int number;
-    private String playStatus;
     private String boardStatus;
 
 
@@ -29,11 +28,4 @@ public class PlayResult {
         this.boardStatus = boardStatus;
     }
 
-    public String getPlayStatus() {
-        return playStatus;
-    }
-
-    public void setPlayStatus(String playStatus) {
-        this.playStatus = playStatus;
-    }
 }

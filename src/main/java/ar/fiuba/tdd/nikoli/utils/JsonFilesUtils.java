@@ -29,7 +29,7 @@ public class JsonFilesUtils {
 
             return jsonFile;
         } catch (NullPointerException | IOException e) {
-            throw new JsonFileNotFoundException("JSON file" + path + "not found!");
+            throw new JsonFileNotFoundException("JSON file " + path  + FILE_EXTENSION + " not found!");
         }
     }
 
@@ -47,7 +47,8 @@ public class JsonFilesUtils {
             writer.write(json);
             writer.close();
         } catch (IOException e) {
-            throw new  JsonFileCanNotBeCreatedException("JSON file" + fileName + "can not be created!");
+            throw new  JsonFileCanNotBeCreatedException("JSON file " + fileName  + FILE_EXTENSION
+                    + " can not be created!");
         }
     }
 

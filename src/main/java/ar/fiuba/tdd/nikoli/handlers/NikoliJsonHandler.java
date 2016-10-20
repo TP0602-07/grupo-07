@@ -1,13 +1,10 @@
 package ar.fiuba.tdd.nikoli.handlers;
 
 
-import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.model.Game;
 import ar.fiuba.tdd.nikoli.model.GameBuilder;
 import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.plays.*;
-import ar.fiuba.tdd.nikoli.utils.JsonFileCanNotBeCreatedException;
-import ar.fiuba.tdd.nikoli.utils.JsonFileNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +16,7 @@ public class NikoliJsonHandler {
 
     public void runGame() {
 
-        String gameName = "sudoku";
+        String gameName = "inshinoheya";
 
         try {
             Game game = GameBuilder.buildGame(gameName);
@@ -34,10 +31,10 @@ public class NikoliJsonHandler {
                 playResult.setNumber(play.getNumber());
 
                 try {
-                    game.makePlay(play);
-                    playResult.setPlayStatus(PlayResult.STATUS_VALID);
+                    game.makePlay(this.fixPlayCoordenates(play));
+                    playResult.setBoardStatus(PlayResult.STATUS_VALID);
                 } catch (InvalidPlayException ipe) {
-                    playResult.setPlayStatus(PlayResult.STATUS_VALID);
+                    playResult.setBoardStatus(PlayResult.STATUS_INVALID);
                 }
 
                 results.add(playResult);
@@ -45,11 +42,21 @@ public class NikoliJsonHandler {
 
             playsResult.setPlays(results);
 
+            String result = game.isFullBoard() ? game.checkVictory() : "You don't complete the board yet.";
+            System.out.println(result);
+
             PlaysReader.writePlaysResult(gameName, playsResult);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
+    }
+
+    private Play fixPlayCoordenates(Play play) {
+        return new Play(play.getNumber(),
+                play.getPosition().getX() - 1,
+                play.getPosition().getY() - 1,
+                play.getValue());
     }
 }
