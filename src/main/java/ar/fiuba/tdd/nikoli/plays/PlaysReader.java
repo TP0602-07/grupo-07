@@ -3,6 +3,7 @@ package ar.fiuba.tdd.nikoli.plays;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import ar.fiuba.tdd.nikoli.utils.JsonFileCanNotBeCreatedException;
 import ar.fiuba.tdd.nikoli.utils.JsonFileNotFoundException;
 import ar.fiuba.tdd.nikoli.utils.JsonFilesUtils;
 
@@ -52,7 +53,8 @@ public class PlaysReader {
      * @param playsResult lista con resultados de las jugadas.
      * @throws Exception si no se pudo escribir el archivo.
      */
-    public static void writePlaysResult(String gameName, PlaysListResult playsResult) throws Exception {
+    public static void writePlaysResult(String gameName, PlaysListResult playsResult)
+            throws JsonFileCanNotBeCreatedException {
         String fileName = gameName + PLAYS_RESULT_FILES_SUFFIX;
         String resultJson = gson.toJson(playsResult);
 

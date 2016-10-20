@@ -29,12 +29,12 @@ public class PlaysReaderTests {
 
         PlayResult result1 = new PlayResult();
         result1.setNumber(1);
-        result1.setBoardStatus(PlayResult.BOARD_STATUS_VALID);
+        result1.setBoardStatus(PlayResult.STATUS_VALID);
         playsResult.getPlays().add(result1);
 
         PlayResult result2 = new PlayResult();
         result2.setNumber(2);
-        result2.setBoardStatus(PlayResult.BOARD_STATUS_INVALID);
+        result2.setBoardStatus(PlayResult.STATUS_INVALID);
         playsResult.getPlays().add(result2);
 
         PlaysReader.writePlaysResult("testGame", playsResult);

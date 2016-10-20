@@ -29,7 +29,7 @@ public class JsonFilesUtils {
 
             return jsonFile;
         } catch (NullPointerException | IOException e) {
-            throw new JsonFileNotFoundException("JSON File" + path + "not found!");
+            throw new JsonFileNotFoundException("JSON file " + path  + FILE_EXTENSION + " not found!");
         }
     }
 
@@ -39,7 +39,7 @@ public class JsonFilesUtils {
      * @param json es el contenido del archivo JSON.
      * @exception Exception si no se puede escribir el archivo JSON.
      */
-    public static void writeJsonFile(String fileName, String json) throws Exception {
+    public static void writeJsonFile(String fileName, String json) throws JsonFileCanNotBeCreatedException {
         try {
 
             File file = new File(fileName + FILE_EXTENSION);
@@ -47,7 +47,8 @@ public class JsonFilesUtils {
             writer.write(json);
             writer.close();
         } catch (IOException e) {
-            throw new Exception();
+            throw new  JsonFileCanNotBeCreatedException("JSON file " + fileName  + FILE_EXTENSION
+                    + " can not be created!");
         }
     }
 

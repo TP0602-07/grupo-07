@@ -1,12 +1,9 @@
 package ar.fiuba.tdd.nikoli.ui;
 
-import ar.fiuba.tdd.nikoli.conf.GameBoardConfigurationReader;
-import ar.fiuba.tdd.nikoli.conf.GameRulesConfigurationReader;
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.model.Game;
-import ar.fiuba.tdd.nikoli.model.board.GameBoard;
+import ar.fiuba.tdd.nikoli.model.GameBuilder;
 import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
-import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.plays.Play;
 import ar.fiuba.tdd.nikoli.ui.exception.InvalidUserInputException;
 
@@ -17,8 +14,7 @@ import java.nio.charset.StandardCharsets;
 
 
 public class Ui {
-    private GameRulesConfigurationReader rulesReader;
-    private GameBoardConfigurationReader boardReader;
+
     private BufferedReader in;
     private Monitor monitor;
     private Game game;
@@ -40,8 +36,6 @@ public class Ui {
     public Ui(Monitor monitor) {
         this.monitor = monitor;
         in = new BufferedReader(new InputStreamReader(System.in,StandardCharsets.UTF_8));
-        rulesReader = new GameRulesConfigurationReader();
-        boardReader = new GameBoardConfigurationReader();
     }
 
     public int startGame() {
@@ -56,7 +50,7 @@ public class Ui {
                         return -1;
                     }
                     Play play = getPlay(moveString);
-                    this.game.play(play);
+                    this.game.makePlay(play);
                     if (this.game.isFullBoard()) {
                         monitor.viewBoard(this.game.getGameBoard());
                         monitor.show(this.game.checkVictory());
@@ -110,11 +104,10 @@ public class Ui {
         return gameName;
     }
 
+
     private void buildGame(String option) throws GameConfigurationException {
         String gameName = this.getNameFromOption(option);
-        GameRules rules = rulesReader.readConfiguration(gameName);
-        GameBoard board = boardReader.readConfiguration(gameName);
-        this.game = new Game(rules, board);
+        this.game = GameBuilder.buildGame(gameName);
     }
 
     private Play getPlayFromInput(String input) throws InvalidUserInputException {
