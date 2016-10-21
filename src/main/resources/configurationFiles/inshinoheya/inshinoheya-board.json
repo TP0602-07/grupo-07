@@ -1,6 +1,7 @@
 {
   "rows" : 5,
   "columns" : 5,
+  "isCompleteBoard" : true,
   "clueCells" : [],
   "regions" : [
     // REGIONES SUELTAS

@@ -16,7 +16,7 @@ public class NikoliJsonHandler {
 
     public void runGame() {
 
-        String gameName = "inshinoheya";
+        String gameName = "countryroad";
 
         try {
             Game game = GameBuilder.buildGame(gameName);
