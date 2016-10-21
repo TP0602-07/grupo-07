@@ -20,7 +20,6 @@ public class Position {
         return coordinateY;
     }
 
-
     @Override
     public boolean equals(Object object) {
         if (this == object) {
@@ -42,5 +41,17 @@ public class Position {
         int result = coordinateX;
         result = 31 * result + coordinateY;
         return result;
+    }
+
+    public boolean isContiguouosHorizontalOrVertical(Position position) {
+        boolean isContiguous = false;
+        if ((this.coordinateX - position.getX() == 1 || this.coordinateX - position.getX() == -1)
+                && (this.coordinateY - position.getY() == 0)) {
+            isContiguous = true;
+        } else if ((this.coordinateY - position.getY() == 1 || this.coordinateY - position.getY() == -1)
+                    && (this.coordinateX - position.getX() == 0)) {
+            isContiguous = true;
+        }
+        return isContiguous;
     }
 }

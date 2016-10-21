@@ -1,12 +1,11 @@
 package ar.fiuba.tdd.nikoli.model;
 
 
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
+import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
-
-import java.io.IOException;
+import ar.fiuba.tdd.nikoli.plays.Play;
 
 public class Game {
 
@@ -17,7 +16,7 @@ public class Game {
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_RESET = "\u001B[0m";
 
-    private static final String MOVE_INCORRECT =  ANSI_RED + "Incorrect Move. Please try again\n" + ANSI_RESET;
+    private static final String MOVE_INCORRECT =  ANSI_RED + "Incorrect Play. Please try again\n" + ANSI_RESET;
 
     public Game(GameRules gameRules, GameBoard gameBoard) {
         this.gameRules = gameRules;
@@ -27,40 +26,39 @@ public class Game {
 
     /**
      * Chequea validez de la jugada y lo inserta en el tablero en caso afirmativo.
-     * @param move instancia de {@link Move}.
-     * @throws InvalidMoveException si se produjo un error en el procesamiento de las reglas del juego.
+     * @param play instancia de {@link Play}.
+     * @throws InvalidPlayException si se produjo un error en el procesamiento de las reglas del juego.
      */
-    public void play(Move move) throws InvalidMoveException {
-        gameBoard.insertValue(move);
-        this.validate(move);
+    public void makePlay(Play play) throws InvalidPlayException {
+        gameBoard.insertValue(play);
+        this.validate(play);
     }
 
-    private void validate(Move move) throws InvalidMoveException {
+    private void validate(Play play) throws InvalidPlayException {
         for (Rule rule : gameRules.getRules()) {
-            if (rule.isRuleBroken(gameBoard, move.getPosition())) {
+            if (rule.isRuleBroken(gameBoard, play.getPosition())) {
                 ruleBroken = rule;
-                throw new InvalidMoveException(MOVE_INCORRECT);
+                if (!isFullBoard()) {
+                    throw new InvalidPlayException(MOVE_INCORRECT);
+                }
             }
         }
     }
 
     public String checkVictory() {
-        if (gameBoard.isFull()) {
+        if (ruleBroken == null) {
             return "You win!";
         }
         return "You lose! The rule " + ruleBroken.getName() + " is broken! ";
     }
 
-    public Rule getRuleBroken() {
-        return ruleBroken;
-    }
 
     public GameBoard getGameBoard() {
         return gameBoard;
     }
 
     public boolean isFullBoard() {
-        return gameBoard.isFull();
+        return gameBoard.isFull() && gameBoard.isCompleteBoard();
     }
 
     public int getRows() {

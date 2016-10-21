@@ -1,6 +1,7 @@
 {
   "rows" : 9,
   "columns" : 9,
+  "isCompleteBoard" : true,
   "clueCells" : [
     {
       "value" : 7,

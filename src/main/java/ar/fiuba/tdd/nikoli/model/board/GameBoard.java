@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
-import ar.fiuba.tdd.nikoli.conf.exception.InvalidMoveException;
-import ar.fiuba.tdd.nikoli.model.Move;
 import ar.fiuba.tdd.nikoli.model.board.exception.CellNotEditableException;
+import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
+import ar.fiuba.tdd.nikoli.plays.Play;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +18,12 @@ public class GameBoard {
     private List<Region> regions;
     private Cell[][] matrix;
 
+    private boolean isCompleteBoard;
+
     public GameBoard(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
+        this.isCompleteBoard = true;
     }
 
     public List<Region> getRegions() {
@@ -76,14 +79,14 @@ public class GameBoard {
 
     /**
      * Insert el valor de la jugada en la posicion indicada por la jugada.
-     * @param move jugada a insertar en el tablero.
+     * @param play jugada a insertar en el tablero.
      */
-    public void insertValue(Move move) throws InvalidMoveException {
+    public void insertValue(Play play) throws InvalidPlayException {
 
         try {
-            matrix[move.getPosition().getX()][move.getPosition().getY()].setValue(move.getValue());
+            matrix[play.getPosition().getX()][play.getPosition().getY()].setValue(play.getValue());
         } catch (CellNotEditableException e) {
-            throw new InvalidMoveException(e.getMessage());
+            throw new InvalidPlayException(e.getMessage());
         }
     }
 
@@ -126,5 +129,13 @@ public class GameBoard {
 
     public int getColumns() {
         return this.columns;
+    }
+
+    public boolean isCompleteBoard() {
+        return isCompleteBoard;
+    }
+
+    public void setIsCompleteBoard(boolean isCompleteBoard) {
+        this.isCompleteBoard = isCompleteBoard;
     }
 }

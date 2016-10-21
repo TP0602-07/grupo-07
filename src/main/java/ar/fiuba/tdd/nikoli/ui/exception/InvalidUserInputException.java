@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.nikoli.conf.exception;
+package ar.fiuba.tdd.nikoli.ui.exception;
 
 /**
  * Created by ltessore on 10/10/16.
