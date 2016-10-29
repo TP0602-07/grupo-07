@@ -1,0 +1,8 @@
+{
+  "gameName" : "countryroad",
+  "rulesNames" : [
+    "CorrectCircuitRule",
+    "NonContiguousEmptyInterRegionRule",
+    "PassedRegionRule"
+  ]
+}

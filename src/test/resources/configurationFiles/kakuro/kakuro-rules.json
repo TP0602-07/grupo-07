@@ -1,0 +1,8 @@
+{
+  "gameName" : "kakuro",
+  "rulesNames" : [
+    "NotRepeatNumberRule",
+    "SumRule"
+  ]
+}
+
