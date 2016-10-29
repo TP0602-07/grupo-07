@@ -9,9 +9,19 @@ import ar.fiuba.tdd.nikoli.ui.Ui;
  */
 public class NikoliUiHandler {
 
-    public void runGame() {
+    private Ui ui;
+
+
+    public NikoliUiHandler() {
         Monitor monitor = new ConsoleMonitor();
-        Ui ui = new Ui(monitor);
-        ui.run();
+        this.ui = new Ui(monitor);
+    }
+
+    public String runGameSelector() {
+        return this.ui.runGameSelector();
+    }
+
+    public void runGame(String gameName) {
+        ui.run(gameName);
     }
 }

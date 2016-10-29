@@ -21,10 +21,11 @@ public class Ui {
     private static String selectGame = "Which game you want to choose?\n"
                                         + "  1) Sudoku\n"
                                         + "  2) Kakuro\n"
-                                        + "  3) Country Road\n"
-                                        + "  4) SlitherLink\n"
-                                        + "  5) Gogiken Naname\n"
-                                        + "  6) Ishi No Heya.\n";
+                                        + "  3) Ishi No Heya.\n"
+                                        + "  4) Country Road\n";
+                                        //+ "  5) SlitherLink\n"
+                                        //+ "  6) Gogiken Naname\n";
+
     private static String inputSeparator = " ";
 
     private static final String ANSI_RED = "\u001B[31m";
@@ -38,7 +39,7 @@ public class Ui {
         in = new BufferedReader(new InputStreamReader(System.in,StandardCharsets.UTF_8));
     }
 
-    public int startGame() {
+    private int startGame() {
         while (true) {
             try {
                 monitor.viewBoard(this.game.getGameBoard());
@@ -65,25 +66,36 @@ public class Ui {
         }
     }
 
-    public int run() {
+    public int run(String gameName) {
         while (true) {
             try {
-                monitor.show(selectGame);
-                String userInput = in.readLine();
-                if (userInput != null && isValidGame(userInput)) {
-                    this.buildGame(userInput);
-                    return startGame();
-                } else {
-                    monitor.show("Incorrect selection. Please try again\n");
-                }
-            } catch (IOException ioe) {
-                monitor.show("Invalid user input. Please try again\n");
-                return -1;
+                this.buildGame(gameName);
+                return startGame();
             } catch (GameConfigurationException gce) {
                 monitor.show(gce.getMessage());
                 return -1;
             }
         }
+    }
+
+
+    public String runGameSelector() {
+        String gameName = null;
+        while (gameName == null) {
+            try {
+                monitor.show(selectGame);
+                String userInput = in.readLine();
+                if (userInput != null && isValidGame(userInput)) {
+                    gameName = this.getNameFromOption(userInput);
+                } else {
+                    monitor.show("Incorrect selection. Please try again\n");
+                }
+            } catch (IOException ioe) {
+                monitor.show("Invalid user input. Please try again\n");
+            }
+        }
+
+        return gameName;
     }
 
     private String getNameFromOption(String option) {
@@ -95,9 +107,9 @@ public class Ui {
         } else if (option.equals("3")) {
             gameName = "countryroad";
         } else if (option.equals("4")) {
-            gameName = "slither-link";
+            gameName = "slitherlink";
         } else if (option.equals("5")) {
-            gameName = "gogiken-naname";
+            gameName = "gogikennaname";
         } else if (option.equals("6")) {
             gameName = "inshinoheya";
         }
@@ -105,8 +117,7 @@ public class Ui {
     }
 
 
-    private void buildGame(String option) throws GameConfigurationException {
-        String gameName = this.getNameFromOption(option);
+    private void buildGame(String gameName) throws GameConfigurationException {
         this.game = GameBuilder.buildGame(gameName);
     }
 

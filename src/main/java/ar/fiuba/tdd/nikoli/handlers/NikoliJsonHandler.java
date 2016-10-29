@@ -14,9 +14,7 @@ import java.util.List;
  */
 public class NikoliJsonHandler {
 
-    public void runGame() {
-
-        String gameName = "countryroad";
+    public void runGame(String gameName) {
 
         try {
             Game game = GameBuilder.buildGame(gameName);
