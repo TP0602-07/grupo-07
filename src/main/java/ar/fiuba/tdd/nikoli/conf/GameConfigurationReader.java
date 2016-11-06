@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
  * Clase abstracta que implementa funcionalidad de lectura de archivos de configuracion y delega en sus clases
  * hijas el procesamiento de lo leido.
  */
-public abstract class GameConfigurationReader<T> {
+public abstract class GameConfigurationReader<T,U> {
 
 
     private static final String CONFIGURATION_FILES_BASE_PATH = "configurationFiles/";
@@ -31,10 +31,9 @@ public abstract class GameConfigurationReader<T> {
      * @return un objecto con configuracion de un juego
      * @throws GameConfigurationException si se produce un error en la lectura de la configuracion del juego.
      */
-    public T readConfiguration(String gameName) throws GameConfigurationException {
+    public U readConfiguration(String gameName) throws GameConfigurationException {
         T objectFromJson = this.readConfigurationFromJson(gameName);
-        this.process(objectFromJson);
-        return objectFromJson;
+        return this.process(objectFromJson);
     }
 
     /**
@@ -73,7 +72,7 @@ public abstract class GameConfigurationReader<T> {
      * @param configuration objeto con configuracion de un juego.
      * @throws GameConfigurationException si se produjo algun error en el procesamiento de la configuracion.
      */
-    protected abstract void process(T configuration) throws GameConfigurationException;
+    protected abstract U process(T configuration) throws GameConfigurationException;
 
     /**
      * @return el tipo de configuracion de juego.

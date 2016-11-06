@@ -1,8 +1,10 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
+import ar.fiuba.tdd.nikoli.conf.board.BoardJson;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.board.Region;
+import ar.fiuba.tdd.nikoli.model.board.builders.GameBoardBuilder;
 import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.plays.Play;
@@ -12,6 +14,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class NonContiguousEmptyInterRegionRuleTest {
 
@@ -108,16 +113,18 @@ public class NonContiguousEmptyInterRegionRuleTest {
         board.insertValue(new Play(3,2, 2));
     }
 
-
     @Before
     public void setUp() {
         this.rule = new NonContiguousEmptyInterRegionRule();
 
-        this.board = new GameBoard(ROWS, COLUMNS);
-        this.board.buildMatrix();
-        this.board.setRegions(buildRegions());
-    }
+        BoardJson json = mock(BoardJson.class);
 
+        when(json.getRows()).thenReturn(ROWS);
+        when(json.getColumns()).thenReturn(COLUMNS);
+        when(json.getRegions()).thenReturn(buildRegions());
+
+        this.board = GameBoardBuilder.build(json);
+    }
 
     /**
      * Chequea que no se rompa la regla al no dejar celdas contiguas de distinta region sin recorrer.
@@ -138,7 +145,5 @@ public class NonContiguousEmptyInterRegionRuleTest {
         playIncorrect(board);
         Assert.assertTrue(this.rule.isRuleBroken(board, new Position(0, 0)));
     }
-
-
 
 }

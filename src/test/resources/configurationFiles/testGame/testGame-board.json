@@ -31,5 +31,21 @@
       "coordinateY" : 2
     }]
   }
+  ],
+  "regionsLinkJson": [
+    {
+      "value": 0,
+      "positionLinkGenerator": {
+        "coordinateX": 0,
+        "coordinateY": 4
+      }
+    },
+    {
+      "value": 3,
+      "positionLinkGenerator": {
+        "coordinateX": 1,
+        "coordinateY": 0
+      }
+    }
   ]
 }

@@ -1,0 +1,6 @@
+{
+  "gameName" : "slitherlink",
+  "rulesNames" : [
+    "RegionLinkCountRule"
+  ]
+}

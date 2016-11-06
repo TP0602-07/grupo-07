@@ -1,6 +1,11 @@
 package ar.fiuba.tdd.nikoli.model.board;
 
 
+import ar.fiuba.tdd.nikoli.conf.board.BoardJson;
+import ar.fiuba.tdd.nikoli.model.board.builders.GameBoardBuilder;
+import ar.fiuba.tdd.nikoli.model.rules.Rule;
+import ar.fiuba.tdd.nikoli.model.rules.implementation.CorrectCircuitRule;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -9,14 +14,31 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 public class GameBoardTests {
 
-    private static GameBoard board = new GameBoard(5,5);
+    private GameBoard board;
 
-    @BeforeClass
-    public static void configureTests() {
+    private static final int ROWS = 5;
+    private static final int COLUMNS = 5;
+
+
+    @Before
+    public void setUp() {
+        BoardJson json = mock(BoardJson.class);
+
+        when(json.getRows()).thenReturn(ROWS);
+        when(json.getColumns()).thenReturn(COLUMNS);
+        when(json.getRegions()).thenReturn(buildRegions());
+
+        this.board = GameBoardBuilder.build(json);
+    }
+
+
+    private List<Region> buildRegions() {
         List<Position> positionsReg1 = new ArrayList<Position>();
         positionsReg1.add(new Position(1,1));
         positionsReg1.add(new Position(2,2));
@@ -33,7 +55,8 @@ public class GameBoardTests {
         List<Region> boardRegions = new ArrayList<Region>();
         boardRegions.add(region1);
         boardRegions.add(region2);
-        board.setRegions(boardRegions);
+
+        return boardRegions;
     }
 
 

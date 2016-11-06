@@ -2,35 +2,21 @@ package ar.fiuba.tdd.nikoli.model.board;
 
 import ar.fiuba.tdd.nikoli.model.board.exception.CellNotEditableException;
 
+import java.util.List;
+
 /**
  * Cell base.
  */
 public class Cell {
 
-    private Integer value; // Naname (null:sin diagonal 1:diagonal derecha, 2:diagonal izquierda)
+    private Integer value;
     private Position position;
-    private Boolean editable; //Country Road (true si puede pasar el circuito por la celda, false si ya paso)
-    private Edge edge;
-
+    private Boolean editable;
 
     public Cell(Position position) {
         this.position = position;
         this.value = null;
         this.editable = Boolean.TRUE;
-        this.edge = new Edge(0,0,0,0);
-    }
-
-    public Cell(Position position, Edge edge) {
-        this.position = position;
-        this.value = null;
-        this.editable = Boolean.TRUE;
-        this.edge = edge;
-    }
-
-    public Cell(Position position, Integer value, boolean editable) {
-        this.position = position;
-        this.value = value;
-        this.editable = editable;
     }
 
     public Integer getValue() {
@@ -57,14 +43,6 @@ public class Cell {
         return (value != null && value > 0);
     }
 
-    public Edge getEdge() {
-        return edge;
-    }
-
-    public void setEdge(Edge edge) {
-        this.edge = edge;
-    }
-
     public Boolean getEditable() {
         return editable;
     }
@@ -72,6 +50,4 @@ public class Cell {
     public void setEditable(Boolean editable) {
         this.editable = editable;
     }
-
-
 }

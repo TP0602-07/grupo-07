@@ -14,16 +14,17 @@ public class GameBoard {
 
     private int rows;
     private int columns;
-    private List<Cell> clueCells;
     private List<Region> regions;
     private Cell[][] matrix;
-
+    private List<Link> links;
+    private List<RegionLink> regionsLink;
     private boolean isCompleteBoard;
 
-    public GameBoard(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
-        this.isCompleteBoard = true;
+    public GameBoard(Cell[][] matrix) {
+        this.matrix = matrix.clone();
+        this.rows = matrix.length;
+        this.columns = matrix[0].length;
+        this.links = new ArrayList<>();
     }
 
     public List<Region> getRegions() {
@@ -100,29 +101,6 @@ public class GameBoard {
         return cell.getValue();
     }
 
-    /**
-     * Construye las matriz con sus celdas a partir de la cantidad de filas y columnas ya establecidas.
-     */
-    public void buildMatrix() {
-        this.matrix = new Cell[rows][columns];
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                this.matrix[i][j] = new Cell(new Position(i,j));
-            }
-        }
-    }
-
-    /**
-     * Inserta la celdas pistas en la matriz.
-     */
-    public void buildClueCells() {
-
-        for (Cell cell: this.clueCells) {
-            this.matrix[cell.getPosition().getX()][cell.getPosition().getY()] = cell;
-        }
-    }
-
     public int getRows() {
         return this.rows;
     }
@@ -138,4 +116,22 @@ public class GameBoard {
     public void setIsCompleteBoard(boolean isCompleteBoard) {
         this.isCompleteBoard = isCompleteBoard;
     }
+
+    public List<RegionLink> getRegionsLink() {
+        return regionsLink;
+    }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void addLink(Link link) {
+        links.add(link);
+    }
+
+    public void setRegionsLink(List<RegionLink> regionsLink) {
+        this.regionsLink = regionsLink;
+    }
+
+
 }
