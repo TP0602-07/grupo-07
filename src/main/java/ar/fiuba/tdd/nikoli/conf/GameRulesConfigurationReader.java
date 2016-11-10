@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Clase encargada de la lectura de configuracion de las reglas de un juego.
  */
-public class GameRulesConfigurationReader extends GameConfigurationReader<GameRules> {
+public class GameRulesConfigurationReader extends GameConfigurationReader<GameRules, GameRules> {
 
     private static final String RULES_CONFIGURATION_TYPE = "rules";
 
@@ -23,7 +23,9 @@ public class GameRulesConfigurationReader extends GameConfigurationReader<GameRu
 
 
     @Override
-    protected void process(GameRules gameRules) throws GameConfigurationException {
+    protected GameRules process(GameRules gameRules) throws GameConfigurationException {
+
+        //TODO: Aca falta un builder
         List<Rule> rules = new ArrayList<Rule>();
 
         for (String name: gameRules.getRulesNames()) {
@@ -36,6 +38,8 @@ public class GameRulesConfigurationReader extends GameConfigurationReader<GameRu
         }
 
         gameRules.setRules(rules);
+
+        return gameRules;
     }
 
     @Override

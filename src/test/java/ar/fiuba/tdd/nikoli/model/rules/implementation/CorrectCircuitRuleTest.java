@@ -1,8 +1,10 @@
 package ar.fiuba.tdd.nikoli.model.rules.implementation;
 
+import ar.fiuba.tdd.nikoli.conf.board.BoardJson;
 import ar.fiuba.tdd.nikoli.model.board.GameBoard;
 import ar.fiuba.tdd.nikoli.model.board.Position;
 import ar.fiuba.tdd.nikoli.model.board.Region;
+import ar.fiuba.tdd.nikoli.model.board.builders.GameBoardBuilder;
 import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.plays.Play;
@@ -12,6 +14,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class CorrectCircuitRuleTest {
 
@@ -69,15 +74,17 @@ public class CorrectCircuitRuleTest {
         return regions;
     }
 
-
-
     @Before
     public void setUp() {
         this.rule = new CorrectCircuitRule();
 
-        this.board = new GameBoard(ROWS, COLUMNS);
-        this.board.buildMatrix();
-        this.board.setRegions(buildRegions());
+        BoardJson json = mock(BoardJson.class);
+
+        when(json.getRows()).thenReturn(ROWS);
+        when(json.getColumns()).thenReturn(COLUMNS);
+        when(json.getRegions()).thenReturn(buildRegions());
+
+        this.board = GameBoardBuilder.build(json);
     }
 
     /**
@@ -117,7 +124,5 @@ public class CorrectCircuitRuleTest {
         Assert.assertFalse(this.rule.isRuleBroken(board, new Position(0,2)));
         Assert.assertTrue(this.rule.isRuleBroken(board, new Position(0, 1)));
     }
-
-
 
 }

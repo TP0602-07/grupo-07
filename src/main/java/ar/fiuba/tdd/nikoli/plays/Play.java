@@ -9,7 +9,7 @@ public class Play {
     private int number;
     private int[] position = new int[2];
     private int value;
-
+    private String action;
 
     public Play(int row, int column , int value) {
         this.number = 0;
@@ -35,5 +35,13 @@ public class Play {
 
     public int getValue() {
         return this.value;
+    }
+
+    public String getAction() {
+        return this.action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 }

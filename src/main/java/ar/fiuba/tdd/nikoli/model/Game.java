@@ -7,11 +7,12 @@ import ar.fiuba.tdd.nikoli.model.rules.GameRules;
 import ar.fiuba.tdd.nikoli.model.rules.Rule;
 import ar.fiuba.tdd.nikoli.plays.Play;
 
-public class Game {
+public class Game implements  Cloneable{
 
     private GameRules gameRules;
     private GameBoard gameBoard;
     private Rule ruleBroken; //indicate that rule is broken
+    boolean playSucced;
 
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_RESET = "\u001B[0m";
@@ -27,11 +28,16 @@ public class Game {
     /**
      * Chequea validez de la jugada y lo inserta en el tablero en caso afirmativo.
      * @param play instancia de {@link Play}.
-     * @throws InvalidPlayException si se produjo un error en el procesamiento de las reglas del juego.
      */
-    public void makePlay(Play play) throws InvalidPlayException {
-        gameBoard.insertValue(play);
-        this.validate(play);
+    public void makePlay(Play play) {
+        playSucced = true;
+
+        try {
+            gameBoard.insertValue(play);
+            this.validate(play);
+        } catch (InvalidPlayException e) {
+            playSucced = false;
+        }
     }
 
     private void validate(Play play) throws InvalidPlayException {
@@ -67,5 +73,15 @@ public class Game {
 
     public int getColumns() {
         return this.gameBoard.getColumns();
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Game game = (Game) super.clone();
+        return game;
+    }
+
+    public boolean getResultPlay() {
+        return this.playSucced;
     }
 }

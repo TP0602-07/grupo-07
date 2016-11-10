@@ -20,7 +20,6 @@ public class NikoliJsonHandlerTests {
         this.jsonHandler.runGame(gameName);
     }
 
-
     @Test
     public void runGameCountryRoadWin() {
         String gameName = "countryroad-COMPLETE-WIN";
@@ -40,6 +39,11 @@ public class NikoliJsonHandlerTests {
     }
 
     @Test
+    public void runGameCountryRoadWinUndo() {
+        String gameName = "countryroad-COMPLETE-WIN-UNDO";
+        this.jsonHandler.runGame(gameName);
+    }
+
     public void runGameNiKoli2019Win() {
         String gameName = "niKoli2019";
         this.jsonHandler = new NikoliJsonHandler();

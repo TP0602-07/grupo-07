@@ -1,0 +1,91 @@
+{
+  "rows" : 7,
+  "columns" : 7,
+  "isCompleteBoard" : false,
+  "regionsLinkJson": [
+    {
+      "value": 0,
+      "positionLinkGenerator": {
+        "coordinateX": 0,
+        "coordinateY": 4
+      }
+    },
+    {
+      "value": 3,
+      "positionLinkGenerator": {
+        "coordinateX": 1,
+        "coordinateY": 0
+      }
+    },
+    {
+      "value": 3,
+      "positionLinkGenerator": {
+        "coordinateX": 1,
+        "coordinateY": 1
+      }
+    },
+    {
+      "value": 1,
+      "positionLinkGenerator": {
+        "coordinateX": 1,
+        "coordinateY": 4
+      }
+    },
+    {
+      "value": 1,
+      "positionLinkGenerator": {
+        "coordinateX": 2,
+        "coordinateY": 2
+      }
+    },
+    {
+      "value": 1,
+      "positionLinkGenerator": {
+        "coordinateX": 2,
+        "coordinateY": 3
+      }
+    },
+    {
+      "value": 1,
+      "positionLinkGenerator": {
+        "coordinateX": 3,
+        "coordinateY": 2
+      }
+    },
+    {
+      "value": 1,
+      "positionLinkGenerator": {
+        "coordinateX": 3,
+        "coordinateY": 3
+      }
+    },
+    {
+      "value": 1,
+      "positionLinkGenerator": {
+        "coordinateX" : 4,
+        "coordinateY" : 1
+      }
+    },
+    {
+      "value": 1,
+      "positionLinkGenerator": {
+        "coordinateX": 4,
+        "coordinateY": 4
+      }
+    },
+    {
+      "value": 1,
+      "positionLinkGenerator": {
+        "coordinateX": 4,
+        "coordinateY": 5
+      }
+    },
+    {
+      "value": 1,
+      "positionLinkGenerator": {
+        "coordinateX": 5,
+        "coordinateY": 1
+      }
+    }
+   ]
+}
