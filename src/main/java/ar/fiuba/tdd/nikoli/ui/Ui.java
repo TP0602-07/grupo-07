@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 
 public class Ui {
@@ -22,9 +23,10 @@ public class Ui {
                                         + "  1) Sudoku\n"
                                         + "  2) Kakuro\n"
                                         + "  3) Ishi No Heya.\n"
-                                        + "  4) Country Road\n";
-                                        //+ "  5) SlitherLink\n"
-                                        //+ "  6) Gogiken Naname\n";
+                                        + "  4) Country Road\n"
+                                        + "  5) SlitherLink\n"
+                                        + "  6) Gogiken Naname\n"
+                                        + "  7) New Game\n";
 
     private static String inputSeparator = " ";
 
@@ -33,10 +35,19 @@ public class Ui {
     private static final String INPUT_ERROR =  ANSI_RED + "Input error. Please try again\n" + ANSI_RESET;
     private static final String INPUT_INVALID =  ANSI_RED + "Invalid input. Please try again\n" + ANSI_RESET;
 
+    private  HashMap<String,String> games;
 
     public Ui(Monitor monitor) {
         this.monitor = monitor;
         in = new BufferedReader(new InputStreamReader(System.in,StandardCharsets.UTF_8));
+        this.games = new HashMap<>(7);
+        this.games.put("1","sudoku");
+        this.games.put("2","kakuro");
+        this.games.put("3","inshinoheya");
+        this.games.put("4","countryroad");
+        this.games.put("5","slitherlink");
+        this.games.put("6","gogikennaname");
+        this.games.put("7","niKoli2019");
     }
 
     private int startGame() {
@@ -99,19 +110,9 @@ public class Ui {
     }
 
     private String getNameFromOption(String option) {
-        String gameName = "";
-        if (option.equals("1")) {
-            gameName = "sudoku";
-        } else if (option.equals("2")) {
-            gameName = "kakuro";
-        } else if (option.equals("3")) {
-            gameName = "countryroad";
-        } else if (option.equals("4")) {
-            gameName = "slitherlink";
-        } else if (option.equals("5")) {
-            gameName = "gogikennaname";
-        } else if (option.equals("6")) {
-            gameName = "inshinoheya";
+        String gameName = games.get(option);
+        if (gameName == null) {
+            return "";
         }
         return gameName;
     }
@@ -151,7 +152,7 @@ public class Ui {
 
     private boolean isValidGame(String input) {
         return (input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4")
-                || input.equals("5") || input.equals("6"));
+                || input.equals("5") || input.equals("6") || input.equals("7"));
     }
 
     public Play getPlay(String moveString) throws InvalidUserInputException {

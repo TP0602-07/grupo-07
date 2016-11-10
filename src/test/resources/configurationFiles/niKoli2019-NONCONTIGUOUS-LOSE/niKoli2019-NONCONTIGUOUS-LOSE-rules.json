@@ -1,0 +1,8 @@
+{
+  "gameName" : "niKoli2019",
+  "rulesNames" : [
+    "SumRule",
+    "NonContiguousEmptyInterRegionRule"
+  ]
+}
+
