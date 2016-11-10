@@ -1,11 +1,16 @@
 package ar.fiuba.tdd.nikoli.handlers;
 
 
+import ar.fiuba.tdd.nikoli.command.Command;
+import ar.fiuba.tdd.nikoli.command.CommandManager;
+import ar.fiuba.tdd.nikoli.command.PlayCommand;
 import ar.fiuba.tdd.nikoli.model.Game;
 import ar.fiuba.tdd.nikoli.model.GameBuilder;
 import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.plays.*;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +18,8 @@ import java.util.List;
  * Clase encargada de correr el juego utilizando el modo de lectura de jugadas con su ejecucion.
  */
 public class NikoliJsonHandler {
+
+    private CommandManager commandManager = new CommandManager();
 
     public void runGame(String gameName) {
 
@@ -28,16 +35,16 @@ public class NikoliJsonHandler {
                 PlayResult playResult = new PlayResult();
                 playResult.setNumber(play.getNumber());
 
-                try {
-                    game.makePlay(this.fixPlayCoordenates(play));
+                boolean playSucced = executePlay(play, game);
+
+                if (playSucced) {
                     playResult.setBoardStatus(PlayResult.STATUS_VALID);
-                } catch (InvalidPlayException ipe) {
+                } else {
                     playResult.setBoardStatus(PlayResult.STATUS_INVALID);
                 }
 
                 results.add(playResult);
             }
-
             playsResult.setPlays(results);
 
             String result = game.isFullBoard() ? game.checkVictory() : "You don't complete the board yet.";
@@ -51,10 +58,17 @@ public class NikoliJsonHandler {
 
     }
 
-    private Play fixPlayCoordenates(Play play) {
-        return new Play(play.getNumber(),
-                play.getPosition().getX() - 1,
-                play.getPosition().getY() - 1,
-                play.getValue());
+    private boolean executePlay(Play play, Game game) {
+        //TODO mejorar usando reflection
+
+        if (play.getAction() != null && play.getAction().equals("undo")) {
+            this.commandManager.undo();
+        } else {
+            this.commandManager.executeCommand(new PlayCommand(play, game));
+        }
+
+        return game.getResultPlay();
     }
+
+
 }

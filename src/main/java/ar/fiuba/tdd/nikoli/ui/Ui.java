@@ -58,7 +58,7 @@ public class Ui {
                         return 0;
                     }
                 }
-            } catch (InvalidPlayException | InvalidUserInputException e ) {
+            } catch ( InvalidUserInputException e ) {
                 monitor.show(ANSI_RED + e.getMessage() + ANSI_RESET);
             } catch (IOException e) {
                 monitor.show(INPUT_ERROR);

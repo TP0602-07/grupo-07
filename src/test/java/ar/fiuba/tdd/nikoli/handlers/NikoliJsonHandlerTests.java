@@ -20,7 +20,6 @@ public class NikoliJsonHandlerTests {
         this.jsonHandler.runGame(gameName);
     }
 
-
     @Test
     public void runGameCountryRoadWin() {
         String gameName = "countryroad-COMPLETE-WIN";
@@ -36,6 +35,12 @@ public class NikoliJsonHandlerTests {
     @Test
     public void runGameCountryRoadInvalidPlay() {
         String gameName = "countryroad-INCOMPLETE-INVALID";
+        this.jsonHandler.runGame(gameName);
+    }
+
+    @Test
+    public void runGameCountryRoadWinUndo() {
+        String gameName = "countryroad-COMPLETE-WIN-UNDO";
         this.jsonHandler.runGame(gameName);
     }
 
