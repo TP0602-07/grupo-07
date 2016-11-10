@@ -1,16 +1,12 @@
 package ar.fiuba.tdd.nikoli.handlers;
 
 
-import ar.fiuba.tdd.nikoli.command.Command;
 import ar.fiuba.tdd.nikoli.command.CommandManager;
 import ar.fiuba.tdd.nikoli.command.PlayCommand;
 import ar.fiuba.tdd.nikoli.model.Game;
 import ar.fiuba.tdd.nikoli.model.GameBuilder;
-import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.plays.*;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,14 +17,15 @@ public class NikoliJsonHandler {
 
     private CommandManager commandManager = new CommandManager();
 
-    public void runGame(String gameName) {
+    public PlaysListResult runGame(String gameName) {
+
+        PlaysListResult playsResult = new PlaysListResult();
 
         try {
             Game game = GameBuilder.buildGame(gameName);
 
             PlaysList plays = PlaysReader.readPlaysFromJson(gameName);
 
-            PlaysListResult playsResult = new PlaysListResult();
             List<PlayResult> results = new ArrayList<PlayResult>();
             for (Play play : plays.getPlays()) {
 
@@ -52,11 +49,15 @@ public class NikoliJsonHandler {
 
             PlaysReader.writePlaysResult(gameName, playsResult);
 
+            return playsResult;
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
+        return playsResult;
     }
+
 
     private boolean executePlay(Play play, Game game) {
         //TODO mejorar usando reflection

@@ -3,10 +3,7 @@ package ar.fiuba.tdd.nikoli.model.board;
 
 import ar.fiuba.tdd.nikoli.conf.board.BoardJson;
 import ar.fiuba.tdd.nikoli.model.board.builders.GameBoardBuilder;
-import ar.fiuba.tdd.nikoli.model.rules.Rule;
-import ar.fiuba.tdd.nikoli.model.rules.implementation.CorrectCircuitRule;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;

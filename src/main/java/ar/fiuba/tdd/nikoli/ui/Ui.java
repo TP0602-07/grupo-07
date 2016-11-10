@@ -46,8 +46,7 @@ public class Ui {
         this.games.put("3","inshinoheya");
         this.games.put("4","countryroad");
         this.games.put("5","slitherlink");
-        this.games.put("6","gogikennaname");
-        this.games.put("7","niKoli2019");
+        this.games.put("6","niKoli2019");
     }
 
     private int startGame() {
