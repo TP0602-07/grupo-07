@@ -1,7 +1,7 @@
 {
   "rows" : 4,
   "columns" : 4,
-  "isCompleteBoard" : false,
+  "isCompleteBoard" : true,
   "clueCells" : [
   ],
 
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "value" : 3,
+      "value" : 6,
       "positions" : [
         {
           "coordinateX" : 3,
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "value" : 17,
+      "value" : 19,
       "positions" : [
         {
           "coordinateX" : 0,
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "value" : 11,
+      "value" : 13,
       "positions" : [
         {
           "coordinateX" : 2,
@@ -95,7 +95,7 @@
     },
 
     {
-      "value" : 19,
+      "value" : 23,
       "positions" : [
         {
           "coordinateX" : 0,

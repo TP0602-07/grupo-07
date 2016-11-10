@@ -8,10 +8,10 @@ public class NikoliMain {
     public static void main(String[] args) {
 
         NikoliUiHandler uiHandler = new NikoliUiHandler();
-        NikoliJsonHandler jsonHandler = new NikoliJsonHandler();
+      //  NikoliJsonHandler jsonHandler = new NikoliJsonHandler();
 
         String gameSelected = uiHandler.runGameSelector();
-        //uiHandler.runGame(gameSelected);
-        jsonHandler.runGame(gameSelected);
+        uiHandler.runGame(gameSelected);
+        //jsonHandler.runGame(gameSelected);
     }
 }

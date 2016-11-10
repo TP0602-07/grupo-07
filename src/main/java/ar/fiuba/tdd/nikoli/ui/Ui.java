@@ -26,7 +26,7 @@ public class Ui {
                                         + "  4) Country Road\n"
                                         + "  5) SlitherLink\n"
                                         + "  6) Gogiken Naname\n"
-                                        + "  7) New Game\n";
+                                        + "  7) NiKoli2019\n";
 
     private static String inputSeparator = " ";
 
