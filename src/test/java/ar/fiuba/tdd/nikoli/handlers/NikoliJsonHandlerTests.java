@@ -44,4 +44,24 @@ public class NikoliJsonHandlerTests {
         this.jsonHandler.runGame(gameName);
     }
 
+    public void runGameNiKoli2019Win() {
+        String gameName = "niKoli2019";
+        this.jsonHandler = new NikoliJsonHandler();
+        this.jsonHandler.runGame(gameName);
+    }
+
+    @Test
+    public void runGameNiKoli2019InvalidPlayNonContiguous() {
+        String gameName = "niKoli2019-NONCONTIGUOUS-LOSE";
+        this.jsonHandler = new NikoliJsonHandler();
+        this.jsonHandler.runGame(gameName);
+    }
+
+    @Test
+    public void runGameNiKoli2019InvalidPlaySumRule() {
+        String gameName = "niKoli2019-SUMRULE-LOSE";
+        this.jsonHandler = new NikoliJsonHandler();
+        this.jsonHandler.runGame(gameName);
+    }
+
 }

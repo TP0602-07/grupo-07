@@ -38,9 +38,9 @@ public class NonContiguousEmptyInterRegionRule extends Rule{
      * @return boolean true si no es valido, false caso contrario
      */
     public boolean isNotValid(GameBoard board, Cell cell) {
-        if (cell.getValue().equals(NO_PASSED) && lastCellNoPassed == null) {
+        if (cell != null && cell.getValue().equals(NO_PASSED) && lastCellNoPassed == null) {
             this.lastCellNoPassed = cell;
-        } else if (cell.getValue().equals(NO_PASSED) && lastCellNoPassed != null) {
+        } else if (cell != null && cell.getValue().equals(NO_PASSED) && lastCellNoPassed != null) {
             Region regionCell = board.getRegionsForPosicion(cell.getPosition()).get(0);
             Region regionLastCellNoPassed = board.getRegionsForPosicion(lastCellNoPassed.getPosition()).get(0);
             if (regionCell != regionLastCellNoPassed) {
@@ -64,14 +64,15 @@ public class NonContiguousEmptyInterRegionRule extends Rule{
      */
     public boolean isControlCellsNoOk(GameBoard board, int index1, int index2, boolean isRowsControl) {
         for (int i = 0; i < index1; i++) {
+            lastCellNoPassed = null;
             for (int j = 0; j < index2; j++) {
-                Cell cell;
+                Cell cell = null;
                 if (isRowsControl) {
                     cell = board.getMatrix()[i][j];
                 } else {
                     cell = board.getMatrix()[j][i];
                 }
-                if ( isNotValid(board, cell)) {
+                if ( cell != null && cell.getValue() != null && isNotValid(board, cell) ) {
                     return true;
                 }
             }
@@ -82,7 +83,7 @@ public class NonContiguousEmptyInterRegionRule extends Rule{
 
     @Override
     public boolean isRuleBroken(GameBoard board, Position position) {
-        if (board.isCompleteBoard()) {
+        if (board.isFull() && board.isCompleteBoard()) {
             int indexRows = board.getRows();
             int indexCols = board.getColumns();
             if (isControlCellsNoOk(board, indexRows, indexCols, true)

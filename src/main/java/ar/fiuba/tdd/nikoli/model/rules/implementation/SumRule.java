@@ -12,6 +12,11 @@ import java.util.List;
  */
 public class SumRule extends Rule {
 
+    @Override
+    public String getName() {
+        return "SumRule";
+    }
+
     private int sum(Region region, GameBoard board) {
         int sum = 0;
 
