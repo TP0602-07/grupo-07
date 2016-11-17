@@ -3,7 +3,6 @@ package ar.fiuba.tdd.nikoli.ui;
 import ar.fiuba.tdd.nikoli.conf.exception.GameConfigurationException;
 import ar.fiuba.tdd.nikoli.model.Game;
 import ar.fiuba.tdd.nikoli.model.GameBuilder;
-import ar.fiuba.tdd.nikoli.model.board.exception.InvalidPlayException;
 import ar.fiuba.tdd.nikoli.plays.Play;
 import ar.fiuba.tdd.nikoli.ui.exception.InvalidUserInputException;
 
@@ -16,9 +15,10 @@ import java.util.HashMap;
 
 public class Ui {
 
-    private BufferedReader in;
-    private Monitor monitor;
-    private Game game;
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String INPUT_ERROR = ANSI_RED + "Input error. Please try again\n" + ANSI_RESET;
+    private static final String INPUT_INVALID = ANSI_RED + "Invalid input. Please try again\n" + ANSI_RESET;
     private static String selectGame = "Which game you want to choose?\n"
                                         + "  1) Sudoku\n"
                                         + "  2) Kakuro\n"
@@ -27,14 +27,10 @@ public class Ui {
                                         + "  5) SlitherLink\n"
                                         + "  6) Gogiken Naname\n"
                                         + "  7) NiKoli2019\n";
-
     private static String inputSeparator = " ";
-
-    private static final String ANSI_RED = "\u001B[31m";
-    private static final String ANSI_RESET = "\u001B[0m";
-    private static final String INPUT_ERROR =  ANSI_RED + "Input error. Please try again\n" + ANSI_RESET;
-    private static final String INPUT_INVALID =  ANSI_RED + "Invalid input. Please try again\n" + ANSI_RESET;
-
+    private BufferedReader in;
+    private Monitor monitor;
+    private Game game;
     private  HashMap<String,String> games;
 
     public Ui(Monitor monitor) {
@@ -64,7 +60,7 @@ public class Ui {
                     this.game.makePlay(play);
                     if (this.game.isFullBoard()) {
                         monitor.viewBoard(this.game.getGameBoard());
-                        monitor.show(this.game.checkVictory());
+                        monitor.show(this.game.getMessageFinalResult());
                         return 0;
                     }
                 }

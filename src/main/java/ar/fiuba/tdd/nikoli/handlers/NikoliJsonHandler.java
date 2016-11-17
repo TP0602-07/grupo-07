@@ -17,12 +17,14 @@ public class NikoliJsonHandler {
 
     private CommandManager commandManager = new CommandManager();
 
+    private Game game;
+
     public PlaysListResult runGame(String gameName) {
 
         PlaysListResult playsResult = new PlaysListResult();
 
         try {
-            Game game = GameBuilder.buildGame(gameName);
+            this.game = GameBuilder.buildGame(gameName);
 
             PlaysList plays = PlaysReader.readPlaysFromJson(gameName);
 
@@ -44,12 +46,9 @@ public class NikoliJsonHandler {
             }
             playsResult.setPlays(results);
 
-            String result = game.isFullBoard() ? game.checkVictory() : "You don't complete the board yet.";
-            System.out.println(result);
+            System.out.println(game.getMessageFinalResult());
 
             PlaysReader.writePlaysResult(gameName, playsResult);
-
-            return playsResult;
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -69,6 +68,10 @@ public class NikoliJsonHandler {
         }
 
         return game.getResultPlay();
+    }
+
+    public boolean checkVictory() {
+        return this.game.checkVictory();
     }
 
 

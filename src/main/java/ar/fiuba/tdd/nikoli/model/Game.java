@@ -9,15 +9,13 @@ import ar.fiuba.tdd.nikoli.plays.Play;
 
 public class Game implements  Cloneable{
 
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String MOVE_INCORRECT =  ANSI_RED + "Incorrect Play. Please try again\n" + ANSI_RESET;
+    boolean playSucced;
     private GameRules gameRules;
     private GameBoard gameBoard;
     private Rule ruleBroken; //indicate that rule is broken
-    boolean playSucced;
-
-    private static final String ANSI_RED = "\u001B[31m";
-    private static final String ANSI_RESET = "\u001B[0m";
-
-    private static final String MOVE_INCORRECT =  ANSI_RED + "Incorrect Play. Please try again\n" + ANSI_RESET;
 
     public Game(GameRules gameRules, GameBoard gameBoard) {
         this.gameRules = gameRules;
@@ -51,13 +49,31 @@ public class Game implements  Cloneable{
         }
     }
 
-    public String checkVictory() {
-        if (ruleBroken == null) {
-            return "You win!";
+    public String getMessageFinalResult() {
+        String result;
+
+        if (this.isFullBoard()) {
+            if (ruleBroken == null) {
+                result = "You win!";
+            } else {
+                result = "You lose! The rule " + ruleBroken.getName() + " is broken! ";
+            }
+        } else {
+            result = "You don't complete the board yet.";
         }
-        return "You lose! The rule " + ruleBroken.getName() + " is broken! ";
+
+        return result;
     }
 
+    public boolean checkVictory() {
+        boolean victory = false;
+
+        //Si no se rompio ninguna regla y el tablero esta lleno
+        if (ruleBroken == null && this.isFullBoard()) {
+            victory = true;
+        }
+        return victory;
+    }
 
     public GameBoard getGameBoard() {
         return gameBoard;
